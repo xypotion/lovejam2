@@ -53,6 +53,8 @@ function love.load()
 	blocks = {}
 	blocksShifting = 0
 	
+	controllingBlocks = false
+	
 	startScript(behaviorsRaw.start)
 end
 
@@ -81,7 +83,7 @@ function love.update(dt)
 		end
 	
 		if blocksShifting > 0 then
-			shiftBlocks()
+			shiftBlocks(dt)
 		end
 		
 		warpUpdate(dt)
@@ -102,9 +104,17 @@ function love.update(dt)
 					runningScriptLine = false
 				end
 			else
+				if controllingBlocks then
+					local barthelloWereLeaving = blocksTakeInput()
+					if barthelloWereLeaving then
+						print("barthello, we're leaving.")
+						blocksGo()
+					end					
+				else
 				-- allow player to move hero/play normally
-				setHeroGridTargetAndTileTypeIfDirectionKeyPressed()
-				heroGo()
+					setHeroGridTargetAndTileTypeIfDirectionKeyPressed()
+					heroGo()
+				end
 			end
 		end
 	end
@@ -139,8 +149,8 @@ function love.draw()
 	else
 		love.graphics.setColor(255, 255, 255, 255)
 	end
-  -- love.graphics.print("SCORE: "..score, 10, 26*zoom, 0, zoom, zoom)
-  -- love.graphics.print("ActorsShifting: "..actorsShifting, 10, 42*zoom, 0, zoom, zoom)
+  if controllingBlocks then love.graphics.print("controllingBlocks", 10, 26*zoom, 0, zoom, zoom) end
+  love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
 	
   love.graphics.setColor(255, 255, 255, 255)
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
@@ -188,6 +198,11 @@ function love.keypressed(key)
 				startFacingInteraction()
 				-- print "ping main; keypressed finished"
 			end	
+			
+			if key == "tab" then
+				controllingBlocks = not controllingBlocks
+			end
+			
 		elseif textScrolling then --if not else'd off the above, bad things happen. i don't love this here, but it works for now
 			-- advance to end of line and halt
 			keyPressedDuringText(key)

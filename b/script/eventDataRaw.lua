@@ -28,7 +28,8 @@ behaviorsRaw = {
 	},
 	blocks = {
 		green = {
-			say, "IT'S GREEN"
+			say, "IT'S GREEN.",
+			say, "BE CAREFUL!!"
 		},
 	},
 }

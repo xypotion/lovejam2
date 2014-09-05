@@ -109,12 +109,25 @@ function getActorByName(name)
 end
 
 function getLocalActorByPos(pos)
-	actor = nil
+	local actor = nil
 	
 	--could see being a bottleneck, but hasn't hurt performance so far
 	for i,la in pairs(localActors) do
 		if la.currentPos.x == pos.x and la.currentPos.y == pos.y then
 			actor = la
+		end
+	end
+	
+	return actor
+end
+
+function getGlobalActorByPos(pos)
+	local actor = nil
+	
+	--could see being a bottleneck, but hasn't hurt performance so far
+	for k,ga in pairs(globalActors) do
+		if ga.currentPos and ga.currentPos.x == pos.x and ga.currentPos.y == pos.y then
+			actor = ga
 		end
 	end
 	
