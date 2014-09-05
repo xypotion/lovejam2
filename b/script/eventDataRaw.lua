@@ -23,11 +23,14 @@ math.randomseed(os.time())
 behaviorsRaw = {
 	start = {
 		-- wait,1,
+		makeBlock_, "green",
 		think, "BEGIN",
 	},
-	greenBlock = {
-		say, "IT'S GREEN"
-	}
+	blocks = {
+		green = {
+			say, "IT'S GREEN"
+		},
+	},
 }
 
 eventDataRaw = {

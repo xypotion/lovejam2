@@ -176,3 +176,9 @@ function scorePlus_(amt)
 	print( "score up'd by "..amt)
 	return true
 end
+
+------------------------------------------------------------------------------------------------------
+
+function makeBlock_(color)
+	blocks[#blocks+1] = Block(color)
+end

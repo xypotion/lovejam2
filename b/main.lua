@@ -11,8 +11,9 @@ require "sidebar"
 require "menuStack"
 
 require "Menu"
-require "Menu2D"
-require "MapMenu"
+-- require "Menu2D"
+-- require "MapMenu"
+require "Block"
 
 require "script/saveLoader"
 require "script/mapLoader"
@@ -49,6 +50,9 @@ function love.load()
 	keyRepeatDelay = 2
 	notBusy = true
 	
+	blocks = {}
+	blocksShifting = 0
+	
 	startScript(behaviorsRaw.start)
 end
 
@@ -66,14 +70,18 @@ function love.update(dt)
 
 		--MOVEMENT
 		-- move map if needed
-		if screenShifting then
-			shiftTiles(dt)
-		end
+		-- if screenShifting then
+		-- 	shiftTiles(dt)
+		-- end
 	
 		-- update/"shift" actors if needed
 		if actorsShifting > 0 then
 			-- don't forget: lots happens here, including heroArrive and arrivalInteraction.
 			moveActors(dt)
+		end
+	
+		if blocksShifting > 0 then
+			shiftBlocks()
 		end
 		
 		warpUpdate(dt)
@@ -110,6 +118,8 @@ function love.draw()
 	else
 		drawAllActors()
 	end
+	
+	drawBlocks()
 	
 	--black screen for fadeouts, e.g. when warping
 	love.graphics.setColor(0, 0, 0, blackOverlayOpacity)

@@ -42,8 +42,10 @@ function setHeroGridTargetAndTileTypeIfDirectionKeyPressed()
 	
 	-- get & set destination tile type
 	if globalActors.hero.targetPos and globalActors.hero.targetPos ~= globalActors.hero.currentPos then
-		targetTileType = tileType(globalActors.hero.targetPos)
-		if targetTileType == "collide" then
+		-- local targetTileType = tileType(globalActors.hero.targetPos)
+		if tileType(globalActors.hero.targetPos) == "collide" or
+			getBlock(globalActors.hero.targetPos)
+		then
 			globalActors.hero.targetPos = nil
 		end
 	end
@@ -55,40 +57,15 @@ end
 
 --essentially a hero-specific action trigger, like say() and hop(), etc in cutscene.lua and scripted in cutscenes
 function heroGo()
-	if targetTileType == "clear" then
+	-- if targetTileType == "clear" then
+	if globalActors.hero.targetPos and globalActors.hero.targetPos ~= globalActors.hero.currentPos then
 		globalActors.hero.distanceFromTarget = tileSize
 		
 		actorsShifting = actorsShifting + 1
 		globalActors.hero.translatorFunction = walk
 		globalActors.hero.finishFunction = heroArrive
-	elseif targetTileType == "collide" then -- for now...
-		-- sound effect or something
-	-- elseif targetTileType and string.find(targetTileType, "edge") then --set up screen shift ~ TODO this is kinda inelegant
-	-- 	--gotta change that target tile! time to fly to the far side of the map
-	-- 	globalActors.hero.targetPos = {x=(globalActors.hero.targetPos.x - 1) % xLen + 1, y=(globalActors.hero.targetPos.y - 1) % yLen + 1}
-	-- 	actorsShifting = actorsShifting + 1
-	-- 	globalActors.hero.translatorFunction = screenWalk
-	-- 	globalActors.hero.finishFunction = heroArrive
-	--
-	-- 	--we moving horizontally or vertically? i know it seems redundant... maybe TODO remove once you finally settle on a screen size
-	-- 	if globalActors.hero.currentPos.x == globalActors.hero.targetPos.x then
-	-- 		globalActors.hero.distanceFromTarget = (yLen - 1) * tileSize
-	-- 	elseif globalActors.hero.currentPos.y == globalActors.hero.targetPos.y then
-	-- 		globalActors.hero.distanceFromTarget = (xLen - 1) * tileSize
-	-- 	else
-	-- 		print("something has gone very wrong in heroGo()")
-	-- 	end
-	--
-	-- 	--and shift that screen, don't forget ~
-	-- 	if targetTileType == "east edge" then
-	-- 		triggerScreenShiftTo({x = worldPos.x + 1, y = worldPos.y})
-	-- 	elseif targetTileType == "west edge" then
-	-- 		triggerScreenShiftTo({x = worldPos.x - 1, y = worldPos.y})
-	-- 	elseif targetTileType == "north edge" then
-	-- 		triggerScreenShiftTo({x = worldPos.x, y = worldPos.y - 1})
-	-- 	elseif targetTileType == "south edge" then
-	-- 		triggerScreenShiftTo({x = worldPos.x, y = worldPos.y + 1})
-	-- 	end
+	elseif targetTileType == "collide" then
+		--
 	end
 end
 
@@ -100,11 +77,15 @@ function heroArrive()
 end
 
 function startFacingInteraction()
-	lookinAt = getLocalActorByPos(getGridPosInFrontOfActor(globalActors.hero))
+	local x = getGridPosInFrontOfActor(globalActors.hero)
+	local lookinAt = getLocalActorByPos(x)
+	local lookinAtBlock = getBlock(x)
 	
 	if lookinAt and lookinAt.collide then 
 		interactWith(lookinAt)
-	else 
+	elseif lookinAtBlock then
+		interactWith(lookinAtBlock)
+	else
 		return false
 	end
 end

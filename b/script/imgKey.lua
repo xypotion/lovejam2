@@ -11,7 +11,9 @@ images = {
 		-- love.graphics.newImage("img/chipset2castles??.png"),
 	},
 	stillActors = {love.graphics.newImage("img/sprites1.png")},
-	blocks = {love.graphics.newImage("img/block.png")},
+	blocks = {
+		green = love.graphics.newImage("img/block.png"),
+	},
 	-- marble = {
 	-- 	love.graphics.newImage("img/marble1.png"),
 	-- 	love.graphics.newImage("img/marble2.png"),
@@ -116,6 +118,8 @@ function makeQuads()
 		{quadAt(0,1,qs)}, --4:gold
 		{quadAt(1,1,qs)}, --5:sign
 	}
+	qs = {1,1,2,1}
+	quadSets.block = {quadAt(0,0,qs),quadAt(1,0,qs)}
 	
 	qs = {1,1,4,4}
 	mapTileQuads = { --TODO integrate into quadSets
