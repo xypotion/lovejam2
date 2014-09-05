@@ -23,12 +23,12 @@ function initWindowStates()
 	
 	updateWindowStateSettings()
 	
-  love.window.setTitle('Löaf 2D')
+  love.window.setTitle('<clever name here>')
 end
 
 function updateWindowStateSettings()
-	windowModeFlags = windowStates[windowState + 1].flags
-	zoom = windowStates[windowState + 1].z
+	windowModeFlags = windowStates[windowState].flags
+	zoom = windowStates[windowState].z
 	tileSize = 32 * zoom
 	
 	-- xMargin = 0

@@ -20,6 +20,15 @@ math.randomseed(os.time())
 	--that's it!
 ]]
 
+behaviorsRaw = {
+	start = {
+		-- wait,1,
+		think, "BEGIN",
+	},
+	greenBlock = {
+		say, "IT'S GREEN"
+	}
+}
 
 eventDataRaw = {
 	--1:
@@ -29,7 +38,7 @@ eventDataRaw = {
 		collide = true,
 		interactionBehavior = {
 			say, "Sure is a heavy rock!",
-			say, {"(lorem ipsum dolor sit amet.\n lorem ipsum dolor sit amet.\n  lorem ipsum dolor sit amet.\n   lorem ipsum....)","But it seems fishy!"}
+			think, {"(lorem ipsum dolor sit amet.\n lorem ipsum dolor sit amet.\n  lorem ipsum dolor sit amet.\n   lorem ipsum....)","But it seems fishy!"}
 		}
 	},
 	{
@@ -38,7 +47,7 @@ eventDataRaw = {
 		collide = true,
 		interactionBehavior = {
 			choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-			warp,{wid=2,mx=8,my=8,facing="n"}
+			warp,{wid=3,mx=5,my=7,facing="n"}
 		}
 	},
 	

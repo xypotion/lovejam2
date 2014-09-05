@@ -3,8 +3,8 @@
 -- TODO actually save & load files here! just kinda hard-coded playtesting data for now
 
 function loadSaveData()
-	worldPos = 1--{x=1,y=1}
-	heroGridPos = {x=8,y=8}
+	worldPos = 2--{x=1,y=1}
+	heroGridPos = {x=5,y=5}
 	facing = "s" -- for south
 	
 	--great for defaults; can use "or" when loading if they are set?

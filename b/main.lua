@@ -48,6 +48,8 @@ function love.load()
 	keyDelayTimer = 0
 	keyRepeatDelay = 2
 	notBusy = true
+	
+	startScript(behaviorsRaw.start)
 end
 
 function love.update(dt)
@@ -127,8 +129,8 @@ function love.draw()
 	else
 		love.graphics.setColor(255, 255, 255, 255)
 	end
-  love.graphics.print("SCORE: "..score, 10, 26*zoom, 0, zoom, zoom)
-  love.graphics.print("ActorsShifting: "..actorsShifting, 10, 42*zoom, 0, zoom, zoom)
+  -- love.graphics.print("SCORE: "..score, 10, 26*zoom, 0, zoom, zoom)
+  -- love.graphics.print("ActorsShifting: "..actorsShifting, 10, 42*zoom, 0, zoom, zoom)
 	
   love.graphics.setColor(255, 255, 255, 255)
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
@@ -166,7 +168,7 @@ function love.keypressed(key)
 	
 			--cycle through zoom settings TODO eventually make a player option of this, but this is fine for dev
 			if key == "z" then
-				windowState = (windowState + 1) % #windowStates
+				windowState = (windowState) % #windowStates + 1
 				updateWindowStateSettings()
 				updateZoomRelativeStuff()
 			end

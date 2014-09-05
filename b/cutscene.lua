@@ -1,8 +1,8 @@
 --STORYTELLING a.k.a. cutscenes. these things will all mingle a lot in the final game, so make the algorithms very flexible!
 
-function startScript(event)
+function startScript(script)
 	runningScript = true
-	currentScript = event.interactionBehavior
+	currentScript = script
 	csli = 1 -- "current script line index"
 	
 	doNextScriptLine()
@@ -88,9 +88,22 @@ end
 function say(dialog)
 	print "say"
 	if type(dialog) == "table" then
-		startTextScroll(dialog)
+		startTextScroll(dialog, true)
 	elseif type(dialog) == "string" then
-		startTextScroll({dialog})
+		startTextScroll({dialog}, true)
+	else
+		print("ERROR in say(), argument must be string or table of strings")
+	end
+	
+	return false
+end
+
+function think(dialog)
+	print "think"
+	if type(dialog) == "table" then
+		startTextScroll(dialog, false)
+	elseif type(dialog) == "string" then
+		startTextScroll({dialog}, false)
 	else
 		print("ERROR in say(), argument must be string or table of strings")
 	end

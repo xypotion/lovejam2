@@ -124,5 +124,5 @@ end
 function interactWith(actor)
 	print "ping interaction func"
 			
-	startScript(actor)
+	startScript(actor.interactionBehavior)
 end

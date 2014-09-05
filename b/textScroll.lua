@@ -36,10 +36,12 @@ function updateScrollingText(dt)
 end
 
 function drawScrollingText()
-	love.graphics.setColor(textBoxColor.r,textBoxColor.g,textBoxColor.b,255)
-	love.graphics.rectangle("fill", textBoxPos.x, textBoxPos.y, screenWidth --[[- xRightMargin]], 3*tileSize)
-	love.graphics.setColor(223,223,223,255)
-	love.graphics.rectangle("line", textBoxPos.x, textBoxPos.y, screenWidth --[[- xRightMargin]], 3*tileSize) --TODO this looks like shit
+	if showTextBox then
+		love.graphics.setColor(textBoxColor.r,textBoxColor.g,textBoxColor.b,255)
+		love.graphics.rectangle("fill", textBoxPos.x, textBoxPos.y, screenWidth --[[- xRightMargin]], 3*tileSize)
+		love.graphics.setColor(223,223,223,255)
+		love.graphics.rectangle("line", textBoxPos.x, textBoxPos.y, screenWidth --[[- xRightMargin]], 3*tileSize) --TODO this looks like shit
+	end
 
 	love.graphics.setColor(textColor.r,textColor.g,textColor.b,255)
 	love.graphics.print(displayText, textBoxPos.x + textOffset, textBoxPos.y + textOffset, 0, zoom, zoom)
@@ -76,9 +78,10 @@ end
 ------------------------------------------------------------------------------------------------------
 
 -- called from cutscene manager
-function startTextScroll(lines)
+function startTextScroll(lines, showBox)	
 	textScrolling = true --probably the best place for this. hope it doesn't blow stuff up later.
 	textLines = lines
+	showTextBox = showBox
 		
 	textLineIndex = 1
 	addTextLine()
