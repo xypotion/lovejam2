@@ -13,6 +13,9 @@ function loadSaveData()
 		anyKeyAdvancesText = true,
 	}
 
+	colorControlled = 1
+	controllableColors = {R,G,B,C,M,Y,W}
+	
 	windowState = 1
 	
 	-- derp derp

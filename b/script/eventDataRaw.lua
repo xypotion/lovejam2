@@ -35,8 +35,22 @@ behaviorsRaw = {
 			say, "IT'S BLUE!",
 			say, "BE COOL!"
 		},
+		red = {
+			say, "whatever."
+		},
 		cyan = {
-			say, "IT'S CYAN!",
+			say, "whatever."
+		},
+		magenta = {
+			say, "whatever."
+		},
+		yellow = {
+			say, "whatever."
+		},
+		white = {
+			say, "whatever."
+		},
+		black = {
 			say, "whatever."
 		},
 	},

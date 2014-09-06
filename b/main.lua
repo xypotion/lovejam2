@@ -54,7 +54,6 @@ function love.load()
 	blocksShifting = 0
 	
 	controllingBlocks = false
-	colorControlled = "green"
 	
 	startScript(behaviorsRaw.start)
 end
@@ -107,7 +106,7 @@ function love.update(dt)
 				end
 			else
 				if controllingBlocks then
-					local going = blocksTakeInput(colorControlled)
+					local going = blocksTakeInput()
 					if going then
 						-- print("barthello, we're leaving.")
 						blocksGo()
@@ -161,7 +160,7 @@ function love.draw()
 		love.graphics.setColor(255, 255, 255, 191)
 	-- end
 	
-  if controllingBlocks then love.graphics.print("controlling "..colorControlled, 10, 26*zoom, 0, zoom, zoom) end
+  if controllingBlocks then love.graphics.print("controlling "..controllableColors[colorControlled], 10, 26*zoom, 0, zoom, zoom) end
   love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
 	
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
@@ -216,11 +215,13 @@ function love.keypressed(key)
 			end
 			
 			if key == "tab" and controllingBlocks then
-				if colorControlled == "green" then
-					colorControlled = "blue"
-				else
-					colorControlled = "green"
-				end
+				colorControlled = colorControlled % #controllableColors + 1
+				
+				-- if colorControlled == "green" then
+	-- 				colorControlled = "blue"
+	-- 			else
+	-- 				colorControlled = "green"
+	-- 			end
 			end
 			
 		elseif textScrolling then --if not else'd off the above, bad things happen. i don't love this here, but it works for now

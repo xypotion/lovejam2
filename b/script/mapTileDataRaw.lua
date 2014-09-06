@@ -6,10 +6,15 @@
 -- collisionMaps[2] = {0,1,1,0,0,1,1} --"castle" derpset
 collisionMatrix = {false,true} -- false assumed otherwise
 
-g = "green"
-b = "blue"
-c = "cyan"
-x = nil
+G = "green"
+B = "blue"
+R = "red"
+C = "cyan"
+M = "magenta"
+Y = "yellow"
+W = "white"
+K = "black"
+X = nil
 
 mapDataRaw = {
 	{ --WASD start
@@ -60,8 +65,8 @@ mapDataRaw = {
 		},
 		startAt = {x=2,y=2,default=1},
 		blocks = {
-			{g,g,x,g},
-			{x,b,g,b,b}
+			{G,G,X,G},
+			{X,B,G,B,B}
 		},
 		blocksAt = {x=2,y=3},
 		localActorPointers = {

@@ -12,9 +12,14 @@ images = {
 	},
 	stillActors = {love.graphics.newImage("img/sprites1.png")},
 	blocks = {
-		green = love.graphics.newImage("img/block.png"),
+		green = love.graphics.newImage("img/blockG.png"),
 		blue = love.graphics.newImage("img/blockB.png"),
+		red = love.graphics.newImage("img/blockR.png"),
 		cyan = love.graphics.newImage("img/blockC.png"),
+		magenta = love.graphics.newImage("img/blockM.png"),
+		yellow = love.graphics.newImage("img/blockY.png"),
+		white = love.graphics.newImage("img/blockW.png"),
+		black = love.graphics.newImage("img/blockK.png"),
 	},
 	-- marble = {
 	-- 	love.graphics.newImage("img/marble1.png"),

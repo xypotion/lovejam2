@@ -76,7 +76,7 @@ end
 function Block:shift(dt)
 		-- print(" HELLO "..colorControlled)
 		-- tablePrint(self)
-	if self.targetPos and self.color == colorControlled then
+	if self.targetPos and self.color == controllableColors[colorControlled] then
 		local xDelta = (self.targetPos.x - self.currentPos.x) * self.speed * dt
 		local yDelta = (self.targetPos.y - self.currentPos.y) * self.speed * dt
 
@@ -175,7 +175,7 @@ function getBlock(pos)
 	return nil
 end
 
-function blocksTakeInput(color)
+function blocksTakeInput()
 	local direction = nil
 	local going = true
 	
@@ -193,7 +193,7 @@ function blocksTakeInput(color)
 		
 	if direction and love.keyboard.isDown('d','a','w','s','right','left','up','down') then
 		for i=1,#blocks do
-			if blocks[i].color == color then
+			if blocks[i].color == controllableColors[colorControlled] then
 				-- print("taking input"..os.time())
 				blocks[i].facing = direction
 				-- if not love.keyboard.isDown('d','a','w','s','right','left','up','down') then
@@ -217,9 +217,16 @@ function blocksTakeInput(color)
 				end
 			end
 			-- blocks.targetDir = nil --? or give each block a target pos? would be slightly easier to cause reactions that way...
+			if not going then
+				for i=1,#blocks do
+					blocks[i].targetPos = nil
+					blocks[i].targetColor = nil
+				end
+			end
 		end
 	else
 		direction = nil
+		-- blocks[i].targetPos = nil
 		going = false
 	end
 	
@@ -281,9 +288,33 @@ end
 function colorsCombine(c1, c2)
 	if c1 == c2 then
 		return c1
-	elseif c1 == b and c2 == g or c1 == g and c2 == b then
-		return "cyan"
-	elseif c1 == c and c2 ~= "red" then
+	elseif c1 == B and c2 == G or c1 == G and c2 == B then
+		return C
+	elseif c1 == R and c2 == B or c1 == B and c2 == R then
+		return M
+	elseif c1 == G and c2 == R or c1 == R and c2 == G then
+		return Y
+	elseif c1 == W or c2 == W then
+		return c1
+	elseif c1 == C and c2 == R or
+		c2 == C and c1 == R or
+		c1 == Y and c2 == B or
+		c2 == Y and c1 == B or
+		c1 == M and c2 == G or
+		c2 == M and c1 == G or
+		c1 == K and c2 == W or
+		c2 == K and c1 == W
+	then
+		return W
+	elseif c1 == C and c2 ~= R or
+		c2 == C and c1 ~= R or
+		c1 == Y and c2 ~= B or
+		c2 == Y and c1 ~= B or
+		c1 == M and c2 ~= G or
+		c2 == M and c1 ~= G or
+		c1 == K and c2 ~= W or
+		c2 == K and c1 ~= W
+	then
 		return false
 	end
 end
