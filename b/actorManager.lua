@@ -9,6 +9,7 @@ function initActorManager()
 	actorsShifting = 0
 	
 	globalActors.waiter = {}
+	globalActors.fader = {}
 end
 
 function drawAllActors()

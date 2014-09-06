@@ -25,6 +25,20 @@ function waitTranslator(actor, dt)
 	decrementDistanceFromTarget(actor,dt)
 end
 
+function fadeInTranslator(actor, dt)
+	decrementDistanceFromTarget(actor,dt)
+	blackOverlayOpacity = actor.distanceFromTarget * 511 
+	if blackOverlayOpacity < 0 then blackOverlayOpacity = 0 end
+	print(blackOverlayOpacity)
+end
+
+function fadeOutTranslator(actor, dt)
+	decrementDistanceFromTarget(actor,dt)
+	blackOverlayOpacity = 255 - actor.distanceFromTarget * 511
+	if blackOverlayOpacity > 255 then blackOverlayOpacity = 255 end
+	print(blackOverlayOpacity)
+end
+
 function walk(actor, dt)
 	local xDelta = (actor.targetPos.x - actor.currentPos.x) * actor.speed * dt
 	local yDelta = (actor.targetPos.y - actor.currentPos.y) * actor.speed * dt

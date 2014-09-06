@@ -147,21 +147,28 @@ function love.draw()
 	
 	--sidebar
 	-- drawSidebar()
+		love.graphics.setColor(255, 255, 255, 191)
 	
 	--menus
 	if Menu:top() then
 		drawMenuStack()
 	end
 	
+	if controllingBlocks then
+		love.graphics.draw(images.blocks[controllableColors[colorControlled]], quadSets.block[1], screenWidth - tileSize * 2, screenHeight - tileSize * 3)
+		love.graphics.draw(images.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
+		-- ping("remote")
+	end
+	
 	--debug junk
 	-- if score >= 300 then
 	-- 	love.graphics.setColor(255, 0, 255, 255)
 	-- else
-		love.graphics.setColor(255, 255, 255, 191)
 	-- end
 	
   if controllingBlocks then love.graphics.print("controlling "..controllableColors[colorControlled], 10, 26*zoom, 0, zoom, zoom) end
-  love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
+  if controllingBlocks then love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
+	else love.graphics.print("Actors Shifting: "..actorsShifting, 10, 42*zoom, 0, zoom, zoom) end
 	
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
 	-- love.graphics.print("x="..worldPos.x.." y="..worldPos.y, tileSize * xLen - 96, 10*zoom, 0, zoom, zoom)

@@ -22,7 +22,9 @@ math.randomseed(os.time())
 
 behaviorsRaw = {
 	start = {
-		-- wait,1,
+		skip,3,
+		fadeOut, 0.5,
+		fadeIn, 0.5,
 		think, "BEGIN",
 		makeBlock_, "green",
 	},

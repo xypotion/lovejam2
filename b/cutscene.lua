@@ -177,6 +177,38 @@ function scorePlus_(amt)
 	return true
 end
 
+function darkenOverlay_(color)
+	blackOverlayOpacity = 255
+	
+	return true
+end
+
+function fadeIn(sec)
+	-- local sec = sec or 0.5
+	
+	-- blackOverlayOpacity = 255
+	globalActors.fader.translatorFunction = fadeInTranslator
+	globalActors.fader.finishFunction = stopActor
+	globalActors.fader.distanceFromTarget = sec
+	
+	actorsShifting = actorsShifting + 1
+	
+	return false
+end
+
+function fadeOut(sec)
+	-- local sec = sec or 0.5
+	
+	-- blackOverlayOpacity = 255
+	globalActors.fader.translatorFunction = fadeOutTranslator
+	globalActors.fader.finishFunction = stopActor
+	globalActors.fader.distanceFromTarget = sec
+	
+	actorsShifting = actorsShifting + 1
+	
+	return false
+end
+
 ------------------------------------------------------------------------------------------------------
 
 function makeBlock_(color)

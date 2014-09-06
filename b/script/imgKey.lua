@@ -21,6 +21,7 @@ images = {
 		white = love.graphics.newImage("img/blockW.png"),
 		black = love.graphics.newImage("img/blockK.png"),
 	},
+	remote = love.graphics.newImage("img/remote.png"),
 	-- marble = {
 	-- 	love.graphics.newImage("img/marble1.png"),
 	-- 	love.graphics.newImage("img/marble2.png"),
