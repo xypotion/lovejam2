@@ -20,6 +20,7 @@ images = {
 		yellow = love.graphics.newImage("img/blockY.png"),
 		white = love.graphics.newImage("img/blockW.png"),
 		black = love.graphics.newImage("img/blockK.png"),
+		clear = love.graphics.newImage("img/blockClear.png"),
 	},
 	remote = love.graphics.newImage("img/remote.png"),
 	-- marble = {

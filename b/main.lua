@@ -147,7 +147,6 @@ function love.draw()
 	
 	--sidebar
 	-- drawSidebar()
-		love.graphics.setColor(255, 255, 255, 191)
 	
 	--menus
 	if Menu:top() then
@@ -155,10 +154,14 @@ function love.draw()
 	end
 	
 	if controllingBlocks then
+		love.graphics.setColor(255, 255, 255, 191)
 		love.graphics.draw(images.blocks[controllableColors[colorControlled]], quadSets.block[1], screenWidth - tileSize * 2, screenHeight - tileSize * 3)
 		love.graphics.draw(images.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
 		-- ping("remote")
-	end
+	else
+		love.graphics.setColor(255, 255, 255, 63)
+		love.graphics.draw(images.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
+	end 		
 	
 	--debug junk
 	-- if score >= 300 then
@@ -222,13 +225,11 @@ function love.keypressed(key)
 			end
 			
 			if key == "tab" and controllingBlocks then
-				colorControlled = colorControlled % #controllableColors + 1
-				
-				-- if colorControlled == "green" then
-	-- 				colorControlled = "blue"
-	-- 			else
-	-- 				colorControlled = "green"
-	-- 			end
+				if love.keyboard.isDown("lshift", "rshift") then
+					colorControlled = (colorControlled - 2) % #controllableColors + 1
+				else
+					colorControlled = colorControlled % #controllableColors + 1
+				end
 			end
 			
 		elseif textScrolling then --if not else'd off the above, bad things happen. i don't love this here, but it works for now

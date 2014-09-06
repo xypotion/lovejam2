@@ -150,9 +150,17 @@ function Block:setupColorCombination(addend)
 	-- 	self.targetColor = nil
 	
 		local newColor = colorsCombine(self.color, addend.color)
-		self.targetColor = newColor
-		addend.targetColor = newColor
-	
+		
+		if newColor == "clear" then
+			--soooOOOoo hacky
+			self.targetColor = W
+			addend.targetColor = K
+			self.clearMe = true
+			addend.clearMe = true
+		else
+			self.targetColor = newColor
+			addend.targetColor = newColor
+		end
 	end
 end
 
@@ -256,8 +264,17 @@ function shiftBlocks(dt)
 	if blocksArrived then
 	-- if self.distanceFromTarget <= 0 then
 		for i=1,#blocks do
+			-- if blocks[i].targetColor ~= "clear" then
+-- 				-- blocks[i]:stop()
+-- 				blocks[i]:eliminate()
+-- 				blocksShifting = blocksShifting - 1
 			if blocks[i].targetPos then
 				blocks[i]:stop()
+				
+				if blocks[i].clearMe then
+					blocks[i]:eliminate()
+				end
+				
 			elseif blocks[i].targetColor then
 				blocks[i]:eliminate()
 			end
@@ -288,13 +305,17 @@ end
 function colorsCombine(c1, c2)
 	if c1 == c2 then
 		return c1
+	elseif c1 == W and c2 == K or c1 == K and c2 == W then
+		return "clear"
 	elseif c1 == B and c2 == G or c1 == G and c2 == B then
 		return C
 	elseif c1 == R and c2 == B or c1 == B and c2 == R then
 		return M
 	elseif c1 == G and c2 == R or c1 == R and c2 == G then
 		return Y
-	elseif c1 == W or c2 == W then
+	elseif c1 == W then
+		return c2
+	elseif c2 == W then
 		return c1
 	elseif c1 == C and c2 == R or
 		c2 == C and c1 == R or

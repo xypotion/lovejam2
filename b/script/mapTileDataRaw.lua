@@ -65,8 +65,9 @@ mapDataRaw = {
 		},
 		startAt = {x=2,y=2,default=1},
 		blocks = {
-			{G,G,X,G},
-			{X,B,G,B,B}
+			{G,G,X,G,R},
+			{X,B,G,B,B},
+			{K,K,W}
 		},
 		blocksAt = {x=2,y=3},
 		localActorPointers = {
