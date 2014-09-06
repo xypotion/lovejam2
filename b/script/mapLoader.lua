@@ -105,4 +105,21 @@ function emptyMapGrid()
 	return t
 end
 
-rawTileArray = {}
+function loadBlocks()
+	blocks = {}
+	local i = 1
+	
+	if currentMap.blocks and currentMap.blocksAt then
+		for y = 1, #(currentMap.blocks) do
+			for x = 1, #(currentMap.blocks[y]) do
+				if currentMap.blocks[y][x] then
+					print(currentMap.blocks[y][x], y+currentMap.blocksAt.y, x+currentMap.blocksAt.x)
+					blocks[i] = Block(currentMap.blocks[y][x],{y=y+currentMap.blocksAt.y, x=x+currentMap.blocksAt.x})
+					i = i + 1
+				end
+			end
+		end
+	end
+end
+
+-- rawTileArray = {}

@@ -1,13 +1,16 @@
 Block = class()
 
-function Block:_init(color)
+function Block:_init(color, pos)
+	color = color or self.color
+	self.color = color
+	
 	self.sprite = {
 		image = images.blocks[color],
 		anikey = anikeys.map,
 		quadSet = quadSets.block,
 	}
 
-	self.currentPos = {x=2,y=3}
+	self.currentPos = self.currentPos or pos or {x=2,y=3}
 	self.targetPos = {x=self.currentPos.x,y=self.currentPos.y}
 	
 	self.screenPos = {}
@@ -15,7 +18,7 @@ function Block:_init(color)
 	
 	self.interactionBehavior = behaviorsRaw.blocks[color]
 	
-	self.speed = 50 * zoom -- TODO
+	self.speed = 100 * zoom -- TODO
 	
 	ping(color.." block made")
 end
@@ -74,7 +77,7 @@ function blocksTakeInput(key)
 			-- tablePrint(blocks[i].targetPos)
 			
 			going = true and going
-			ping(going)
+			-- ping(going)
 	
 			-- get & set destination tile type
 			if going and blocks[i].targetPos and blocks[i].targetPos ~= blocks[i].currentPos then
@@ -102,14 +105,14 @@ function blocksGo()
 		blocks[i].distanceFromTarget = tileSize
 		
 		blocksShifting = blocksShifting + 1
-		blocks[i].translatorFunction = walk
-		blocks[i].finishFunction = heroArrive
+		-- blocks[i].translatorFunction = walk
+		blocks[i].finishFunction = blockStop
 		end
 	end
 end
 
 function shiftBlocks(dt)
-	ping("shifting blokcs")
+	-- ping("shifting blokcs")
 	
 	-- blocks[1].translatorFunction(blocks[1], dt) -- TODO can you use : or class notation somehow? hm
 	for i=1,#blocks do
@@ -121,7 +124,17 @@ function shiftBlocks(dt)
 		blocks[i].screenPos.y = blocks[i].screenPos.y + yDelta
 
 		if blocks[i].distanceFromTarget <= 0 then
-			-- blocks[1].finishFunction(blocks[1])
+			blocks[i]:stop()
 		end
 	end
+end
+
+function Block:stop()
+	self.distanceFromTarget = 0
+	self.currentPos = self.targetPos
+	self:updateScreenPos()
+	
+	blocksShifting = blocksShifting - 1
+	
+	-- print("stop at", self.currentPos.x, self.currentPos.y)
 end

@@ -93,7 +93,7 @@ function love.update(dt)
 		end
 	
 		-- if notBusy then --i tried :'( TODO
-		if not screenShifting and actorsShifting == 0 and not paused and not warping and not dewarping and not textScrolling and #menuStack == 0 then
+		if blocksShifting == 0 and actorsShifting == 0 and not paused and not warping and not dewarping and not textScrolling and #menuStack == 0 then
 			if runningScript then
 				if not runningScriptLine then
 					-- print ("STARTING NEXT LINE")
@@ -107,7 +107,7 @@ function love.update(dt)
 				if controllingBlocks then
 					local barthelloWereLeaving = blocksTakeInput()
 					if barthelloWereLeaving then
-						print("barthello, we're leaving.")
+						-- print("barthello, we're leaving.")
 						blocksGo()
 					end					
 				else
@@ -144,13 +144,14 @@ function love.draw()
 	end
 	
 	--debug junk
-	if score >= 300 then
-		love.graphics.setColor(255, 0, 255, 255)
-	else
-		love.graphics.setColor(255, 255, 255, 255)
-	end
+	-- if score >= 300 then
+	-- 	love.graphics.setColor(255, 0, 255, 255)
+	-- else
+	-- 	love.graphics.setColor(255, 255, 255, 255)
+	-- end
+	
   if controllingBlocks then love.graphics.print("controllingBlocks", 10, 26*zoom, 0, zoom, zoom) end
-  love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
+  -- love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
 	
   love.graphics.setColor(255, 255, 255, 255)
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
@@ -176,7 +177,7 @@ function love.keypressed(key)
 		-- keyDelayTimer = 0 TODO just not quite this simple. think it needs a boolean
 		if(#menuStack > 0) then
 			takeMenuStackInput(key)
-		elseif not screenShifting and actorsShifting == 0 and not warping and not dewarping and not textScrolling and not runningScript and #menuStack == 0 then
+		elseif blocksShifting == 0 and actorsShifting == 0 and not warping and not dewarping and not textScrolling and not runningScript and #menuStack == 0 then
 		--if notBusy then --TODO this. maybe notBusy() or not busy()?
 			--pause
 			-- if key == "m" then

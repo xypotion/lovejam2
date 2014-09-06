@@ -57,6 +57,8 @@ function updateZoomRelativeStuff()
 	--this is safe, don't worry :)
 	initHero()
 	
+	blocks[1]:_init()
+	
 	scrollSpeed = 500 * zoom -- inelegant TODO maybe put somewhere else? or is it ok?
 	
 	showGlobals("zoom")

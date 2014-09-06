@@ -21,6 +21,8 @@ function initMapSystem()
 	updateMapSpriteBatchFramesCurrent()
 	
 	loadLocalActors()
+	
+	loadBlocks()
 end
 
 ------------------------------------------------------------------------------------------------------
@@ -121,6 +123,8 @@ function mapArrive()
 	updateMapSpriteBatchFramesCurrent()
 	
 	loadLocalActors()
+	
+	loadBlocks()
 	
 	currentMap.seen = true
 end

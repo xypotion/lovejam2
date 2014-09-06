@@ -23,13 +23,13 @@ math.randomseed(os.time())
 behaviorsRaw = {
 	start = {
 		-- wait,1,
-		makeBlock_, "green",
 		think, "BEGIN",
+		makeBlock_, "green",
 	},
 	blocks = {
 		green = {
-			say, "IT'S GREEN.",
-			say, "BE CAREFUL!!"
+			say, "IT'S GREEN!",
+			say, "BE CAREFUL!"
 		},
 	},
 }
