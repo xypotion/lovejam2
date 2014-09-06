@@ -8,6 +8,7 @@ collisionMatrix = {false,true} -- false assumed otherwise
 
 g = "green"
 b = "blue"
+c = "cyan"
 x = nil
 
 mapDataRaw = {

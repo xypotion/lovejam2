@@ -85,6 +85,7 @@ function love.update(dt)
 	
 		if blocksShifting > 0 then
 			shiftBlocks(dt)
+			-- shiftBlockColors(dt)
 		end
 		
 		warpUpdate(dt)
@@ -106,11 +107,20 @@ function love.update(dt)
 				end
 			else
 				if controllingBlocks then
-					local barthelloWereLeaving = blocksTakeInput(colorControlled)
-					if barthelloWereLeaving then
+					local going = blocksTakeInput(colorControlled)
+					if going then
 						-- print("barthello, we're leaving.")
 						blocksGo()
-					end					
+					else
+						--this is sooo hacky :/
+						-- for i = 1,#blocks do
+-- 							-- print("block "..i)
+-- 							if blocks[i].eliminate then
+-- 								blocks[i].currentPos.y = -100
+-- 								blocks[i].color = "gone"
+-- 							end
+-- 						end
+					end				
 				else
 				-- allow player to move hero/play normally
 					setHeroGridTargetAndTileTypeIfDirectionKeyPressed()

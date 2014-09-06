@@ -2,21 +2,22 @@ Block = class()
 
 function Block:_init(color, pos)
 	color = color or self.color
-	self.color = color
-	
-	self.sprite = {
-		image = images.blocks[color],
-		anikey = anikeys.map,
-		quadSet = quadSets.block,
-	}
+	self.color = color or "green"
+	self:setColorSpecificStuff()
+	-- self.sprite = {
+	-- 	image = images.blocks[color],
+	-- 	anikey = anikeys.map,
+	-- 	quadSet = quadSets.block,
+	-- }
+
+	-- self.targetColor = "cyan"
+	-- self.targetImageOpacity = 0
 
 	self.currentPos = self.currentPos or pos or {x=2,y=3}
-	self.targetPos = {x=self.currentPos.x,y=self.currentPos.y}
+	self.targetPos = nil--{x=self.currentPos.x,y=self.currentPos.y}
 	
 	self.screenPos = {}
 	self:updateScreenPos()
-	
-	self.interactionBehavior = behaviorsRaw.blocks[color]
 	
 	self.speed = 100 * zoom -- TODO
 	
@@ -25,12 +26,134 @@ end
 
 function Block:draw()
 	local s = self.sprite
+	
+	love.graphics.setColor(255,255,255,255)
 	love.graphics.draw(s.image, s.quadSet[s.anikey.frame], self.screenPos.x --[[+ currentMap.offset.x]], self.screenPos.y --[[+ currentMap.offset.y]])
+	
+	if self.targetColor then
+		love.graphics.setColor(255,255,255,self.targetImageOpacity)
+		love.graphics.draw(images.blocks[self.targetColor], s.quadSet[s.anikey.frame], self.screenPos.x, self.screenPos.y)
+	end
 end
 
 function Block:updateScreenPos()
 	self.screenPos.x = (self.currentPos.x - 1) * tileSize
 	self.screenPos.y = (self.currentPos.y - 1) * tileSize
+end
+
+function Block:setColorSpecificStuff()
+	-- print("setting stuff based on"..self.color)
+	
+	self.sprite = {
+		image = images.blocks[self.color],
+		anikey = anikeys.map,
+		quadSet = quadSets.block,
+	}
+	
+	self.interactionBehavior = behaviorsRaw.blocks[self.color]
+end
+
+function Block:go()
+	if self.targetPos and (self.targetPos.x ~= self.currentPos.x or self.targetPos.y ~= self.currentPos.y) then
+		local targetBlock = getBlock(self.targetPos)
+		
+		if targetBlock and self.color ~= targetBlock.color then
+			-- hacky since it affects two blocks, not just self
+			self:setupColorCombination(targetBlock)
+		end
+		
+		self.distanceFromTarget = tileSize
+	
+		blocksShifting = blocksShifting + 1
+		-- self.translatorFunction = walk
+		-- self.finishFunction = blockStop
+		
+		-- if getBlock()
+		-- self:setTargetColor(getBlock(self.targetPos))
+	end
+end
+
+function Block:shift(dt)
+		-- print(" HELLO "..colorControlled)
+		-- tablePrint(self)
+	if self.targetPos and self.color == colorControlled then
+		local xDelta = (self.targetPos.x - self.currentPos.x) * self.speed * dt
+		local yDelta = (self.targetPos.y - self.currentPos.y) * self.speed * dt
+
+		self.distanceFromTarget = self.distanceFromTarget - (math.abs(xDelta) + math.abs(yDelta))
+		
+		self.screenPos.x = self.screenPos.x + xDelta
+		self.screenPos.y = self.screenPos.y + yDelta
+		
+		-- hackoDistance = self.distanceFromTarget
+		
+		if self.distanceFromTarget <= 0 then
+			blocksArrived = true
+		end
+	end
+end
+
+function Block:stop()
+	self.distanceFromTarget = 0
+	self.currentPos = self.targetPos
+	self.targetPos = nil
+	self:updateScreenPos()
+	
+	blocksShifting = blocksShifting - 1
+	
+	if blocksShifting < 0 then
+	print("foo"..nil)
+	end
+	
+	if self.targetColor then
+		self.color = self.targetColor
+		self.targetColor = nil
+		self:setColorSpecificStuff()
+	end
+	
+	print("stop at", self.currentPos.x, self.currentPos.y)
+end
+
+function Block:eliminate()
+	-- self.distanceFromTarget = 0
+	-- self.currentPos = self.targetPos
+	-- tablePrint(self)
+	
+	self.currentPos.y = -100
+	self:updateScreenPos()
+	self.color = "gone"
+		--
+	-- blocksShifting = blocksShifting - 1
+	--
+	-- if self.targetColor then
+	-- 	self.color = self.targetColor
+	-- 	self:setColorSpecificStuff()
+	-- end
+	--
+	-- print("stop at", self.currentPos.x, self.currentPos.y)
+end
+
+function Block:setupColorCombination(addend)
+	if addend then
+	-- 	local c1 = self.color
+	-- 	local c2 = addend.color
+	--
+	-- 	if c1 == b and c2 == g or c1 == g and c2 == b then
+	-- 		self.targetColor = "cyan"
+	-- 		addend.targetColor = "cyan"
+	-- 		-- addend.eliminate = true
+	-- 		-- return "cyan"
+	-- 	elseif c1 == c or c2 == c then
+	-- 		--
+	-- 	end
+	-- else
+	-- 	self.targetColor = nil
+	
+		local newColor = colorsCombine(self.color, addend.color)
+		self.targetColor = newColor
+		addend.targetColor = newColor
+	
+	end
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -71,6 +194,7 @@ function blocksTakeInput(color)
 	if direction and love.keyboard.isDown('d','a','w','s','right','left','up','down') then
 		for i=1,#blocks do
 			if blocks[i].color == color then
+				-- print("taking input"..os.time())
 				blocks[i].facing = direction
 				-- if not love.keyboard.isDown('d','a','w','s','right','left','up','down') then
 				blocks[i].targetPos = getGridPosInFrontOfActor(blocks[i]) --? TODO
@@ -83,8 +207,9 @@ function blocksTakeInput(color)
 				-- get & set destination tile type
 				if going and blocks[i].targetPos and blocks[i].targetPos ~= blocks[i].currentPos then
 					-- local targetTileType = tileType(globalActors.hero.targetPos)
-					if tileType(blocks[i].targetPos) == "collide" or
-						getGlobalActorByPos(blocks[i].targetPos)
+					if tileType(blocks[i].targetPos) == "collide" or --wall or local actor whatever
+						getGlobalActorByPos(blocks[i].targetPos) or	--such as hero
+						getBlock(blocks[i].targetPos) and not colorsCombine(blocks[i].color, getBlock(blocks[i].targetPos).color) --block there that does NOT combine
 					then
 						blocks[i].targetPos = nil
 						going = false
@@ -98,51 +223,67 @@ function blocksTakeInput(color)
 		going = false
 	end
 	
+	-- if going then
+	-- 	for i = 1, #blocks do
+	-- 		blocks[i]:go()
+	-- 	end
+	-- end
+	
 	return going
 end
 
 function blocksGo()
 	for i = 1, #blocks do
-		-- tablePrint(blocks[i].targetPos)
--- 		tablePrint(blocks[i].currentPos)
-		if blocks[i].targetPos and (blocks[i].targetPos.x ~= blocks[i].currentPos.x or blocks[i].targetPos.y ~= blocks[i].currentPos.y) then
-			blocks[i].distanceFromTarget = tileSize
-		
-			blocksShifting = blocksShifting + 1
-			-- blocks[i].translatorFunction = walk
-			blocks[i].finishFunction = blockStop
-		end
+		blocks[i]:go()
 	end
-	
-	ping(blocksShifting)
 end
 
 function shiftBlocks(dt)
 	-- ping("shifting blokcs")
+	-- local hackoDistance = 0
 	
-	-- blocks[1].translatorFunction(blocks[1], dt) -- TODO can you use : or class notation somehow? hm
 	for i=1,#blocks do
-		if blocks[i].color == colorControlled then
-			local xDelta = (blocks[i].targetPos.x - blocks[i].currentPos.x) * blocks[i].speed * dt
-			local yDelta = (blocks[i].targetPos.y - blocks[i].currentPos.y) * blocks[i].speed * dt
+		blocks[i]:shift(dt)
+	end
 
-			decrementDistanceFromTarget(blocks[i], math.abs(xDelta) + math.abs(yDelta))
-			blocks[i].screenPos.x = blocks[i].screenPos.x + xDelta
-			blocks[i].screenPos.y = blocks[i].screenPos.y + yDelta
-
-			if blocks[i].distanceFromTarget <= 0 then
+	if blocksArrived then
+	-- if self.distanceFromTarget <= 0 then
+		for i=1,#blocks do
+			if blocks[i].targetPos then
 				blocks[i]:stop()
+			elseif blocks[i].targetColor then
+				blocks[i]:eliminate()
 			end
+		end
+		-- self:stop()
+		
+		blocksArrived = false
+	end
+	
+	-- return hackoDistance
+end
+			
+function shiftBlockColors(dt)
+	-- local opactiy 
+	
+	for i=1,#blocks do
+		if blocks[i].targetColor then
+			-- blocks[i].targetImageOpacity = 255 - (opacity * 8)
+			blocks[i].shiftTargetColorOpacity(dt)
 		end
 	end
 end
 
-function Block:stop()
-	self.distanceFromTarget = 0
-	self.currentPos = self.targetPos
-	self:updateScreenPos()
-	
-	blocksShifting = blocksShifting - 1
-	
-	-- print("stop at", self.currentPos.x, self.currentPos.y)
+function Block:shiftTargetColorOpacity(dt)
+	self.targetImageOpacity = self.targetImageOpacity + math.floor(dt * 8)
+end
+
+function colorsCombine(c1, c2)
+	if c1 == c2 then
+		return c1
+	elseif c1 == b and c2 == g or c1 == g and c2 == b then
+		return "cyan"
+	elseif c1 == c and c2 ~= "red" then
+		return false
+	end
 end
