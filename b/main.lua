@@ -54,6 +54,7 @@ function love.load()
 	blocksShifting = 0
 	
 	controllingBlocks = false
+	colorControlled = "green"
 	
 	startScript(behaviorsRaw.start)
 end
@@ -105,7 +106,7 @@ function love.update(dt)
 				end
 			else
 				if controllingBlocks then
-					local barthelloWereLeaving = blocksTakeInput()
+					local barthelloWereLeaving = blocksTakeInput(colorControlled)
 					if barthelloWereLeaving then
 						-- print("barthello, we're leaving.")
 						blocksGo()
@@ -147,17 +148,17 @@ function love.draw()
 	-- if score >= 300 then
 	-- 	love.graphics.setColor(255, 0, 255, 255)
 	-- else
-	-- 	love.graphics.setColor(255, 255, 255, 255)
+		love.graphics.setColor(255, 255, 255, 191)
 	-- end
 	
-  if controllingBlocks then love.graphics.print("controllingBlocks", 10, 26*zoom, 0, zoom, zoom) end
-  -- love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
+  if controllingBlocks then love.graphics.print("controlling "..colorControlled, 10, 26*zoom, 0, zoom, zoom) end
+  love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
 	
-  love.graphics.setColor(255, 255, 255, 255)
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
 	-- love.graphics.print("x="..worldPos.x.." y="..worldPos.y, tileSize * xLen - 96, 10*zoom, 0, zoom, zoom)
 	-- love.graphics.print("x="..globalActors.hero.currentPos.x.." y="..globalActors.hero.currentPos.y, tileSize * xLen - 96, 26*zoom, 0, zoom, zoom)	
-
+	
+  love.graphics.setColor(255, 255, 255, 255)
 	-- so that it draws above the debug junk :P
 	if textScrolling then
 		drawScrollingText()
@@ -194,14 +195,22 @@ function love.keypressed(key)
 				updateZoomRelativeStuff()
 			end
 		
-			if key == " " or key == "return" then 
+			if key == " " then 
 				-- print "ping main"
 				startFacingInteraction()
 				-- print "ping main; keypressed finished"
 			end	
 			
-			if key == "tab" then
+			if key == "return" then
 				controllingBlocks = not controllingBlocks
+			end
+			
+			if key == "tab" and controllingBlocks then
+				if colorControlled == "green" then
+					colorControlled = "blue"
+				else
+					colorControlled = "green"
+				end
 			end
 			
 		elseif textScrolling then --if not else'd off the above, bad things happen. i don't love this here, but it works for now

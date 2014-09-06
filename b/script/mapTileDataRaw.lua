@@ -7,6 +7,7 @@
 collisionMatrix = {false,true} -- false assumed otherwise
 
 g = "green"
+b = "blue"
 x = nil
 
 mapDataRaw = {
@@ -59,7 +60,7 @@ mapDataRaw = {
 		startAt = {x=2,y=2,default=1},
 		blocks = {
 			{g,g,x,g},
-			{x,x,g}
+			{x,b,g,b,b}
 		},
 		blocksAt = {x=2,y=3},
 		localActorPointers = {

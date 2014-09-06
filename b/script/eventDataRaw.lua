@@ -31,6 +31,14 @@ behaviorsRaw = {
 			say, "IT'S GREEN!",
 			say, "BE CAREFUL!"
 		},
+		blue = {
+			say, "IT'S BLUE!",
+			say, "BE COOL!"
+		},
+		cyan = {
+			say, "IT'S CYAN!",
+			say, "whatever."
+		},
 	},
 }
 

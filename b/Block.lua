@@ -52,7 +52,7 @@ function getBlock(pos)
 	return nil
 end
 
-function blocksTakeInput(key)
+function blocksTakeInput(color)
 	local direction = nil
 	local going = true
 	
@@ -70,23 +70,25 @@ function blocksTakeInput(key)
 		
 	if direction and love.keyboard.isDown('d','a','w','s','right','left','up','down') then
 		for i=1,#blocks do
-			blocks[i].facing = direction
-			-- if not love.keyboard.isDown('d','a','w','s','right','left','up','down') then
-			blocks[i].targetPos = getGridPosInFrontOfActor(blocks[i]) --? TODO
-			-- end
-			-- tablePrint(blocks[i].targetPos)
+			if blocks[i].color == color then
+				blocks[i].facing = direction
+				-- if not love.keyboard.isDown('d','a','w','s','right','left','up','down') then
+				blocks[i].targetPos = getGridPosInFrontOfActor(blocks[i]) --? TODO
+				-- end
+				-- tablePrint(blocks[i].targetPos)
 			
-			going = true and going
-			-- ping(going)
+				going = true and going
+				-- ping(going)
 	
-			-- get & set destination tile type
-			if going and blocks[i].targetPos and blocks[i].targetPos ~= blocks[i].currentPos then
-				-- local targetTileType = tileType(globalActors.hero.targetPos)
-				if tileType(blocks[i].targetPos) == "collide" or
-					getGlobalActorByPos(blocks[i].targetPos)
-				then
-					blocks[i].targetPos = nil
-					going = false
+				-- get & set destination tile type
+				if going and blocks[i].targetPos and blocks[i].targetPos ~= blocks[i].currentPos then
+					-- local targetTileType = tileType(globalActors.hero.targetPos)
+					if tileType(blocks[i].targetPos) == "collide" or
+						getGlobalActorByPos(blocks[i].targetPos)
+					then
+						blocks[i].targetPos = nil
+						going = false
+					end
 				end
 			end
 			-- blocks.targetDir = nil --? or give each block a target pos? would be slightly easier to cause reactions that way...
@@ -101,14 +103,18 @@ end
 
 function blocksGo()
 	for i = 1, #blocks do
-		if blocks[i].targetPos and blocks[i].targetPos ~= blocks[i].currentPos then
-		blocks[i].distanceFromTarget = tileSize
+		-- tablePrint(blocks[i].targetPos)
+-- 		tablePrint(blocks[i].currentPos)
+		if blocks[i].targetPos and (blocks[i].targetPos.x ~= blocks[i].currentPos.x or blocks[i].targetPos.y ~= blocks[i].currentPos.y) then
+			blocks[i].distanceFromTarget = tileSize
 		
-		blocksShifting = blocksShifting + 1
-		-- blocks[i].translatorFunction = walk
-		blocks[i].finishFunction = blockStop
+			blocksShifting = blocksShifting + 1
+			-- blocks[i].translatorFunction = walk
+			blocks[i].finishFunction = blockStop
 		end
 	end
+	
+	ping(blocksShifting)
 end
 
 function shiftBlocks(dt)
@@ -116,15 +122,17 @@ function shiftBlocks(dt)
 	
 	-- blocks[1].translatorFunction(blocks[1], dt) -- TODO can you use : or class notation somehow? hm
 	for i=1,#blocks do
-		local xDelta = (blocks[i].targetPos.x - blocks[i].currentPos.x) * blocks[i].speed * dt
-		local yDelta = (blocks[i].targetPos.y - blocks[i].currentPos.y) * blocks[i].speed * dt
+		if blocks[i].color == colorControlled then
+			local xDelta = (blocks[i].targetPos.x - blocks[i].currentPos.x) * blocks[i].speed * dt
+			local yDelta = (blocks[i].targetPos.y - blocks[i].currentPos.y) * blocks[i].speed * dt
 
-		decrementDistanceFromTarget(blocks[i], math.abs(xDelta) + math.abs(yDelta))
-		blocks[i].screenPos.x = blocks[i].screenPos.x + xDelta
-		blocks[i].screenPos.y = blocks[i].screenPos.y + yDelta
+			decrementDistanceFromTarget(blocks[i], math.abs(xDelta) + math.abs(yDelta))
+			blocks[i].screenPos.x = blocks[i].screenPos.x + xDelta
+			blocks[i].screenPos.y = blocks[i].screenPos.y + yDelta
 
-		if blocks[i].distanceFromTarget <= 0 then
-			blocks[i]:stop()
+			if blocks[i].distanceFromTarget <= 0 then
+				blocks[i]:stop()
+			end
 		end
 	end
 end

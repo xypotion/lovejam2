@@ -13,6 +13,8 @@ images = {
 	stillActors = {love.graphics.newImage("img/sprites1.png")},
 	blocks = {
 		green = love.graphics.newImage("img/block.png"),
+		blue = love.graphics.newImage("img/blockB.png"),
+		cyan = love.graphics.newImage("img/blockC.png"),
 	},
 	-- marble = {
 	-- 	love.graphics.newImage("img/marble1.png"),
