@@ -70,12 +70,21 @@ eventDataRaw = {
 		}
 	},
 	{
-		name = "doorTo2",
+		name = "doorTo3",
 		sc = {category="stillActors", image=1, quadId=3},
 		collide = true,
 		interactionBehavior = {
 			choose, {"Leave room?", {"No", 1}, {"Yes",0}},
 			warp,{wid=3,mx=5,my=7,facing="n"}
+		}
+	},
+	{
+		name = "doorTo2",
+		sc = {category="stillActors", image=1, quadId=4},
+		collide = true,
+		interactionBehavior = {
+			choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+			warp,{wid=2,mx=5,my=7,facing="s"}
 		}
 	},
 	

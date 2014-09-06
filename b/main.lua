@@ -11,8 +11,8 @@ require "sidebar"
 require "menuStack"
 
 require "Menu"
--- require "Menu2D"
--- require "MapMenu"
+require "Menu1D"
+require "ResetMenu"
 require "Block"
 
 require "script/saveLoader"
@@ -230,6 +230,10 @@ function love.keypressed(key)
 				else
 					colorControlled = colorControlled % #controllableColors + 1
 				end
+			end
+			
+			if key == "r" then
+				Menu.add(ResetMenu)
 			end
 			
 		elseif textScrolling then --if not else'd off the above, bad things happen. i don't love this here, but it works for now

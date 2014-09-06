@@ -121,10 +121,10 @@ function makeQuads()
 	
 	qs = {1,1,4,4}
 	quadSets.stillActors = {
-		{quadAt(0,0,qs)}, --1:map
-		{quadAt(1,0,qs)}, --2:rock
-		{quadAt(2,0,qs)}, --3:hole
-		{quadAt(0,1,qs)}, --4:gold
+		{quadAt(0,0,qs)},
+		{quadAt(1,0,qs)},
+		{quadAt(2,0,qs)}, --3:door
+		{quadAt(3,1,qs)}, --4:door top
 		{quadAt(1,1,qs)}, --5:sign
 	}
 	qs = {1,1,2,1}
@@ -132,38 +132,37 @@ function makeQuads()
 	
 	qs = {1,1,4,4}
 	mapTileQuads = { --TODO integrate into quadSets
-		quadAt(0,0,qs), --1: grass
-		quadAt(0,1,qs), --2: flower
-		-- {quadAt(0,0,qs), quadAt(1,0,qs)}, --3: water
-		quadAt(0,2,qs), --4: light dirt
-		quadAt(0,3,qs), --5: dark dirt
-		quadAt(0,3,qs), --6: stone
-		quadAt(1,3,qs), --7: daarkness
+		quadAt(0,0,qs), --1: black
+		quadAt(0,1,qs), --2: floor
+		quadAt(0,2,qs), --3: high wall with door
+		quadAt(0,3,qs), --4: bottom wall with door
+		quadAt(1,0,qs), --5: top wall
+		-- quadAt(1,3,qs), --7: daarkness
 	}
-
-	qs = {1,1,8,1}
-	quadSets.swirl = {
-		{
-			quadAt(0,0,qs),
-			quadAt(1,0,qs),
-			quadAt(2,0,qs),
-			quadAt(3,0,qs),
-			quadAt(4,0,qs),
-			quadAt(5,0,qs),
-			quadAt(6,0,qs),
-			quadAt(7,0,qs),
-		}
-	}
-
-	qs = {1,1,4,1}
-	quadSets.event = {
-		{
-			quadAt(0,0,qs),
-			quadAt(1,0,qs),
-			quadAt(2,0,qs),
-			quadAt(3,0,qs),
-		}
-	}
+	--
+	-- qs = {1,1,8,1}
+	-- quadSets.swirl = {
+	-- 	{
+	-- 		quadAt(0,0,qs),
+	-- 		quadAt(1,0,qs),
+	-- 		quadAt(2,0,qs),
+	-- 		quadAt(3,0,qs),
+	-- 		quadAt(4,0,qs),
+	-- 		quadAt(5,0,qs),
+	-- 		quadAt(6,0,qs),
+	-- 		quadAt(7,0,qs),
+	-- 	}
+	-- }
+	--
+	-- qs = {1,1,4,1}
+	-- quadSets.event = {
+	-- 	{
+	-- 		quadAt(0,0,qs),
+	-- 		quadAt(1,0,qs),
+	-- 		quadAt(2,0,qs),
+	-- 		quadAt(3,0,qs),
+	-- 	}
+	-- }
 	
 	quadSets.marble = quadSets.swirl
 	

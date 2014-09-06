@@ -15,6 +15,7 @@ function startWarpTo(wmc) --"world + map coordinates"
 	--set destination
 	-- worldDest = {x=wmc.wx,y=wmc.wy}
 	nextMap = getMap(wmc.wid)
+	nextMap.warpDrop = wmc
 	
 	ping(nextMap)
 	ping("PING "..wmc.wid)

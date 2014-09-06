@@ -13,7 +13,7 @@ function Block:_init(color, pos)
 	-- self.targetColor = "cyan"
 	-- self.targetImageOpacity = 0
 
-	self.currentPos = self.currentPos or pos or {x=2,y=3}
+	self.currentPos = self.currentPos or pos or {x=12,y=4}
 	self.targetPos = nil--{x=self.currentPos.x,y=self.currentPos.y}
 	
 	self.screenPos = {}

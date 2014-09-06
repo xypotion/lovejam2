@@ -22,8 +22,8 @@ function Menu:_init(pos, width, height)
 end
 
 function Menu:draw()
-	love.graphics.setColor(31,31,31,223)
-	love.graphics.rectangle("fill", self.pos.x, self.pos.y, self.width, self.height)
+	-- love.graphics.setColor(31,31,31,223)
+	-- love.graphics.rectangle("fill", self.pos.x, self.pos.y, self.width, self.height)
 	
 	love.graphics.setColor(255,255,255,255)
 	love.graphics.print("GENERIC MENU; DO NOT INSTANTIATE",10,10)
