@@ -12,6 +12,7 @@ require "menuStack"
 
 require "Menu"
 require "Menu1D"
+require "TitleMenu"
 require "ResetMenu"
 require "Block"
 
@@ -55,7 +56,8 @@ function love.load()
 	
 	controllingBlocks = false
 	
-	startScript(behaviorsRaw.start)
+	HUDOpacity = 0
+	startScript(behaviorsRaw.title)
 end
 
 function love.update(dt)
@@ -154,12 +156,12 @@ function love.draw()
 	end
 	
 	if controllingBlocks then
-		love.graphics.setColor(255, 255, 255, 191)
+		love.graphics.setColor(255, 255, 255, HUDOpacity)
 		love.graphics.draw(images.blocks[controllableColors[colorControlled]], quadSets.block[1], screenWidth - tileSize * 2, screenHeight - tileSize * 3)
 		love.graphics.draw(images.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
 		-- ping("remote")
 	else
-		love.graphics.setColor(255, 255, 255, 63)
+		love.graphics.setColor(255, 255, 255, HUDOpacity)
 		love.graphics.draw(images.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
 	end 		
 	
@@ -222,6 +224,8 @@ function love.keypressed(key)
 			
 			if key == "return" then
 				controllingBlocks = not controllingBlocks
+				HUDOpacity = 191
+				if not controllingBlocks then HUDOpacity = 63 end
 			end
 			
 			if key == "tab" and controllingBlocks then

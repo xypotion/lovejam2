@@ -6,6 +6,13 @@ function Menu1D:_init(...)
 	-- tablePrint(self.cursor)
 	
 	-- self.options = {{1,2},{3,4}} --TODO why?
+	self.pos.y = 10--(yLen - 3) * tileSize
+	self.pos.x = 10
+end
+
+function Menu1D:drawCursor()
+	love.graphics.setColor(255,255,255,255)
+	love.graphics.draw(arrowImage, self.cursor.screenPos.x, self.cursor.screenPos.y + (self.cursor.pos.y + 0) * 21 * zoom, 0, zoom/12, zoom/12)
 end
 
 function Menu1D:keyPressed(key)
@@ -21,6 +28,14 @@ function Menu1D:keyPressed(key)
 	end
 	
 	self:updateCursorScreenPos()
+end
+
+function Menu1D:updateCursorScreenPos()
+	-- m = menuStack[#menuStack]
+	self.cursor.screenPos = self.cursor.screenPos or {} --in case it's unset
+	
+	self.cursor.screenPos.x = self.pos.x + self.cursor.pos.x * self.cursor.screenPosDelta.x * zoom
+	self.cursor.screenPos.y = (self.pos.y + (self.cursor.pos.y - 1) * self.cursor.screenPosDelta.y - 4) * zoom
 end
 
 function Menu1D:up()

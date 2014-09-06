@@ -29,7 +29,7 @@ mapDataRaw = {
 		startAt = {x=8,y=3,default=1},
 		localActorPointers = {
 			{x=8,y=5,id=1},
-			{x=13,y=2,id=2}
+			{x=10,y=3,id=2}
 		},
 		warpDrop = {wid=1,mx=10,my=5,facing="s"}
 	},
@@ -69,5 +69,17 @@ mapDataRaw = {
 					{x=8,y=5,id=1},
 					-- {x=13,y=2,id=2}
 		}
-	}
+		},
+	--4
+	{
+		tileData = {{1}}, 
+		startAt = {x=1,y=1,default=1},
+		localActorPointers = {}
+		-- 	-- {x=8,y=5,id=1},
+		-- 	{x=3,y=2,id=2},
+		-- 	{x=2,y=6,id=3}
+		-- }
+	},
 }
+
+numberOfMaps = #mapDataRaw

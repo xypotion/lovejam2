@@ -21,10 +21,14 @@ math.randomseed(os.time())
 ]]
 
 behaviorsRaw = {
+	title = {
+		addMenu, TitleMenu
+	},
 	start = {
-		skip,3,
-		fadeOut, 0.5,
-		fadeIn, 0.5,
+		-- skip,3,
+		-- fadeOut, 0.5,
+		-- fadeIn, 0.5,
+		warp, {wid=1,mx=5,my=7,facing="w"},
 		think, "BEGIN",
 		makeBlock_, "green",
 	},

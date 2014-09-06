@@ -4,7 +4,6 @@ require "script/mapTileDataRaw"
 
 function loadWorld()
 	world = {}
-	numberOfMaps = 3
 	
 	-- TODO use actual dimensions of world map. worldSize or whatever
 	-- TODO you keep thinking about Z positions for non-overworld maps, too. just implement it already!	--

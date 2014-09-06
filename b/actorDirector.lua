@@ -29,14 +29,14 @@ function fadeInTranslator(actor, dt)
 	decrementDistanceFromTarget(actor,dt)
 	blackOverlayOpacity = actor.distanceFromTarget * 511 
 	if blackOverlayOpacity < 0 then blackOverlayOpacity = 0 end
-	print(blackOverlayOpacity)
+	-- print(blackOverlayOpacity)
 end
 
 function fadeOutTranslator(actor, dt)
 	decrementDistanceFromTarget(actor,dt)
 	blackOverlayOpacity = 255 - actor.distanceFromTarget * 511
 	if blackOverlayOpacity > 255 then blackOverlayOpacity = 255 end
-	print(blackOverlayOpacity)
+	-- print(blackOverlayOpacity)
 end
 
 function walk(actor, dt)
