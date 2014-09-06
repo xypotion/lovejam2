@@ -65,13 +65,22 @@ behaviorsRaw = {
 eventDataRaw = {
 	--1:
 	{
-		name = "PAPER1",
-		sc = {category="stillActors", image=1, quadId=1},
+		sc = {category="characters", image="elf", quadId=1},
+		name = "elf",
+		complex = true, --TODO MAYBE slip into sc or sc.quadId instead of making separate? more concise, less redundant/confusing...
 		collide = true,
 		interactionBehavior = {
-			say, "Sure is a heavy rock!",
-			think, {"(lorem ipsum dolor sit amet.\n lorem ipsum dolor sit amet.\n  lorem ipsum dolor sit amet.\n   lorem ipsum....)","But it seems fishy!"}
-		}
+			shock_, "elf",
+			shock_, "hero",
+			scorePlus_, 10,
+			wait, 0.5,
+			noEmote_, "elf",
+			noEmote_, "hero",
+			say, "Hello!",
+			scorePlus_, 11,
+			scorePlus_, 12,
+			say, {"Today my favorite number is "..math.random(1,100)..".", "I love it so much!"},
+			scorePlus_, 5}
 	},
 	{
 		name = "doorTo3",
@@ -82,6 +91,7 @@ eventDataRaw = {
 			warp,{wid=3,mx=5,my=7,facing="n"}
 		}
 	},
+	--3
 	{
 		name = "doorTo5",
 		sc = {category="stillActors", image=1, quadId=4},
@@ -91,6 +101,38 @@ eventDataRaw = {
 			warp,{wid=5,mx=3,my=7,facing="s"}
 		}
 	},
+	--4
+	{
+		name = "doorTo1a",
+		sc = {category="stillActors", image=1, quadId=3},
+		collide = true,
+		interactionBehavior = {
+			choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+			warp,{wid=1,mx=11,my=8,facing="n"}
+		}
+	},
+}
+
+--notes
+eventDataRaw[1001] = {
+	name = "notes 1",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		say, "Recovered Research Notes 1!",
+		collect_, "notes 1",
+	}
+}
+eventDataRaw[2001] = {
+	name = "notes 1",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = true,
+	interactionBehavior = {
+		say, "Research Notes 1, got 'em.",
+	}
+}
 	
 	-- {
 	-- 	sc = {category="stillActors", image=1, quadId=3},
@@ -268,4 +310,4 @@ eventDataRaw = {
 	-- 		Menu.scadd, MapMenu
 	-- 	}
 	-- },
-}
+-- }

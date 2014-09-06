@@ -170,6 +170,11 @@ function vanish_(name)
 	return true
 end
 
+function collect_(name)
+	progress[name] = true
+	return vanish_(name)
+end
+
 -- obvs for testing, but who knows? might morph into incrementProgress() or something in final game. :)
 function scorePlus_(amt)
 	score = score + amt

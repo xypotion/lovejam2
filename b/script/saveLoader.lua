@@ -3,6 +3,10 @@
 -- TODO actually save & load files here! just kinda hard-coded playtesting data for now
 
 function loadSaveData()
+	newGame()
+end
+
+function newGame()
 	worldPos = 4--{x=1,y=1}
 	-- worldPos = 1--{x=1,y=1}
 	
@@ -16,6 +20,8 @@ function loadSaveData()
 		textSpeed = 60,
 		anyKeyAdvancesText = true,
 	}
+	
+	progress = {}
 
 	colorControlled = 1
 	controllableColors = {R,G,B,C,M,Y,W}

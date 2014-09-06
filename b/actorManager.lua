@@ -57,12 +57,21 @@ function loadLocalActors()
 	
 	-- print ("loadLocalActors")
 	
+	tablePrint(progress)
+	
 	--load 'em
 	for i,ePointer in pairs(currentMap.localActorPointers) do
-		la = loadLocalActor(ePointer)
-		localActors[i] = la
+		-- ping(ePointer.name)
+-- 		print(ePointer.appearIfCollected == true and progress[ePointer.name])
+-- 		print(ePointer.appearIfCollected == false and not progress[ePointer.name])
+-- 		print(ePointer.appearIfCollected == nil)
+-- tablePrint(ePointer)
 		
-		setActorXY(la)
+			la = loadLocalActor(ePointer)
+			localActors[i] = la
+		
+			setActorXY(la)
+		-- end
 		
 		-- print(i.."'s x, y = "..la.currentPos.x..", "..la.currentPos.y)
 	end

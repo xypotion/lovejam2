@@ -29,7 +29,7 @@ mapDataRaw = {
 		},
 		startAt = {x=8,y=3,default=1},
 		localActorPointers = {
-			{x=8,y=5,id=1},
+			{x=8,y=5,id=2001},
 			{x=10,y=3,id=2},
 			{x=11,y=9,id=3}
 		},
@@ -98,8 +98,8 @@ mapDataRaw = {
 		},
 		blocksAt = {x=5,y=8},
 		localActorPointers = {
-			{x=3,y=6,id=2}, -- exit
-			{x=12,y=7,id=1},
+			{x=3,y=6,id=4}, -- exit
+			{x=12,y=7,id=1001},
 			-- and a friend to rescue
 		}
 	},

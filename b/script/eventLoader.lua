@@ -27,6 +27,12 @@ function loadLocalActor(pointer) --contains x, y, and id
 	end
 	
 	e.currentPos = {x=pointer.x, y=pointer.y}
+		
+	if e.appearIfCollected == true and not progress[e.name] or
+		e.appearIfCollected == false and progress[e.name]
+	then
+		e.currentPos.y = -1000
+	end
 	
 	return e
 end
