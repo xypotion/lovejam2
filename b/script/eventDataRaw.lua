@@ -28,7 +28,7 @@ behaviorsRaw = {
 		-- skip,3,
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
-		warp, {wid=1,mx=5,my=7,facing="w"},
+		warp, {wid=1,mx=12,my=7,facing="w"},
 		think, "BEGIN",
 		makeBlock_, "green",
 	},
@@ -65,8 +65,8 @@ behaviorsRaw = {
 eventDataRaw = {
 	--1:
 	{
-		name = "rock1",
-		sc = {category="stillActors", image=1, quadId=2},
+		name = "PAPER1",
+		sc = {category="stillActors", image=1, quadId=1},
 		collide = true,
 		interactionBehavior = {
 			say, "Sure is a heavy rock!",
@@ -83,12 +83,12 @@ eventDataRaw = {
 		}
 	},
 	{
-		name = "doorTo2",
+		name = "doorTo5",
 		sc = {category="stillActors", image=1, quadId=4},
 		collide = true,
 		interactionBehavior = {
 			choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-			warp,{wid=2,mx=5,my=7,facing="s"}
+			warp,{wid=5,mx=3,my=7,facing="s"}
 		}
 	},
 	

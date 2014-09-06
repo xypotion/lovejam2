@@ -25,14 +25,17 @@ mapDataRaw = {
 			{2,2,2,2,2},
 			{2,2,2,2,2},
 			{2,2,2,2,2},
+			{1,1,1,4,1}
 		},
 		startAt = {x=8,y=3,default=1},
 		localActorPointers = {
 			{x=8,y=5,id=1},
-			{x=10,y=3,id=2}
+			{x=10,y=3,id=2},
+			{x=11,y=9,id=3}
 		},
 		warpDrop = {wid=1,mx=10,my=5,facing="s"}
 	},
+	--2
 	{
 		tileData = {
 			{3,3,3,3},
@@ -70,16 +73,37 @@ mapDataRaw = {
 					-- {x=13,y=2,id=2}
 		}
 		},
-	--4
+	--4, "blank"
 	{
 		tileData = {{1}}, 
 		startAt = {x=1,y=1,default=1},
 		localActorPointers = {}
-		-- 	-- {x=8,y=5,id=1},
-		-- 	{x=3,y=2,id=2},
-		-- 	{x=2,y=6,id=3}
-		-- }
 	},
+	--5: first real puzzle room
+	{
+		tileData = {
+			{3,3,3,1,1,1,1,1,1,3,3,3},
+			{2,2,2,3,3,3,3,3,3,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2}
+		}, 
+		startAt = {x=2,y=6,default=1},
+		blocks = {
+			{R,R,R,K,K,C},
+			{C,Y,M,K,K},
+			{B,B,B,K,K,M},
+			{G,G,G,K,K,K},
+		},
+		blocksAt = {x=5,y=8},
+		localActorPointers = {
+			{x=3,y=6,id=2}, -- exit
+			{x=12,y=7,id=1},
+			-- and a friend to rescue
+		}
+	},
+	
 }
 
 numberOfMaps = #mapDataRaw

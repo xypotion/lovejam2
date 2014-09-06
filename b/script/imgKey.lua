@@ -121,7 +121,7 @@ function makeQuads()
 	
 	qs = {1,1,4,4}
 	quadSets.stillActors = {
-		{quadAt(0,0,qs)},
+		{quadAt(0,0,qs)}, -- door
 		{quadAt(1,0,qs)},
 		{quadAt(2,0,qs)}, --3:door
 		{quadAt(3,1,qs)}, --4:door top

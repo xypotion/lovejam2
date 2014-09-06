@@ -23,7 +23,7 @@ function initWindowStates()
 	
 	updateWindowStateSettings()
 	
-  love.window.setTitle('<clever name here>')
+  love.window.setTitle('Gigapixel Meltdown')
 end
 
 function updateWindowStateSettings()
