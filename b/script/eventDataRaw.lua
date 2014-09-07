@@ -25,39 +25,58 @@ behaviorsRaw = {
 		addMenu, TitleMenu
 	},
 	start = {
-		-- skip,3,
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
 		warp, {wid=1,mx=12,my=7,facing="w"},
-		think, "BEGIN",
+		-- skip,3,
+		think, {"An experiment has gone awry and your lab is"
+			.."\noverrun with digital matter!",
+			"You will need to move and fuse gigapixels"
+			.."\nto find your research notes and escape the lab"
+			.."\nsafely.",
+			"Press RETURN to activate gigapixel control."
+			.."\nWASD and the arrow keys allow you to move"
+			.."\nthem out of your way.", 
+			"When manipulating digital matter, all gigapixels"
+			.."\nof the same type will move as one. However, not all"
+			.."\ntypes can be controlled. Press TAB to cycle through"
+			.."\ncontrollable colors.",
+			"Press SPACE to open doors inspect objects."
+			.."\nWASD and the arrow keys let you walk around.", 
+			},
+		say, "I have to find my research notes and get out of here!",
 		makeBlock_, "green",
 	},
 	blocks = {
 		green = {
-			say, "IT'S GREEN!",
-			say, "BE CAREFUL!"
+			say, "A green gigapixel. I think this can be fused with\nblue or red digital matter to make cyan or yellow."
+			.."\nIt also fuses with magenta, resulting in white\ndigital matter."
 		},
 		blue = {
-			say, "IT'S BLUE!",
-			say, "BE COOL!"
+			say, "A blue gigapixel. I think this can be fused with\ngreen or red matter to make cyan or magenta."
+			.."\nIt also fuses with yellow, resulting in white\ndigital matter."
 		},
 		red = {
-			say, "whatever."
+			say, "A red gigapixel. I think this can be fused with\nblue or green matter to make magenta or yellow."
+			.."\nIt also fuses with cyan, resulting in white\ndigital matter."
 		},
 		cyan = {
-			say, "whatever."
+			say, "A cyan gigapixel. Hm, I think this can only be fused\nwith red, which makes white digital matter."
 		},
 		magenta = {
-			say, "whatever."
+			say, "A magenta gigapixel. Hm, I think this can only be fused\nwith green, which makes white digital matter."
 		},
 		yellow = {
-			say, "whatever."
+			say, "A yellow gigapixel. Hm, I think this can only be fused\nwith blue, which makes white digital matter."
 		},
 		white = {
-			say, "whatever."
+			say, "Oh, a white gigapixel! This is the only kind of\ndigital matter that can fuse with black. White"
+			.."\ncan actually fuse with any color, which is useful,\nbut it's still just as dangerous as any other kind.",
 		},
 		black = {
-			say, "whatever."
+			say, "Hm, black digital matter... not only can I not control\nit with my remote, but there's only one kind of"
+			.."\ndigital matter that will fuse with it.",
+			say, "This anomaly will require more research."
 		},
 	},
 }
@@ -113,6 +132,26 @@ eventDataRaw = {
 	},
 }
 
+--doors
+eventDataRaw[305] = {
+	name = "doorTo5",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=5,mx=3,my=7,facing="s"}
+	}
+}
+eventDataRaw[355] = {
+	name = "doorFrom5",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=1,mx=11,my=8,facing="n"}
+	}
+}
+
 --notes
 eventDataRaw[1001] = {
 	name = "notes 1",
@@ -120,10 +159,10 @@ eventDataRaw[1001] = {
 	collide = true,
 	appearIfCollected = false,
 	interactionBehavior = {
-		say, "Recovered Research Notes 1!",
 		collect_, "notes 1",
+		say, "Recovered Research Notes 1!",
 	}
-}
+	} -- notes 1 pickup
 eventDataRaw[2001] = {
 	name = "notes 1",
 	sc = {category="stillActors", image=1, quadId=1},
@@ -131,6 +170,44 @@ eventDataRaw[2001] = {
 	appearIfCollected = true,
 	interactionBehavior = {
 		say, "Research Notes 1, got 'em.",
+	}
+	} -- notes 1 displayed at base
+eventDataRaw[1002] = {
+	name = "notes 2",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		collect_, "notes 2",
+		say, "Recovered Research Notes 2!",
+	}
+}
+eventDataRaw[2002] = {
+	name = "notes 2",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = true,
+	interactionBehavior = {
+		say, "Research Notes 2, got 'em.",
+	}
+}
+eventDataRaw[1003] = {
+	name = "notes 3",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		collect_, "notes 3",
+		say, "Recovered Research Notes 3!",
+	}
+}
+eventDataRaw[2003] = {
+	name = "notes 3",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = true,
+	interactionBehavior = {
+		say, "Research Notes 3, got 'em.",
 	}
 }
 	

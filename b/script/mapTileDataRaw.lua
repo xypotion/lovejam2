@@ -31,7 +31,7 @@ mapDataRaw = {
 		localActorPointers = {
 			{x=8,y=5,id=2001},
 			{x=10,y=3,id=2},
-			{x=11,y=9,id=3}
+			{x=11,y=9,id=305}
 		},
 		warpDrop = {wid=1,mx=10,my=5,facing="s"}
 	},
@@ -98,12 +98,11 @@ mapDataRaw = {
 		},
 		blocksAt = {x=5,y=8},
 		localActorPointers = {
-			{x=3,y=6,id=4}, -- exit
+			{x=3,y=6,id=355}, -- exit
 			{x=12,y=7,id=1001},
 			-- and a friend to rescue
 		}
 	},
-	
 }
 
 numberOfMaps = #mapDataRaw
