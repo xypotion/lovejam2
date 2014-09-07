@@ -1,38 +1,54 @@
--- loads all progress-related data
-
--- TODO actually save & load files here! just kinda hard-coded playtesting data for now
+function saveData()
+	love.filesystem.write("gigapixel.save", "nothing")
+	
+	for k,v in pairs(progress) do
+	-- for k,v in pairs({what=true,the=true,fuck=false,duck=true}) do
+		if v then
+			love.filesystem.append("gigapixel.save", "\n"..k)
+		end
+	end
+end
 
 function loadSaveData()
-	newGame()
+	progress = {}
+	for line in love.filesystem.lines("gigapixel.save") do		
+		progress[line] = true
+	end
+	progress["items collected:"] = nil
+	-- tablePrint(progress)
+
+	--TODO
+	colorControlled = 1
+	controllableColors = {R,G,B,C,M,Y,W}
+	
+	finishLoadingGame()
+	
+	startScript(behaviorsRaw.resume)
 end
 
 function newGame()
-	worldPos = 4--{x=1,y=1}
-	-- worldPos = 1--{x=1,y=1}
+	progress = {}
+
+	colorControlled = 1
+	controllableColors = {R,G,B,C,M,Y,W}
 	
-	heroGridPos = {x=100,y=5}
-	-- heroGridPos = {x=10,y=5}
+	saveData()
 	
-	facing = "s" -- for south
+	finishLoadingGame()
 	
+	startScript(behaviorsRaw.start)
+end
+
+function finishLoadingGame()
 	--great for defaults; can use "or" when loading if they are set?
 	playerSettings = {
 		textSpeed = 60,
 		anyKeyAdvancesText = true,
 	}
 	
-	progress = {}
-
-	colorControlled = 1
-	controllableColors = {R,G,B,C,M,Y,W}
-	
 	windowState = 1
 	
-	-- derp derp
-	-- storyProgress = 0
 	score = 0
-	
-	rockTriggered = false
 	
 	--TODO load/create world here?
 end

@@ -18,17 +18,16 @@ end
 function TitleMenu:draw()
 	-- print("drawing!")	
 	love.graphics.setColor(255,255,255,255)
-	love.graphics.print("\n     Continue\n     New Game (progress will be lost)", self.pos.x * zoom, self.pos.y * zoom, 0, zoom, zoom)
+	love.graphics.print("\n     Continue from last autosave\n     New game (progress will be lost)", self.pos.x * zoom, self.pos.y * zoom, 0, zoom, zoom)
 end
 
 function TitleMenu:confirm()
 	if self:choice() == "Continue" then
-		--
+		loadSaveData()
 	elseif self:choice() == "New Game" then
-		--
+		newGame()
 	end
 	self:remove()
-	startScript(behaviorsRaw.start)
 end
 
 function TitleMenu:cancel()

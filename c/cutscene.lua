@@ -172,6 +172,7 @@ end
 
 function collect_(name)
 	progress[name] = true
+	saveData()
 	return vanish_(name)
 end
 

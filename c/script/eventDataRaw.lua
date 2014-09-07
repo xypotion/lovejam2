@@ -18,11 +18,17 @@ math.randomseed(os.time())
 	interactionBehavior = interactionBehaviorsRaw[1] -- can also have shortcuts like so (TODO)
 	idleBehavior = {} -- still need TODO this :)
 	--that's it!
-]]
+]] --TODO update this? lol
 
 behaviorsRaw = {
 	title = {
 		addMenu, TitleMenu
+	},
+	resume = {
+		-- fadeOut, 0.5,
+		-- fadeIn, 0.5,
+		warp, {wid=1,mx=12,my=7,facing="s"},
+		say, "I have to find my research notes and get out of here!\nNow, where was I?",
 	},
 	start = {
 		-- fadeOut, 0.5,
@@ -46,7 +52,7 @@ behaviorsRaw = {
 			"You can also press R to reset any room."
 			.."\nGood luck!", 
 			},
-		say, "I have to find my research notes and get out of here!",
+		say, "I have to collect my notes and get out of here!",
 		makeBlock_, "green",
 	},
 	blocks = {
@@ -140,6 +146,7 @@ eventDataRaw = {
 		collide = true,
 		interactionBehavior = {
 			say, {"You got them all! Good job!", "Thanks for playtesting. :)\n -- Max"},
+			saveData, nil,
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
 		}
 	}

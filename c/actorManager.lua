@@ -57,7 +57,7 @@ function loadLocalActors()
 	
 	-- print ("loadLocalActors")
 	
-	tablePrint(progress)
+	-- tablePrint(progress)
 	
 	--load 'em
 	for i,ePointer in pairs(currentMap.localActorPointers) do

@@ -24,11 +24,16 @@ require "script/imgKey"
 --TODO quite possibly better to use dofile() instead of require for large script files
 
 function love.load()
-	loadSaveData() -- just the data values, not applying/drawing anything
+	-- loadSaveData() -- just the data values, not applying/drawing anything
 	
 	--TODO put these somewhere else
 	yLen = 15
 	xLen = 15
+	windowState = 1
+	worldPos = 4
+	heroGridPos = {x=100,y=5}
+	facing = "s"
+	
 	initWindowStates()
 	
 	-- initialize and load data
@@ -57,7 +62,11 @@ function love.load()
 	controllingBlocks = false
 	
 	HUDOpacity = 0
+	
+	--real startup stuff, basically just to support title menu
 	startScript(behaviorsRaw.title)
+	
+	-- saveData()
 end
 
 function love.update(dt)
@@ -247,7 +256,7 @@ function love.keypressed(key)
 	
 		--shh! TODO remove
 		if key == "0" and love.keyboard.isDown("3") then
-			score = score + 1
+			-- score = score + 1
 			-- return
 			progress["notes 1"] = true
 			progress["notes 2"] = true
