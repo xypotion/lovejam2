@@ -34,6 +34,20 @@ function loadLocalActor(pointer) --contains x, y, and id
 		e.currentPos.y = -1000
 	end
 	
+	if e.appearsIfAllCollected then
+		tablePrint(e.appearsIfAllCollected)
+		ping("and prgoressds:")
+		tablePrint(progress)
+		local appears = true
+		for i=1, #(e.appearsIfAllCollected) do
+			appears = appears and progress[e.appearsIfAllCollected[i]]
+		end
+		
+		if not appears then
+			e.currentPos.y = -1000
+		end
+	end
+	
 	return e
 end
 

@@ -43,6 +43,8 @@ behaviorsRaw = {
 			.."\ncontrollable colors.",
 			"Press SPACE to open doors inspect objects."
 			.."\nWASD and the arrow keys let you walk around.", 
+			"You can also press R to reset any room."
+			.."\nGood luck!", 
 			},
 		say, "I have to find my research notes and get out of here!",
 		makeBlock_, "green",
@@ -130,6 +132,17 @@ eventDataRaw = {
 			warp,{wid=1,mx=11,my=8,facing="n"}
 		}
 	},
+	--5
+	{
+		name = "victory sign",
+		sc = {category="stillActors", image=1, quadId=5},
+		appearsIfAllCollected = {"notes 1", "notes 2", "notes 3"},
+		collide = true,
+		interactionBehavior = {
+			say, {"You got them all! Good job!", "Thanks for playtesting. :)\n -- Max"},
+			-- warp,{wid=1,mx=11,my=8,facing="n"}
+		}
+	}
 }
 
 --doors

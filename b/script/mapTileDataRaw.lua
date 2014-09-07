@@ -34,7 +34,8 @@ mapDataRaw = {
 			{x=8,y=7,id=2003},
 			{x=10,y=3,id=307},
 			{x=11,y=9,id=305},
-			{x=9,y=9,id=306}
+			{x=9,y=9,id=306},
+			{x=12,y=6,id=5}
 		},
 		warpDrop = {wid=1,mx=10,my=5,facing="s"}
 	},

@@ -248,7 +248,10 @@ function love.keypressed(key)
 		--shh! TODO remove
 		if key == "0" and love.keyboard.isDown("3") then
 			score = score + 1
-			return
+			-- return
+			progress["notes 1"] = true
+			progress["notes 2"] = true
+			progress["notes 3"] = true
 		end
 	end
 end
