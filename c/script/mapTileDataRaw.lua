@@ -219,17 +219,48 @@ mapDataRaw = {
 		blocks = {
 			{Y,Y,C,M,C,Y,C},
 			{X},
-			{C,Y,M,M,M,M,Y},
+			{C,M,Y,X,M,M,Y},
 			{X},
-			{M,C,Y,Y,C,C,M}
+			{M,Y,C,Y,C,C,M}
 		},
 		blocksAt = {x=2,y=6},
 		localActorPointers = {
 			{x=9,y=12,id=358}, -- exit
 			{x=4,y=6,id=1004},
+			{x=5,y=8,id=6},
 		}
 	},
 	--10: puzzle; a cache of white blocks that have to be used to copy RGB blocks in order to clear a large CMY hedge :)
+	{
+		tileData = {
+			{3,3,3,3,3,3,3,3},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,6,2,6,2,6,2,6},
+			{2,2,2,2,2,2,2,2},
+			{6,2,6,2,6,2,6,2},
+			{2,2,2,2,2,2,2,2},
+			{2,6,2,6,2,6,2,6},
+			{2,2,2,2,2,2,2,2},
+		}, 
+		startAt = {x=2,y=4,default=1},
+		blocks = {
+			{W,W,W,W,W,W,W,W},
+			{W,W,W,W,W,W,W,W},
+			{X,X,R,X,G,X,B},
+			{C,M,Y,C,M,Y,C,M},
+			{M,Y,C,M,Y,C,M,Y},
+			{Y,C,M,Y,C,M,Y,C},
+			{C,M,Y,C,M,Y,C,M},
+		},
+		blocksAt = {x=2,y=6},
+		localActorPointers = {
+			{x=9,y=12,id=358}, -- exit
+			{x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
 	--11: puzzle; a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction?
 }
 

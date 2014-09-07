@@ -137,6 +137,7 @@ function makeQuads()
 		quadAt(0,2,qs), --3: high wall with door
 		quadAt(0,3,qs), --4: bottom wall with door
 		quadAt(1,0,qs), --5: top wall
+		quadAt(1,1,qs), --6: plant DUMMY
 		-- quadAt(1,3,qs), --7: daarkness
 	}
 	--

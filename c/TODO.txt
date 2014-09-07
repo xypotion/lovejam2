@@ -6,7 +6,7 @@ TODO in order of importance
 - audio
 	- collide, collect, door, stairs?, elevator?
   - bg music
-	* ability to pause music for cutscenes
+		* ability to pause music for cutscenes
 	- ending/title music?
 - sidebar that dustin suggested
   - OR just put a little key on the pause menu
