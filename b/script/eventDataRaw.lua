@@ -151,6 +151,42 @@ eventDataRaw[355] = {
 		warp,{wid=1,mx=11,my=8,facing="n"}
 	}
 }
+eventDataRaw[306] = {
+	name = "doorTo6",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=6,mx=5,my=3,facing="s"}
+	}
+}
+eventDataRaw[356] = {
+	name = "doorFrom6",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=1,mx=9,my=8,facing="n"}
+	}
+}
+eventDataRaw[307] = {
+	name = "doorTo7",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=7,mx=6,my=9,facing="n"}
+	}
+}
+eventDataRaw[357] = {
+	name = "doorFrom7",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=1,mx=10,my=4,facing="s"}
+	}
+}
 
 --notes
 eventDataRaw[1001] = {

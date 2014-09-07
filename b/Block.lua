@@ -111,7 +111,7 @@ function Block:stop()
 		self:setColorSpecificStuff()
 	end
 	
-	print("stop at", self.currentPos.x, self.currentPos.y)
+	-- print("stop at", self.currentPos.x, self.currentPos.y)
 end
 
 function Block:eliminate()
