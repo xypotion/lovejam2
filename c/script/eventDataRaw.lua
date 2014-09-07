@@ -204,7 +204,25 @@ eventDataRaw[357] = {
 	collide = true,
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=1,mx=10,my=4,facing="s"}
+		warp,{wid=1,mx=11,my=4,facing="s"}
+	}
+}
+eventDataRaw[308] = {
+	name = "doorTo8",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=8,mx=9,my=11,facing="n"}
+	}
+}
+eventDataRaw[358] = {
+	name = "doorFrom8",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=1,mx=9,my=4,facing="s"}
 	}
 }
 
@@ -264,6 +282,25 @@ eventDataRaw[2003] = {
 	appearIfCollected = true,
 	interactionBehavior = {
 		say, "Research Notes 3, got 'em.",
+	}
+}
+eventDataRaw[1004] = {
+	name = "notes 4",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		collect_, "notes 4",
+		say, "Recovered Research Notes 4!",
+	}
+}
+eventDataRaw[2004] = {
+	name = "notes 4",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = true,
+	interactionBehavior = {
+		say, "Research Notes 4, got 'em.",
 	}
 }
 	

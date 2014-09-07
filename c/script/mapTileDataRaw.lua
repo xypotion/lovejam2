@@ -31,8 +31,10 @@ mapDataRaw = {
 		localActorPointers = {
 			{x=8,y=5,id=2001},
 			{x=8,y=6,id=2002},
-			{x=8,y=7,id=2003},
-			{x=10,y=3,id=307},
+			{x=9,y=5,id=2003},
+			{x=9,y=6,id=2004},
+			{x=11,y=3,id=307},
+			{x=9,y=3,id=308},
 			{x=11,y=9,id=305},
 			{x=9,y=9,id=306},
 			{x=12,y=6,id=5}
@@ -106,7 +108,7 @@ mapDataRaw = {
 			{x=12,y=7,id=1001},
 		}
 	},
-	--6
+	--6: puzzle
 	{
 		tileData = {
 			{3,3,3,3},
@@ -135,7 +137,7 @@ mapDataRaw = {
 			{x=5,y=10,id=1002},
 		}
 	},
-	--7
+	--7: puzzle
 	{
 		tileData = {
 			{3,3,3,3,3,3,3},
@@ -161,6 +163,35 @@ mapDataRaw = {
 		localActorPointers = {
 			{x=6,y=10,id=357}, -- exit
 			{x=4,y=4,id=1003},
+		}
+	},
+	--8: puzzle
+	{
+		tileData = {
+			{3,3,3,3,3,3,3,1},
+			{2,2,2,2,2,2,2,3},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,4},
+		}, 
+		startAt = {x=2,y=4,default=1},
+		blocks = {
+			{X,K,K,K,K,K,},
+			{K,Y,X,K,X,G,K},
+			{K,X,C,K,M,X,K},
+			{K,K,K,W,K,K,K},
+			{K,X,M,K,C,X,K},
+			{K,G,X,K,X,Y,K},
+			{X,K,K,K,K,K},
+		},
+		blocksAt = {x=2,y=5},
+		localActorPointers = {
+			{x=9,y=12,id=358}, -- exit
+			{x=4,y=6,id=1004},
 		}
 	},
 }
