@@ -17,7 +17,8 @@ K = "black"
 X = nil
 
 mapDataRaw = {
-	{ -- start
+	--1: first hub
+	{
 		tileData = {
 			{3,3,3,3,3},
 			{2,2,2,2,2},
@@ -37,24 +38,31 @@ mapDataRaw = {
 			{x=9,y=3,id=308},
 			{x=11,y=9,id=305},
 			{x=9,y=9,id=306},
-			{x=12,y=6,id=5}
+			{x=12,y=6,id=5},
+			{x=12,y=5,id=212}
 		},
 		warpDrop = {wid=1,mx=10,my=5,facing="s"}
 	},
-	--2
+	--2: second hub
 	{
 		tileData = {
-			{3,3,3,3},
-			{2,2,2,2,3},
-			{2,2,2,2,2},
-			{2,2,2,2,2},
-			{4,1,4,1,4}
+			{1,1,1,3,3,3,3,3,3,3,3,1},
+			{1,1,3,2,2,2,2,2,2,2,2,3},
+			{1,1,2,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2,2},
+			{3,3,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2,2},
+			{1,1,1,2,2,2,2,2,2,2,2,1},
 		},
 		startAt = {x=2,y=2,default=1},
 		localActorPointers = {
 			-- {x=8,y=5,id=1},
-			{x=3,y=2,id=2},
-			{x=2,y=6,id=3}
+			-- {x=3,y=2,id=2},
+			{x=2,y=6,id=221},
+			{x=6,y=2,id=309}
 		}
 	},
 	--3
@@ -78,7 +86,7 @@ mapDataRaw = {
 					{x=8,y=5,id=1},
 					-- {x=13,y=2,id=2}
 		}
-		},
+	},
 	--4, "blank"
 	{
 		tileData = {{1}}, 
@@ -194,6 +202,35 @@ mapDataRaw = {
 			{x=4,y=6,id=1004},
 		}
 	},
+	--9: puzzle
+	{
+		tileData = {
+			{3,3,3,3,3,3,3,3},
+			{2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,3},
+			{2,2,2,2,2,2,2,2},
+			{1,1,1,1,1,1,1,4},
+		}, 
+		startAt = {x=2,y=4,default=1},
+		blocks = {
+			{Y,Y,C,M,C,Y,C},
+			{X},
+			{C,Y,M,M,M,M,Y},
+			{X},
+			{M,C,Y,Y,C,C,M}
+		},
+		blocksAt = {x=2,y=6},
+		localActorPointers = {
+			{x=9,y=12,id=358}, -- exit
+			{x=4,y=6,id=1004},
+		}
+	},
+	--10: puzzle; a cache of white blocks that have to be used to copy RGB blocks in order to clear a large CMY hedge :)
+	--11: puzzle; a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction?
 }
 
 numberOfMaps = #mapDataRaw

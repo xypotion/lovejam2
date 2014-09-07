@@ -153,6 +153,25 @@ eventDataRaw = {
 }
 
 --doors
+eventDataRaw[221] = {
+	name = "stairsTo1",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Head upstairs?", {"No", 1}, {"Yes",0}},
+		warp,{wid=1,mx=3,my=7,facing="s"}
+	}
+}
+eventDataRaw[212] = {
+	name = "stairsTo2",
+	-- appearsIfAllCollected = {"notes 1", "notes 2", "notes 3"}, TODO
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Head downstairs?", {"No", 1}, {"Yes",0}},
+		warp,{wid=2,mx=2,my=7,facing="e"}
+	}
+}
 eventDataRaw[305] = {
 	name = "doorTo5",
 	sc = {category="stillActors", image=1, quadId=4},
@@ -223,6 +242,15 @@ eventDataRaw[358] = {
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
 		warp,{wid=1,mx=9,my=4,facing="s"}
+	}
+}
+eventDataRaw[309] = {
+	name = "doorTo9",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=9,mx=9,my=11,facing="n"}
 	}
 }
 

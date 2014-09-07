@@ -1,0 +1,29 @@
+FIXME
+- zoom :/
+- should only be able to reset while not controlling blocks
+
+TODO in order of importance
+- audio
+	- collide, collect, door, stairs?, elevator?
+  - bg music
+	* ability to pause music for cutscenes
+	- ending/title music?
+- sidebar that dustin suggested
+  - OR just put a little key on the pause menu
+- real ending with credits and stuff
+- more puzzles, obvs. would like ~15 total
+- better story/cutscenes & effects (like a quake or a siren or a red flash)
+- better chipset?
+- and more still actors for decoration?
+  - potted plants!
+	- wall paintings
+	- desks & computers?
+	- garbage cans
+- AND more animated actors/people if you're gonna go all the way with that.
+- helpful notes for collecting research?
+  - and some before, just lying around
+	- mention z for zoom
+	- mention p for pause
+- let player choose hero? lol
+- save other stuff in save files (zoom and stuff)
+? collectible color controls? start with only RGB? hmmm. kind of a distant stretch goal at this point...
