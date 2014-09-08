@@ -209,7 +209,7 @@ mapDataRaw = {
 			{2,2,2,2,2,2,2,2},
 			{2,2,2,2,2,2,2},
 			{2,2,2,2,2,2,2},
-			{2,2,2,2,2,2,2},
+			{2,2,2,6,2,2,2},
 			{2,2,2,2,2,2,2},
 			{2,2,2,2,2,2,2,3},
 			{2,2,2,2,2,2,2,2},
@@ -226,8 +226,8 @@ mapDataRaw = {
 		blocksAt = {x=2,y=6},
 		localActorPointers = {
 			{x=9,y=12,id=358}, -- exit
-			{x=4,y=6,id=1004},
-			{x=5,y=8,id=6},
+			-- {x=4,y=6,id=1004},
+			{x=9,y=5,id=6},
 		}
 	},
 	--10: puzzle; a cache of white blocks that have to be used to copy RGB blocks in order to clear a large CMY hedge :)

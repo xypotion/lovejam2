@@ -47,6 +47,7 @@ function setHeroGridTargetAndTileTypeIfDirectionKeyPressed()
 			getBlock(globalActors.hero.targetPos)
 		then
 			globalActors.hero.targetPos = nil
+			thudSFX()
 		end
 	end
 end

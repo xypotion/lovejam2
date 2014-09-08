@@ -28,6 +28,7 @@ end
 
 function newGame()
 	progress = {}
+	playerSettings = {bgmOn = true}
 
 	colorControlled = 1
 	controllableColors = {R,G,B,C,M,Y,W}
@@ -49,6 +50,8 @@ function finishLoadingGame()
 	windowState = 1
 	
 	score = 0
+	
+	playBGM()
 	
 	--TODO load/create world here?
 end

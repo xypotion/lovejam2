@@ -9,6 +9,7 @@ require "textScroll"
 require "actorManager"
 require "sidebar"
 require "menuStack"
+require "audio"
 
 require "Menu"
 require "Menu1D"
@@ -39,6 +40,7 @@ function love.load()
 	-- initialize and load data
 	-- load map art, hero art, event art, GUI assets
 	loadImages() --actually does almost nothing now, haha
+	loadAudio()
 	
 	--initialize other game parts
 	initActorManager()
@@ -65,6 +67,8 @@ function love.load()
 	
 	--real startup stuff, basically just to support title menu
 	startScript(behaviorsRaw.title)
+	
+	thudSFX()
 	
 	-- saveData()
 end
@@ -204,6 +208,8 @@ function love.keypressed(key)
 		love.quit()
 	elseif key == "p" then
 		togglePause()
+	elseif key == "m" then
+		toggleBGM()
 	elseif not paused then
 		-- keyDelayTimer = 0 TODO just not quite this simple. think it needs a boolean
 		if(#menuStack > 0) then

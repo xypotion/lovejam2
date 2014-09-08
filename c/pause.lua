@@ -21,9 +21,9 @@ end
 function togglePause()
 	if paused then
 		paused = false
-		-- TODO audio resume
+		resumeBGM()
 	else
 		paused = true
-		-- TODO audio pause
+		pauseBGM()
 	end
 end

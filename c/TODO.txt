@@ -27,3 +27,7 @@ TODO in order of importance
 - let player choose hero? lol
 - save other stuff in save files (zoom and stuff)
 ? collectible color controls? start with only RGB? hmmm. kind of a distant stretch goal at this point...
+
+credits:
+- (song name & artist), jamendo.com
+- sfx: pdsounds.org
