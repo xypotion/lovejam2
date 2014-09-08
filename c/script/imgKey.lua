@@ -23,6 +23,7 @@ images = {
 		clear = love.graphics.newImage("img/blockClear.png"),
 	},
 	remote = love.graphics.newImage("img/remote.png"),
+	colorKey = love.graphics.newImage("img/colorKey.png"),
 	-- marble = {
 	-- 	love.graphics.newImage("img/marble1.png"),
 	-- 	love.graphics.newImage("img/marble2.png"),
@@ -140,6 +141,9 @@ function makeQuads()
 		quadAt(1,1,qs), --6: plant DUMMY
 		-- quadAt(1,3,qs), --7: daarkness
 	}
+	
+	quadSets.remote = quadAt(0,0,{2,4,2,4})
+	quadSets.colorKey = quadAt(0,0,{2,4,2,4})
 	--
 	-- qs = {1,1,8,1}
 	-- quadSets.swirl = {
@@ -165,7 +169,7 @@ function makeQuads()
 	-- 	}
 	-- }
 	
-	quadSets.marble = quadSets.swirl
+	-- quadSets.marble = quadSets.swirl
 	
 	--repeat for other quad collections
 end
