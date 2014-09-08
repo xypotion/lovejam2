@@ -1,6 +1,6 @@
 FIXME
 - zoom :/
-- should only be able to reset while not controlling blocks
+- title menu
 
 TODO in order of importance
 - audio
@@ -8,6 +8,7 @@ TODO in order of importance
   - bg music
 		* ability to pause music for cutscenes
 	- ending/title music?
+- actual title screen, maybe animated
 - sidebar that dustin suggested
   - OR just put a little key on the pause menu
 - real ending with credits and stuff
@@ -24,10 +25,11 @@ TODO in order of importance
   - and some before, just lying around
 	- mention z for zoom
 	- mention p for pause
+	- mention auto-save
 - let player choose hero? lol
 - save other stuff in save files (zoom and stuff)
 ? collectible color controls? start with only RGB? hmmm. kind of a distant stretch goal at this point...
 
 credits:
 - (song name & artist), jamendo.com
-- sfx: pdsounds.org
+- sfx actually: sfxr/cfxr http://thirdcog.eu/apps/cfxr

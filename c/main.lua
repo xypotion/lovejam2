@@ -84,7 +84,7 @@ function love.update(dt)
 		-- updatePauseScreen(dt)
 	else
 		tickAnimationKeys(dt)
-
+		collideSoundTimerDecay(dt)
 		--MOVEMENT
 		-- move map if needed
 		-- if screenShifting then
@@ -126,14 +126,14 @@ function love.update(dt)
 						-- print("barthello, we're leaving.")
 						blocksGo()
 					else
-						--this is sooo hacky :/
+						-- this is sooo hacky :/
 						-- for i = 1,#blocks do
--- 							-- print("block "..i)
--- 							if blocks[i].eliminate then
--- 								blocks[i].currentPos.y = -100
--- 								blocks[i].color = "gone"
--- 							end
--- 						end
+						-- 	-- print("block "..i)
+						-- 	if blocks[i].eliminate then
+						-- 		blocks[i].currentPos.y = -100
+						-- 		blocks[i].color = "gone"
+						-- 	end
+						-- end
 					end				
 				else
 				-- allow player to move hero/play normally
@@ -225,13 +225,13 @@ function love.keypressed(key)
 			-- end
 	
 			--cycle through zoom settings TODO eventually make a player option of this, but this is fine for dev
-			if key == "z" then
+			if key == "z" and not controllingBlocks then
 				windowState = (windowState) % #windowStates + 1
 				updateWindowStateSettings()
 				updateZoomRelativeStuff()
 			end
 		
-			if key == " " then 
+			if key == " " and not controllingBlocks then 
 				-- print "ping main"
 				startFacingInteraction()
 				-- print "ping main; keypressed finished"
@@ -251,7 +251,7 @@ function love.keypressed(key)
 				end
 			end
 			
-			if key == "r" then
+			if key == "r" and not controllingBlocks then
 				Menu.add(ResetMenu)
 			end
 			

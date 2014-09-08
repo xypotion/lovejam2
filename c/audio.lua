@@ -4,9 +4,19 @@ function loadAudio()
 	sources.bgm:setVolume(0.2)
 	sources.bgm:setLooping(true)
 	
-	sources.thud = love.audio.newSource("sound/thud.mp3", static)
+	sources.collide = love.audio.newSource("sound/hit.wav", static)
+	collideSoundTimer = 0
 	
 	tablePrint(sources)
+end
+
+function collideSoundTimerDecay(dt)
+	if collideSoundTimer > 0 then
+		collideSoundTimer = collideSoundTimer - dt
+		if collideSoundTimer <= 0 then
+			collideSoundTimer = 0
+		end
+	end
 end
 
 function playBGM()
@@ -36,5 +46,8 @@ function toggleBGM()
 end
 
 function thudSFX()
-	love.audio.play(sources.thud)
+	if collideSoundTimer == 0 then
+		love.audio.play(sources.collide)
+		collideSoundTimer = 0.5
+	end
 end
