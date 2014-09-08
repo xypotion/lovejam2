@@ -29,7 +29,7 @@ behaviorsRaw = {
 		-- fadeIn, 0.5,
 		-- warp, {wid=1,mx=12,my=7,facing="s"}, --the real one
 		-- warp,{wid=10,mx=5,my=13,facing="n"},
-		warp,{wid=11,mx=3,my=12,facing="n"},
+		warp,{wid=12,mx=2,my=5,facing="s"},
 		-- warp,{wid=9,mx=9,my=11,facing="n"},
 		say, "I have to find the team's notes and get out of here!\nNow, where was I?",
 	},
@@ -153,7 +153,7 @@ eventDataRaw = {
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
 		}
 	},
-	--6: potted plant
+	--6: sign? lol
 	{
 		name = "obstacle",
 		sc = {category="stillActors", image=1, quadId=5},
@@ -161,7 +161,7 @@ eventDataRaw = {
 	}
 }
 
---doors
+--stairs
 eventDataRaw[221] = {
 	name = "stairsTo1",
 	sc = {category="stillActors", image=1, quadId=3},
@@ -181,13 +181,16 @@ eventDataRaw[212] = {
 		warp,{wid=2,mx=2,my=7,facing="e"}
 	}
 }
+
+--doors
 eventDataRaw[305] = {
 	name = "doorTo5",
 	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=5,mx=3,my=7,facing="s"}
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=5,mx=3,my=7,facing="s"},
 	}
 }
 eventDataRaw[355] = {
@@ -277,7 +280,17 @@ eventDataRaw[311] = {
 	collide = true,
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		-- warp,{wid=11,mx=5,my=13,facing="n"},
+		warp,{wid=11,mx=3,my=12,facing="n"},
+	}
+}
+eventDataRaw[312] = {
+	name = "doorTo12",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		warp,{wid=12,mx=2,my=5,facing="s"},
+		playSound, "door"
 	}
 }
 

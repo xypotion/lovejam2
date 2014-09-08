@@ -161,6 +161,8 @@ function Block:setupColorCombination(addend)
 			self.targetColor = newColor
 			addend.targetColor = newColor
 		end
+		
+		playSFX("phase")
 	end
 end
 

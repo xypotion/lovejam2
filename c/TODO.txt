@@ -1,20 +1,15 @@
 FIXME
-- zoom :/
-- title menu cursor
-- double M to mute, lol
+- zoom :/ (maybe!)
 
 TODO in order of importance
 ! what happens in windows when you press Z?
-! what to do when there's no save file and they hit continue (new game!)
-! final audio: doors, item collection
+  - if broken just disable zoom, i guess. oh, well
+! final audio: doors, item collection, bips for remote
   - maybe also a siren for cutscenes. eh.
-! less shitty title screen, maybe animated
-  - maybe only appears when a save file exists. new game = jump right in
 ! little cleanups in menus
   * remove debug stuff, obvs, including Q to quit
 	* maybe user needs to have 7,8,9 pressed to enable debuggery?
 	- maybe general code cleanup, too. still a lot of unused stuff & junk print lines
-! save other stuff in save files (zoom and stuff)
 ! ...credits somehow
 ! more puzzles, obvs. would like ~15 total
 ! actually label rooms/doors
@@ -23,9 +18,22 @@ TODO in order of importance
 	- mention z for zoom
 	- mention p for pause
 	- mention auto-save
+- postgame fun: all black backgrounds turn into twinkly stars
+  - also give away debug mode to player
+- fade music in/out a little more nicely? hmm
+- let player choose from 3 sprites, M/F/neutral
+  * different skin tones, too?
+	* and different hair colors?
+	- glasses?
+	* more art will be required, but it might actually be pretty easy?
+	- could have a special menu where player presses tab to generate a new random character, enter when satisfied
+- special endgame hacko to remove plants? F for fire? lol
+- collectible shirts? change colors with tab when not controlling blocks? lol
+  - clear one is reward for hardest puzzle?
 - maybe control tweaks? Q -> remote?
   - tap to turn on remote when not using :)
 	- Q to turn off remote
+- save after intro cutscene?
 - better chipset?
 - and more still actors for decoration?
   ! potted plants!
@@ -40,14 +48,21 @@ TODO in order of importance
 ? collectible color controls? start with only RGB? hmmm. kind of a distant stretch goal at this point...
 ? "white warp" for room resets?
 ? colorblind mode?
+? powerups that clear all of one color? heh, not this time. oh, well
+
 
 credits:
 - (song name & artist), jamendo.com
 - sfx actually: sfxr/cfxr http://thirdcog.eu/apps/cfxr
 
+
 done TODOs
-- audio
+! less shitty title screen, maybe animated
+  - maybe only appears when a save file exists. new game = jump right in
+! what to do when there's no save file and they hit continue (new game!)
+! audio
 	- collide, collect, door, stairs?, elevator?
   - bg music
 		* ability to pause music for cutscenes
 	- ending/title music?
+x save other stuff in save files (zoom and stuff)

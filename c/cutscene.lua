@@ -173,6 +173,7 @@ end
 function collect_(name)
 	progress[name] = true
 	saveData()
+	playSFX("item")
 	return vanish_(name)
 end
 

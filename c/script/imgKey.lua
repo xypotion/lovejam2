@@ -22,6 +22,7 @@ images = {
 		black = love.graphics.newImage("img/blockK.png"),
 		clear = love.graphics.newImage("img/blockClear.png"),
 	},
+	title = love.graphics.newImage("img/title2.png"),
 	remote = love.graphics.newImage("img/remote.png"),
 	colorKey = love.graphics.newImage("img/colorKey.png"),
 	-- marble = {
@@ -122,11 +123,13 @@ function makeQuads()
 	
 	qs = {1,1,4,4}
 	quadSets.stillActors = {
-		{quadAt(0,0,qs)}, -- door
-		{quadAt(1,0,qs)},
-		{quadAt(2,0,qs)}, --3:door
+		{quadAt(0,0,qs)}, --1:notes
+		{quadAt(1,0,qs)}, --2:door
+		{quadAt(2,0,qs)}, --3:exit door
 		{quadAt(3,1,qs)}, --4:door top
-		{quadAt(1,1,qs)}, --5:sign
+		{quadAt(1,1,qs)}, --5:(sign)
+		{quadAt(3,0,qs)}, --6:key
+		{quadAt(0,1,qs)}, --7:remote
 	}
 	qs = {1,1,2,1}
 	quadSets.block = {quadAt(0,0,qs),quadAt(1,0,qs)}
@@ -142,6 +145,7 @@ function makeQuads()
 		-- quadAt(1,3,qs), --7: daarkness
 	}
 	
+	quadSets.title = quadAt(0,0,{15,15,15,15})
 	quadSets.remote = quadAt(0,0,{2,4,2,4})
 	quadSets.colorKey = quadAt(0,0,{2,4,2,4})
 end

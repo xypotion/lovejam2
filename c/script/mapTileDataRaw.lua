@@ -65,7 +65,7 @@ mapDataRaw = {
 			{x=6,y=2,id=309}
 		}
 	},
-	--3
+	--3: THIRD HUB
 	{
 		tileData = {
 			{3,3,3,3,3,3},
@@ -87,13 +87,13 @@ mapDataRaw = {
 					-- {x=13,y=2,id=2}
 		}
 	},
-	--4, "blank"
+	--4, blank map for title screen. dumb, i know
 	{
 		tileData = {{1}}, 
 		startAt = {x=1,y=1,default=1},
 		localActorPointers = {}
 	},
-	--5: first real puzzle room
+	--5: puzzle 1 (doors 305, 355, notes 1001)
 	{
 		tileData = {
 			{3,3,3,1,1,1,1,1,1,3,3,3},
@@ -116,7 +116,7 @@ mapDataRaw = {
 			{x=12,y=7,id=1001},
 		}
 	},
-	--6: puzzle
+	--6: puzzle 2
 	{
 		tileData = {
 			{3,3,3,3},
@@ -145,7 +145,7 @@ mapDataRaw = {
 			{x=5,y=10,id=1002},
 		}
 	},
-	--7: puzzle
+	--7: puzzle 3
 	{
 		tileData = {
 			{3,3,3,3,3,3,3},
@@ -173,7 +173,7 @@ mapDataRaw = {
 			{x=4,y=4,id=1003},
 		}
 	},
-	--8: puzzle
+	--8: puzzle 4
 	{
 		tileData = {
 			{3,3,3,3,3,3,3,1},
@@ -295,7 +295,53 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
-	--12: puzzle; a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction?
+	--12: white knight vs black rook (needs doors, notes; remove two right plants (or just rightmost if you're not doing shirts))
+	{
+		tileData = {
+			{3,1,1,1,1,1,1,1,1,1,1,1,3},
+			{2,3,3,3,3,3,3,3,3,3,3,3,6},
+			{2,2,2,2,2,2,2,2,2,6,2,6,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2,2,2},
+		}, 
+		startAt = {x=2,y=4,default=1},
+		blocks = {
+			{X,W,W,X,X,X,G,X,K,X,K,X,K},
+			{W,W,X,W,W,X,B,X,K,K,K,K,K},
+			{W,W,W,W,W,X,R,X,K,K,K,K,K},
+			{X,W,W,X,X,X,X,X,X,K,K,K},
+			{X,W,W,X,X,X,R,X,X,K,K,K},
+			{X,W,W,W,X,X,B,X,X,K,K,K},
+			{W,W,W,W,W,X,G,X,K,K,K,K,K},
+		},
+		blocksAt = {x=2,y=6},
+		localActorPointers = {
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
+	--13: a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction? lone W locked up?
+	--13.5: spiral of white with B/Y obstructions; white is locked by plants and cannot move, so forming more white with B+Y is dangerous
+	--14: spiral of black; given just enough colors to make a white, which is needed since the path can never be cleared?
+	--[[15: enter from top, cramped 9x9 room
+	   KHK
+	   K K
+	  XKXKX
+	GGG   BBB
+	  X . X
+	GGG   BBB
+	  XRXRX
+		 R R
+	   R R
+	]]
+	--16: lone R/G/B blocks must pass through C/M/Y corridors to form a white; white is locked up, so you have to get RGB through safely by shifting CMY
+	--17: green + in X of plants, must use M,B,R to break a column down the middle
+	--18: white is locked up by a lone block in a closet AND is blocking in notes; must use magenta to clear a path
 }
 
 numberOfMaps = #mapDataRaw

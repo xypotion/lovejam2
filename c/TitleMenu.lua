@@ -10,15 +10,17 @@ function TitleMenu:_init()
 		screenPosDelta = {x=20,y=20},
 	}
 	
-	self.pos.y = 100--(yLen - 3) * tileSize
+	self.pos.y = 304
+	self.pos.x = 64
 	
 	self:updateCursorScreenPos()
 end
 
 function TitleMenu:draw()
-	-- print("drawing!")	
 	love.graphics.setColor(255,255,255,255)
-	love.graphics.print("\n     Continue from last autosave\n     New game (progress will be lost)", self.pos.x * zoom, self.pos.y * zoom, 0, zoom, zoom)
+	love.graphics.draw(images.title, quadSets.title[1])
+	--hackity hack	
+	love.graphics.print("\n     Continue from last autosave\n\n     New game (progress will be lost)", self.pos.x * zoom, self.pos.y * zoom, 0, zoom, zoom)
 end
 
 function TitleMenu:confirm()

@@ -1,12 +1,22 @@
 function saveData()
-	love.filesystem.write("gigapixel.save", "nothing")
+	love.filesystem.remove("gigapixel.save")
 	
 	for k,v in pairs(progress) do
-	-- for k,v in pairs({what=true,the=true,fuck=false,duck=true}) do
 		if v then
-			love.filesystem.append("gigapixel.save", "\n"..k)
+			love.filesystem.append("gigapixel.save", k.."\n")
 		end
 	end
+	
+	-- for k,v in pairs(playerSettings) do
+	-- 	t = {}
+	-- 	 s = "from=world, to=Lua"
+	-- 	 for k, v in string.gmatch(s, "(%w+)=(%w+)") do
+	-- 	   t[k] = v
+	-- 	 end
+	-- 	 			love.filesystem.append("gigapixel.save", k.."\n")
+	-- 	end
+	-- end
+	--...wait, this doesn't matter. mute and zoom and text speed, who cares
 end
 
 function loadSaveData()
@@ -14,7 +24,7 @@ function loadSaveData()
 	for line in love.filesystem.lines("gigapixel.save") do		
 		progress[line] = true
 	end
-	progress["items collected:"] = nil
+	-- progress["items collected:"] = nil
 	-- tablePrint(progress)
 
 	--TODO
@@ -28,7 +38,6 @@ end
 
 function newGame()
 	progress = {}
-	playerSettings = {bgmOn = true}
 
 	colorControlled = 1
 	controllableColors = {R,G,B,C,M,Y,W}
@@ -43,6 +52,7 @@ end
 function finishLoadingGame()
 	--great for defaults; can use "or" when loading if they are set?
 	playerSettings = {
+		bgmOn = true,
 		textSpeed = 60,
 		anyKeyAdvancesText = true,
 	}

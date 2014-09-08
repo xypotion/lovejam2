@@ -65,12 +65,14 @@ function love.load()
 	
 	HUDOpacity = 0
 	
-	--real startup stuff, basically just to support title menu
-	startScript(behaviorsRaw.title)
-	
-	thudSFX()
+	-- thudSFX()
 	
 	-- saveData()
+	if love.filesystem.exists("gigapixel.save") then
+		startScript(behaviorsRaw.title)
+	else
+		newGame()
+	end
 end
 
 function love.update(dt)
@@ -167,18 +169,18 @@ function love.draw()
 	if Menu:top() then
 		drawMenuStack()
 	end
-	
+
+	love.graphics.setColor(255, 255, 255, HUDOpacity)
 	if controllingBlocks then
-		love.graphics.setColor(255, 255, 255, HUDOpacity)
 		love.graphics.draw(images.blocks[controllableColors[colorControlled]], quadSets.block[1], screenWidth - tileSize * 2, screenHeight - tileSize * 3)
-		love.graphics.draw(images.remote, quadSets.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
 		love.graphics.draw(images.colorKey, quadSets.colorKey, screenWidth - tileSize * 2.5, screenHeight - tileSize * 7)
 		-- ping("remote")
-	else
-		love.graphics.setColor(255, 255, 255, HUDOpacity)
-		love.graphics.draw(images.remote, quadSets.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
-		love.graphics.draw(images.colorKey, quadSets.colorKey, screenWidth - tileSize * 2.5, screenHeight - tileSize * 7)
-	end 		
+	-- else
+	-- 	love.graphics.setColor(255, 255, 255, HUDOpacity)
+	-- 	love.graphics.draw(images.remote, quadSets.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
+	-- 	love.graphics.draw(images.colorKey, quadSets.colorKey, screenWidth - tileSize * 2.5, screenHeight - tileSize * 7)
+	end 
+	love.graphics.draw(images.remote, quadSets.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
 	
 	--debug junk
 	-- if score >= 300 then
@@ -240,16 +242,30 @@ function love.keypressed(key)
 			end	
 			
 			if key == "return" then
-				controllingBlocks = not controllingBlocks
-				HUDOpacity = 191
-				if not controllingBlocks then HUDOpacity = 63 end
+				if controllingBlocks then 
+					controllingBlocks = false
+					HUDOpacity = 63 
+					playSFX("lowblip")
+				else
+					controllingBlocks = true
+					HUDOpacity = 191 
+					playSFX("highblip")
+				end
 			end
 			
-			if key == "tab" and controllingBlocks then
-				if love.keyboard.isDown("lshift", "rshift") then
-					colorControlled = (colorControlled - 2) % #controllableColors + 1
+			if key == "tab" then
+				if controllingBlocks then
+					if love.keyboard.isDown("lshift", "rshift") then
+						colorControlled = (colorControlled - 2) % #controllableColors + 1
+					else
+						colorControlled = colorControlled % #controllableColors + 1
+					end
+					
+					playSFX("highblip")
 				else
-					colorControlled = colorControlled % #controllableColors + 1
+					controllingBlocks = true
+					HUDOpacity = 191 
+					playSFX("highblip")
 				end
 			end
 			
