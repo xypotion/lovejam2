@@ -1,53 +1,57 @@
 FIXME
-- zoom :/ (maybe!)
+- zoom with blocks
+- commit music!!!
+- text box icon?
 
 TODO in order of importance
 ! what happens in windows when you press Z?
-  - if broken just disable zoom, i guess. oh, well
-! final audio: doors, item collection, bips for remote
-  - maybe also a siren for cutscenes. eh.
+	* it is broken in windows and i assume non-retina macs. could change to non-high-dpi and only zoom by 2?
+	  * that works. now just double assets
+! final audio: stairs, doors, item collection, bips for remote
+  - maybe also a siren for cutscenes
 ! little cleanups in menus
   * remove debug stuff, obvs, including Q to quit
 	* maybe user needs to have 7,8,9 pressed to enable debuggery?
 	- maybe general code cleanup, too. still a lot of unused stuff & junk print lines
-! ...credits somehow
+! ...credits somehow. heh
 ! more puzzles, obvs. would like ~15 total
+  - 4~6 "baby" puzzles, the rest semi-hard
+! arrange loot nicely
 ! actually label rooms/doors
-! helpful notes for collecting research?
+! maybe control tweaks? Q -> remote?
+  - tap to turn on remote when not using :)
+	- Q to turn off remote
+! helpful notes when collecting research?
   - and some before, just lying around. OR basic but nonessential ones (pause, reset, etc) come from beginner puzzles
 	- mention z for zoom
 	- mention p for pause
 	- mention auto-save
-- postgame fun: all black backgrounds turn into twinkly stars
+! place reminders for controls on pause screen
   - also give away debug mode to player
-- fade music in/out a little more nicely? hmm
-- let player choose from 3 sprites, M/F/neutral
+> collectible shirts? change colors with tab when not controlling blocks? lol
+  - clear one is reward for hardest puzzle?
+> postgame fun: all black backgrounds turn into twinkly stars
+> let player choose from 3 sprites, M/F/neutral
   * different skin tones, too?
 	* and different hair colors?
 	- glasses?
 	* more art will be required, but it might actually be pretty easy?
 	- could have a special menu where player presses tab to generate a new random character, enter when satisfied
+> better story/cutscenes & effects (like a quake or a siren or a red flash)
+> ending
+- fade music in/out a little more nicely? hmm
 - special endgame hacko to remove plants? F for fire? lol
-- collectible shirts? change colors with tab when not controlling blocks? lol
-  - clear one is reward for hardest puzzle?
-- maybe control tweaks? Q -> remote?
-  - tap to turn on remote when not using :)
-	- Q to turn off remote
-- save after intro cutscene?
 - better chipset?
 - and more still actors for decoration?
   ! potted plants!
 	- wall paintings
 	- desks & computers?
 	- garbage cans
-- ending
-- better story/cutscenes & effects (like a quake or a siren or a red flash)
-- arrange more loot nicely
 - AND more animated actors/people if you're gonna go all the way with that.
 - let player choose hero? lol
 ? collectible color controls? start with only RGB? hmmm. kind of a distant stretch goal at this point...
 ? "white warp" for room resets?
-? colorblind mode?
+> colorblind mode?
 ? powerups that clear all of one color? heh, not this time. oh, well
 
 
@@ -57,6 +61,7 @@ credits:
 
 
 done TODOs
+- save after intro cutscene
 ! less shitty title screen, maybe animated
   - maybe only appears when a save file exists. new game = jump right in
 ! what to do when there's no save file and they hit continue (new game!)

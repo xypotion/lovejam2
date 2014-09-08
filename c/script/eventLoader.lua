@@ -28,11 +28,11 @@ function loadLocalActor(pointer) --contains x, y, and id
 	
 	e.currentPos = {x=pointer.x, y=pointer.y}
 		
-	if e.appearIfCollected == true and not progress[e.name] or
-		e.appearIfCollected == false and progress[e.name]
-	then
-		e.currentPos.y = -1000
-	end
+	-- if e.appearIfCollected == true and not progress[e.name] or
+	-- 	e.appearIfCollected == false and progress[e.name]
+	-- then
+	-- 	e.currentPos.y = -1000
+	-- end
 	
 	if e.appearsIfAllCollected then
 		-- tablePrint(e.appearsIfAllCollected)
@@ -44,6 +44,19 @@ function loadLocalActor(pointer) --contains x, y, and id
 		end
 		
 		if not appears then
+			e.currentPos.y = -1000
+		end
+	end
+	
+	if e.appearsUntilAllCollected then
+		-- tablePrint(e.appearsUntilAllCollected)
+		-- tablePrint(progress)
+		local gotAll = true
+		for i=1, #(e.appearsUntilAllCollected) do
+			gotAll = gotAll and progress[e.appearsUntilAllCollected[i]]
+		end
+		
+		if gotAll then
 			e.currentPos.y = -1000
 		end
 	end

@@ -208,7 +208,7 @@ function love.draw()
 end
 
 function love.keypressed(key)
-	if key == "q" or key == "escape" then
+	if key == "escape" then
 		love.quit()
 	elseif key == "p" then
 		togglePause()

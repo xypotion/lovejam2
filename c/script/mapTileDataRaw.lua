@@ -93,7 +93,8 @@ mapDataRaw = {
 		startAt = {x=1,y=1,default=1},
 		localActorPointers = {}
 	},
-	--5: puzzle 1 (doors 305, 355, notes 1001)
+--puzzles:
+	--5: silly chunks, first puzzle (doors 305, 355, notes 1001) **
 	{
 		tileData = {
 			{3,3,3,1,1,1,1,1,1,3,3,3},
@@ -116,7 +117,7 @@ mapDataRaw = {
 			{x=12,y=7,id=1001},
 		}
 	},
-	--6: puzzle 2
+	--6: narrow puzzle, pretty easy *
 	{
 		tileData = {
 			{3,3,3,3},
@@ -145,11 +146,11 @@ mapDataRaw = {
 			{x=5,y=10,id=1002},
 		}
 	},
-	--7: puzzle 3
+	--7: white puzzle ** shirt candidate: white, hidden under a white block! maybe upper right corner
 	{
 		tileData = {
 			{3,3,3,3,3,3,3},
-			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,6},
 			{2,2,2,2,2,2,2},
 			{2,2,2,2,2,2,2},
 			{2,2,2,2,2,2,2},
@@ -173,7 +174,7 @@ mapDataRaw = {
 			{x=4,y=4,id=1003},
 		}
 	},
-	--8: puzzle 4
+	--8: black grate puzzle **** shirt candidate: black? hmm. also where
 	{
 		tileData = {
 			{3,3,3,3,3,3,3,1},
@@ -202,7 +203,7 @@ mapDataRaw = {
 			{x=4,y=6,id=1004},
 		}
 	},
-	--9: puzzle (needs plant + notes)
+	--9: CMY rows puzzle (needs plant + notes) **** shirt candidate: magenta (but where?)
 	{
 		tileData = {
 			{3,3,3,3,3,3,3,3},
@@ -230,7 +231,7 @@ mapDataRaw = {
 			{x=9,y=5,id=6},
 		}
 	},
-	--10: puzzle (needs plants + notes)
+	--10: plant rows puzzle (needs plants + notes) ***
 	{
 		tileData = {
 			{1,1,3,3,3,1,1},
@@ -262,7 +263,7 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
-	--11: puzzle (needs notes, plant)
+	--11: painting puzzle (needs notes, plant) *** shirt candidate: cyan?
 	{
 		tileData = {
 			{3,3,3,3,3,3,3,3,3,3,3},
@@ -295,7 +296,7 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
-	--12: white knight vs black rook (needs doors, notes; remove two right plants (or just rightmost if you're not doing shirts))
+	--12: white knight vs black rook (needs stuff) *** if no shirts, ***** if shirts
 	{
 		tileData = {
 			{3,1,1,1,1,1,1,1,1,1,1,1,3},
@@ -325,23 +326,125 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
+	--13: baby puzzle "red shift" (needs stuff) * great place to offer R-for-reset hint!
+	{
+		tileData = {
+			{3,3,3,3,3,3,3,3,3,3},
+			{2,2,2,2,2,2,2,2,2,2},
+			{2,6,2,1,1,1,1,2,2,2},
+			{2,2,2,1,1,1,1,2,2,2},
+			{1,1,1,1,1,1,1,2,2,2},
+			{3,3,3,3,3,3,3,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2},
+			{1,4}
+		}, 
+		startAt = {x=4,y=2,default=1},
+		blocks = {
+			{R,X,X,R},
+			{X,X,X,X,X,K},
+			{},
+			{X,X,X,X,K,X,K},
+			{},
+			{X,X,X,X,X,K}
+		},
+		blocksAt = {x=7,y=3},
+		localActorPointers = {
+		}
+	},
+	--14: stripes puzzle 1 (needs stuff) ***
+	  --shirt candidate, place behind black blocks in a side corridor (red?)
+	{
+		tileData = {
+			{3,3,3,3,3,3,3,3,3},
+			{2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2},
+			{2,2,6,2,6,2,6,2,2},
+			{2,2,2,2,2,2,2,2,2},
+			{2,2,6,2,6,2,6,2,2},
+			{2,2,2,2,2,2,2,2,2},
+			{2,2,6,2,6,2,6,2,2},
+			{2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2},
+		}, 
+		startAt = {x=2,y=4,default=1},
+		blocks = {
+			{X,X,X,K,X,K},
+			{X,W,X,K,X,K,X,W},
+			{X,X,X,K,X,K},
+			{G,G,G,X,X,X,B,B,B},
+			{},
+			{G,G,G,X,X,X,B,B,B},
+			{X,X,X,R,X,R},
+			{X,W,X,R,X,R,X,W},
+			{X,X,X,R,X,R},
+		},
+		blocksAt = {x=2,y=5},
+		localActorPointers = {
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
+	--15: green X (needs stuff) ***, shirt candidate (green), maybe a blacked-in side corridor
+	{
+		tileData = {
+			{1,1,1,1,3},
+			{1,1,1,3,2,3},
+			{1,1,3,2,2,2,3},
+			{1,3,6,2,2,2,6,3},
+			{3,2,2,6,2,6,2,2,3},
+			{2,2,2,2,2,2,2,2,2},
+			{1,2,2,6,2,6,2,2},
+			{1,1,6,2,2,2,6},
+			{1,1,1,2,2,2},
+			{1,1,1,1,2,}
+		}, 
+		startAt = {x=2,y=4,default=1},
+		blocks = {
+			{X,X,X,X,G},
+			{R,R,X,G,G,G,X,B,B},
+			{X,X,X,X,G},
+		},
+		blocksAt = {x=2,y=8},
+		localActorPointers = {
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
+	--16: baby puzzle "+ vs X" (unfinished)
+	{
+		tileData = {
+			{3,3,3,3,3,3,3},
+			{2,2,2,2,2,2,2},
+			{6,2,6,2,2,2,2},
+			{2,6,2,2,2,2,2},
+			{6,2,6,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{1,1,1,4}
+		}, 
+		startAt = {x=4,y=6,default=1},
+		blocks = {
+			{X,K,X,X,W,X,W},
+			{K,X,K},
+			{X,K,X,X,W,X,W},
+		},
+		blocksAt = {x=4,y=8},
+		localActorPointers = {
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
+}
+
+-- ideas:
+	-- black, white, and blue locked in corners; 3x3 yin-yang of blue and black with notes in middle; 1 green and 1 red on sides
 	--13: a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction? lone W locked up?
 	--13.5: spiral of white with B/Y obstructions; white is locked by plants and cannot move, so forming more white with B+Y is dangerous
 	--14: spiral of black; given just enough colors to make a white, which is needed since the path can never be cleared?
-	--[[15: enter from top, cramped 9x9 room
-	   KHK
-	   K K
-	  XKXKX
-	GGG   BBB
-	  X . X
-	GGG   BBB
-	  XRXRX
-		 R R
-	   R R
-	]]
 	--16: lone R/G/B blocks must pass through C/M/Y corridors to form a white; white is locked up, so you have to get RGB through safely by shifting CMY
-	--17: green + in X of plants, must use M,B,R to break a column down the middle
 	--18: white is locked up by a lone block in a closet AND is blocking in notes; must use magenta to clear a path
-}
 
 numberOfMaps = #mapDataRaw

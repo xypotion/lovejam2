@@ -29,8 +29,11 @@ behaviorsRaw = {
 		-- fadeIn, 0.5,
 		-- warp, {wid=1,mx=12,my=7,facing="s"}, --the real one
 		-- warp,{wid=10,mx=5,my=13,facing="n"},
-		warp,{wid=12,mx=2,my=5,facing="s"},
+		-- warp,{wid=12,mx=2,my=5,facing="s"},
 		-- warp,{wid=9,mx=9,my=11,facing="n"},
+		-- warp,{wid=14,mx=6,my=5,facing="s"},
+		-- warp,{wid=15,mx=6,my=5,facing="s"},
+		warp,{wid=16,mx=7,my=12,facing="n"},
 		say, "I have to find the team's notes and get out of here!\nNow, where was I?",
 	},
 	start = {
@@ -57,6 +60,7 @@ behaviorsRaw = {
 			},
 		say, "I have to collect my notes and get out of here!",
 		makeBlock_, "green",
+		collect_, "remote"
 	},
 	blocks = {
 		green = {
@@ -146,6 +150,7 @@ eventDataRaw = {
 		name = "victory sign",
 		sc = {category="stillActors", image=1, quadId=5},
 		appearsIfAllCollected = {"notes 1", "notes 2", "notes 3"},
+		appearsUntilAllCollected = {"notes 1","notes 4"},
 		collide = true,
 		interactionBehavior = {
 			say, {"You got them all! Good job!", "Thanks for playtesting. :)\n -- Max"},
@@ -187,6 +192,7 @@ eventDataRaw[305] = {
 	name = "doorTo5",
 	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
+	appearsUntilAllCollected = {"notes 1","notes 4"},
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",

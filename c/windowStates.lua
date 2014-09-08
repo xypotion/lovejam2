@@ -12,11 +12,11 @@ function initWindowStates()
 			}
 		},
 		{
-			z = 3,
+			z = 2,
 			flags = {
 				fullscreen = false, 
 				fullscreentype = "desktop",
-				highdpi = true
+				highdpi = false
 			}
 		}	
 	}
