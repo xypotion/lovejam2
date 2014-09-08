@@ -144,34 +144,6 @@ function makeQuads()
 	
 	quadSets.remote = quadAt(0,0,{2,4,2,4})
 	quadSets.colorKey = quadAt(0,0,{2,4,2,4})
-	--
-	-- qs = {1,1,8,1}
-	-- quadSets.swirl = {
-	-- 	{
-	-- 		quadAt(0,0,qs),
-	-- 		quadAt(1,0,qs),
-	-- 		quadAt(2,0,qs),
-	-- 		quadAt(3,0,qs),
-	-- 		quadAt(4,0,qs),
-	-- 		quadAt(5,0,qs),
-	-- 		quadAt(6,0,qs),
-	-- 		quadAt(7,0,qs),
-	-- 	}
-	-- }
-	--
-	-- qs = {1,1,4,1}
-	-- quadSets.event = {
-	-- 	{
-	-- 		quadAt(0,0,qs),
-	-- 		quadAt(1,0,qs),
-	-- 		quadAt(2,0,qs),
-	-- 		quadAt(3,0,qs),
-	-- 	}
-	-- }
-	
-	-- quadSets.marble = quadSets.swirl
-	
-	--repeat for other quad collections
 end
 
 -- makes a quad with provided args. just saves space above ~

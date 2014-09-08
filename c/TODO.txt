@@ -1,8 +1,10 @@
 FIXME
 - zoom :/
 - title menu cursor
+- double M to mute, lol
 
 TODO in order of importance
+! what happens in windows when you press Z?
 ! what to do when there's no save file and they hit continue (new game!)
 ! final audio: doors, item collection
   - maybe also a siren for cutscenes. eh.
@@ -11,6 +13,7 @@ TODO in order of importance
 ! little cleanups in menus
   * remove debug stuff, obvs, including Q to quit
 	* maybe user needs to have 7,8,9 pressed to enable debuggery?
+	- maybe general code cleanup, too. still a lot of unused stuff & junk print lines
 ! save other stuff in save files (zoom and stuff)
 ! ...credits somehow
 ! more puzzles, obvs. would like ~15 total

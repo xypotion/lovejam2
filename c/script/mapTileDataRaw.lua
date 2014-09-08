@@ -202,7 +202,7 @@ mapDataRaw = {
 			{x=4,y=6,id=1004},
 		}
 	},
-	--9: puzzle
+	--9: puzzle (needs plant + notes)
 	{
 		tileData = {
 			{3,3,3,3,3,3,3,3},
@@ -225,43 +225,77 @@ mapDataRaw = {
 		},
 		blocksAt = {x=2,y=6},
 		localActorPointers = {
-			{x=9,y=12,id=358}, -- exit
+			{x=9,y=12,id=359}, -- exit
 			-- {x=4,y=6,id=1004},
 			{x=9,y=5,id=6},
 		}
 	},
-	--10: puzzle; a cache of white blocks that have to be used to copy RGB blocks in order to clear a large CMY hedge :)
+	--10: puzzle (needs plants + notes)
 	{
 		tileData = {
-			{3,3,3,3,3,3,3,3},
-			{2,2,2,2,2,2,2,2},
-			{2,2,2,2,2,2,2,2},
-			{2,2,2,2,2,2,2,2},
-			{2,6,2,6,2,6,2,6},
-			{2,2,2,2,2,2,2,2},
-			{6,2,6,2,6,2,6,2},
-			{2,2,2,2,2,2,2,2},
-			{2,6,2,6,2,6,2,6},
-			{2,2,2,2,2,2,2,2},
+			{1,1,3,3,3,1,1},
+			{3,3,2,2,2,3,3},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
+			{6,2,6,2,6,2,6},
+			{2,2,2,2,2,2,2},
+			{2,6,2,6,2,6,2},
+			{2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2},
 		}, 
-		startAt = {x=2,y=4,default=1},
+		startAt = {x=2,y=3,default=1},
 		blocks = {
-			{W,W,W,W,W,W,W,W},
-			{W,W,W,W,W,W,W,W},
-			{X,X,R,X,G,X,B},
-			{C,M,Y,C,M,Y,C,M},
-			{M,Y,C,M,Y,C,M,Y},
-			{Y,C,M,Y,C,M,Y,C},
-			{C,M,Y,C,M,Y,C,M},
+			{X,B,G,R,B,G},
+			{X,B,G,R,B,G},
+			{X},
+			{X},
+			{X,Y,X,M,X,C},
+			{Y,C,M,Y,C,M,Y},
+			{C,X,Y,X,M,X,C},
 		},
-		blocksAt = {x=2,y=6},
+		blocksAt = {x=2,y=5},
 		localActorPointers = {
-			{x=9,y=12,id=358}, -- exit
-			{x=4,y=6,id=1004},
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
 			-- {x=5,y=8,id=6},
 		}
 	},
-	--11: puzzle; a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction?
+	--11: puzzle (needs notes, plant)
+	{
+		tileData = {
+			{3,3,3,3,3,3,3,3,3,3,3},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,6,2,6,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2},
+			{4}
+		}, 
+		startAt = {x=3,y=3,default=1},
+		blocks = {
+			{R,R,R,R,R,R,R,R,R},
+			{R,C,C,C,C,Y,C,C,R},
+			{R,C,W,W,C,C,W,W,R},
+			{R,C,C,C,C,C,C,C,R},
+			{R,C,C,X,X,X,C,C,R},
+			{R,B,B,G,G,G,B,B,R},
+			{R,B,B,B,B,B,B,B,R},
+			{R,R,R,R,R,R,R,R,R},
+		},
+		blocksAt = {x=4,y=4},
+		localActorPointers = {
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
+	--12: puzzle; a big mess that collapses nicely into a spiral for player to walk through :) white can actually become an obstruction?
 }
 
 numberOfMaps = #mapDataRaw

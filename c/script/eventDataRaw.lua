@@ -27,10 +27,11 @@ behaviorsRaw = {
 	resume = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
-		-- warp, {wid=1,mx=12,my=7,facing="s"},
-		warp,{wid=10,mx=7,my=5,facing="s"},
+		-- warp, {wid=1,mx=12,my=7,facing="s"}, --the real one
+		-- warp,{wid=10,mx=5,my=13,facing="n"},
+		warp,{wid=11,mx=3,my=12,facing="n"},
 		-- warp,{wid=9,mx=9,my=11,facing="n"},
-		say, "I have to find my research notes and get out of here!\nNow, where was I?",
+		say, "I have to find the team's notes and get out of here!\nNow, where was I?",
 	},
 	start = {
 		-- fadeOut, 0.5,
@@ -267,7 +268,16 @@ eventDataRaw[310] = {
 	collide = true,
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=10,mx=7,my=5,facing="s"}
+		warp,{wid=10,mx=5,my=13,facing="n"},
+	}
+}
+eventDataRaw[311] = {
+	name = "doorTo11",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		-- warp,{wid=11,mx=5,my=13,facing="n"},
 	}
 }
 
