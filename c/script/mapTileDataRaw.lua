@@ -34,19 +34,19 @@ mapDataRaw = {
 		startAt = {x=2,y=2,default=1},
 		localActorPointers = {
 			--papers
-			{x=8,y=5,id=2001},
-			{x=8,y=6,id=2002},
-			{x=9,y=5,id=2003},
-			{x=9,y=6,id=2004},
+			-- {x=8,y=5,id=2001},
+			-- {x=8,y=6,id=2002},
+			-- {x=9,y=5,id=2003},
+			-- {x=9,y=6,id=2004},
 			--doors
-			{x=11,y=3,id=307},
-			{x=9,y=3,id=308},
-			{x=11,y=9,id=305},
-			{x=9,y=9,id=306},
+			-- {x=11,y=3,id=307},
+			-- {x=9,y=3,id=308},
+			-- {x=11,y=9,id=305},
+			-- {x=9,y=9,id=306},
 			--other
-			{x=12,y=6,id=5},
+			{x=7,y=5,id=1},
 			--stairs
-			{x=12,y=5,id=212}
+			-- {x=12,y=5,id=212}
 		},
 		warpDrop = {wid=1,mx=10,my=5,facing="s"}
 	},

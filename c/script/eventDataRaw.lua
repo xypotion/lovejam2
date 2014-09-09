@@ -30,21 +30,14 @@ behaviorsRaw = {
 	resume = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
-		warp, {wid=1,mx=12,my=7,facing="s"}, --the real one
-		-- warp,{wid=10,mx=5,my=13,facing="n"},
-		-- warp,{wid=12,mx=2,my=5,facing="s"},
-		-- warp,{wid=9,mx=9,my=11,facing="n"},
-		-- warp,{wid=14,mx=6,my=5,facing="s"},
-		-- warp,{wid=15,mx=6,my=5,facing="s"},
-		-- warp,{wid=16,mx=7,my=12,facing="n"},
-		-- warp,{wid=17,mx=2,my=11,facing="n"},
-		say, "I have to find the team's notes and get out of here!\nWhere was I?",
+		warp, {wid=1,mx=10,my=5,facing="s"}, --the real one
+		say, "I have to find the research materials and get\nout of here!",
 	},
 	start = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
 		warp, {wid=21,mx=9,my=9,facing="s"},
-		skip,6,
+		skip,50,
 		-- think, {"An experiment has gone awry and your lab is"
 		-- 	.."\noverrun with digital matter!",
 		-- 	"You will need to move and fuse megapixels"
@@ -169,10 +162,33 @@ behaviorsRaw = {
 eventDataRaw = {
 	--1:
 	{
+		name = "remote",
 		sc = {category="stillActors", image=1, quadId=7},
-		name = "elf",
+		appearsUntilAllCollected = {"remote"},
 		collide = true,
 		interactionBehavior = {
+			say, "What is this? A remote control?",
+			think, "Instructions to Operator:",
+			think, "In the event of a digital matter containment breach,\ncollect vital research materials 1-16 and evacuate\nthe premises.",
+			say,"Huh. They want me to find stuff in here?",
+			think,"You may need to manipulate digital matter to obtain\nall materials. This remote control will allow you to"
+			.."\nmove and fuse digital matter in your path.",
+			think, "Blocks of digital matter are known as \n\"Mega-pixels\".",
+			think, "The RETURN key will activate this remote control,\nand the TAB key will let you select the color you\nwish to control.",
+			think,"Mega-pixels of the same color move as one.\n",
+			say,"Weird. Okay. RETURN and TAB.",
+			say,"And stuff that's the same color moves as one.",
+			say,"Whatever that means.",
+			think, "Digital matter is still not fully understood, but\nwe know that certain colors can be fused with\nothers.",
+			think,"For example: a red mega-pixel will fuse with a green\nmega-pixel to create a yellow mega-pixel.",
+			think,"That yellow mega-pixel can then be fused with a\nblue mega-pixel to create a white mega-pixel.\nYellow and blue are opposing colors.",
+			think,"Different colors of digital matter behave in\ndifferent ways. Experiment as needed and refer to\nthe key provided.",
+			think,"As always, use extreme caution.",
+			say, "Yikes. Not sure if I get this.",
+			say,"But I'm definitely fired if I don't collect their\nresearch materials before... the office blows up?",
+			say,"I actually have no idea what will happen. Better get\ncracking, though.",
+			collect_, "remote"
+		}
 	},
 	{
 		name = "doorTo3",
@@ -388,6 +404,13 @@ eventDataRaw[312] = {
 		playSound, "door"
 	}
 }
+		-- warp,{wid=10,mx=5,my=13,facing="n"},
+		-- warp,{wid=12,mx=2,my=5,facing="s"},
+		-- warp,{wid=9,mx=9,my=11,facing="n"},
+		-- warp,{wid=14,mx=6,my=5,facing="s"},
+		-- warp,{wid=15,mx=6,my=5,facing="s"},
+		-- warp,{wid=16,mx=7,my=12,facing="n"},
+		-- warp,{wid=17,mx=2,my=11,facing="n"},
 
 --notes
 eventDataRaw[1001] = {
@@ -397,7 +420,9 @@ eventDataRaw[1001] = {
 	collide = true,
 	interactionBehavior = {
 		collect_, "notes 1",
-		say, "Recovered Research Notes 1!",
+		say, "Got Research Notes 1! Let's take a look:...",
+		think, "Did you know you can pause the game with P?",
+		think, "The pause screen has some useful info on it!",
 	}
 } -- notes 1 pickup
 eventDataRaw[2001] = {
@@ -413,17 +438,18 @@ eventDataRaw[1002] = {
 	name = "notes 2",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = false,
+	appearsUntilAllCollected = {"notes 2"},
 	interactionBehavior = {
 		collect_, "notes 2",
-		say, "Recovered Research Notes 2!",
+		say, "Got Research Notes 2! Let's take a look...",
+		think, "You can press R to reset any room."
 	}
 }
 eventDataRaw[2002] = {
 	name = "notes 2",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = true,
+	appearsIfAllCollected = {"notes 2"},
 	interactionBehavior = {
 		say, "Research Notes 2, got 'em.",
 	}
@@ -432,17 +458,21 @@ eventDataRaw[1003] = {
 	name = "notes 3",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = false,
+	appearsUntilAllCollected = {"notes 3"},
 	interactionBehavior = {
 		collect_, "notes 3",
-		say, "Recovered Research Notes 3!",
+		say, "Got Research Notes 3! Let's take a look...",
+		think, "Blue and yellow are opposites."
+		think, "Red and cyan are opposites."
+		think, "Green and magenta are opposites."
+		think, "White and black are opposites, but white also\nfuses with ANY color, while black only fuses\nwith white."
 	}
 }
 eventDataRaw[2003] = {
 	name = "notes 3",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = true,
+	appearsIfAllCollected = {"notes 3"},
 	interactionBehavior = {
 		say, "Research Notes 3, got 'em.",
 	}
@@ -451,13 +481,95 @@ eventDataRaw[1004] = {
 	name = "notes 4",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = false,
+	appearsUntilAllCollected = {"notes 4"},
 	interactionBehavior = {
 		collect_, "notes 4",
-		say, "Recovered Research Notes 4!",
+		say, "Got Research Notes 4! Let's take a look...",
 	}
 }
 eventDataRaw[2004] = {
+	name = "notes 4",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearsIfAllCollected = {"notes 4"},
+	interactionBehavior = {
+		say, "Research Notes 4, got 'em.",
+	}
+}
+eventDataRaw[1005] = {
+	name = "notes 5",
+	sc = {category="stillActors", image=1, quadId=1},
+	appearsUntilAllCollected = {"notes 5"},
+	collide = true,
+	interactionBehavior = {
+		collect_, "notes 5",
+		say, "Got Research Notes 5! Let's take a look:...",
+		think,"Did you know that the game auto-saves\nevery time you collect an item?"
+	}
+}
+eventDataRaw[2005] = {
+	name = "notes 5",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearsIfAllCollected = {"notes 5"},
+	interactionBehavior = {
+		say, "Research Notes 5, got 'em.",
+	}
+}
+eventDataRaw[1006] = {
+	name = "notes 6",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		collect_, "notes 2",
+		say, "Got Research Notes 2! Let's take a look...",
+		think, "You can press R to reset any room."
+	}
+}
+eventDataRaw[2006] = {
+	name = "notes 2",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearsIfAllCollected = {"notes 6"},
+	interactionBehavior = {
+		say, "Research Notes 2, got 'em.",
+	}
+}
+eventDataRaw[1007] = {
+	name = "notes 3",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		collect_, "notes 3",
+		say, "Got Research Notes 3! Let's take a look...",
+		think, "Blue and yellow are opposites."
+		think, "Red and cyan are opposites."
+		think, "Green and magenta are opposites."
+		think, "White and black are opposites, but white also\nfuses with ANY color, while black only fuses\nwith white."
+	}
+}
+eventDataRaw[2007] = {
+	name = "notes 3",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = true,
+	interactionBehavior = {
+		say, "Research Notes 3, got 'em.",
+	}
+}
+eventDataRaw[1008] = {
+	name = "notes 4",
+	sc = {category="stillActors", image=1, quadId=1},
+	collide = true,
+	appearIfCollected = false,
+	interactionBehavior = {
+		collect_, "notes 4",
+		say, "Got Research Notes 4! Let's take a look...",
+	}
+}
+eventDataRaw[2008] = {
 	name = "notes 4",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
@@ -466,6 +578,8 @@ eventDataRaw[2004] = {
 		say, "Research Notes 4, got 'em.",
 	}
 }
+
+		think,"You can change the zoom level with Z, and \nyou can mute the music with M."
 
 --shirts
 eventDataRaw[902] = {
