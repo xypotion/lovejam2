@@ -11,7 +11,7 @@ function initHero()
  		image = images.characters.base, --TODO way down the road, will need to respect choice of leaders
 		quads = quadSets.hero[hp.gender],
 		anikey = anikeys.characters,
-		speed = 200 * zoom,
+		speed = 150 * zoom,
 		
 		--the ones we want to keep if simply changing zoom (otherwise set to default)
 		currentPos = globalActors.hero.currentPos or heroGridPos,

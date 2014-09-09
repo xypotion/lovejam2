@@ -1,7 +1,7 @@
 Block = class()
 
 function Block:_init(color, pos)
-	color = color or self.color
+	color = color or self.color --for re-making on zoom
 	self.color = color or "green"
 	self:setColorSpecificStuff()
 	-- self.sprite = {

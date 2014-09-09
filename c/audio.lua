@@ -9,6 +9,9 @@ function loadAudio()
 	sources.phase = love.audio.newSource("sound/phase.wav", static)
 	sources.phase:setVolume(0.2)
 	
+	sources.zoop = love.audio.newSource("sound/zoopzoop.wav", static)
+	sources.zoop:setVolume(0.2)
+	
 	sources.lowblip = love.audio.newSource("sound/low blip.wav", static)
 	sources.lowblip:setVolume(0.2)
 	

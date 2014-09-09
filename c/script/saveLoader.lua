@@ -1,11 +1,11 @@
 function saveData()
-	love.filesystem.remove("gigapixel.save")
+	love.filesystem.remove("megapixel.save")
 	
-	love.filesystem.write("gigapixel.save","BODY"..hp.gender..hp.skin..hp.hair.."\n")
+	love.filesystem.write("megapixel.save","BODY"..hp.gender..hp.skin..hp.hair.."\n")
 	
 	for k,v in pairs(progress) do
 		if v then
-			love.filesystem.append("gigapixel.save", k.."\n")
+			love.filesystem.append("megapixel.save", k.."\n")
 		end
 	end
 	
@@ -15,7 +15,7 @@ function saveData()
 	-- 	 for k, v in string.gmatch(s, "(%w+)=(%w+)") do
 	-- 	   t[k] = v
 	-- 	 end
-	-- 	 			love.filesystem.append("gigapixel.save", k.."\n")
+	-- 	 			love.filesystem.append("megapixel.save", k.."\n")
 	-- 	end
 	-- end
 	--...wait, this doesn't matter. mute and zoom and text speed, who cares
@@ -24,7 +24,7 @@ end
 function loadSaveData()
 	progress = {}
 	hp = {shirt = 1}
-	for line in love.filesystem.lines("gigapixel.save") do
+	for line in love.filesystem.lines("megapixel.save") do
 		if line:find("BODY") then
 			hp.gender = tonumber(line:sub(5,5))
 			hp.skin = tonumber(line:sub(6,6))
@@ -72,7 +72,7 @@ function finishLoadingGame()
 	
 	score = 0
 	
-	playBGM()
+	-- playBGM()
 	initHero()
 	
 	--TODO load/create world here?

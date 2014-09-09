@@ -1,14 +1,9 @@
 FIXME
 - commit music!!!
-- text box icon? x_x
-- change all instances of "gigapixel" to "megapixel"
 
 TODO in order of importance
-! SAVE player's body parts
-! shirt controls + progress on pause menu
-! what happens in windows when you press Z?
-	* it is broken in windows and i assume non-retina macs. could change to non-high-dpi and only zoom by 2?
-	  * that works. now just double assets
+! finish blowing up assets
+! shirts + progress on pause menu
 ! final audio: stairs, doors (, item collection, bips for remote)
   - maybe also a siren for cutscenes
 ! little cleanups in menus
@@ -19,7 +14,8 @@ TODO in order of importance
 ! more puzzles, obvs. would like ~15 total
   - 4~6 "baby" puzzles, the rest semi-hard
 ! arrange loot nicely
-! actually label rooms/doors
+! actually label rooms/doors...? OR remove the prompt, it's kind of unneeded
+  * actually just remove the prompt from puzzle room ENTRY, leave on exit
 ! maybe control tweaks? Q -> remote?
   - tap to turn on remote when not using :)
 	- Q to turn off remote
@@ -29,12 +25,10 @@ TODO in order of importance
 	- mention p for pause
 	- mention auto-save
 	- mention shift-tab
-! place reminders for controls on pause screen
-  - also give away debug mode to player (huh?)
-	* shirt shortcuts (1234567890)
 > collectible shirts? change colors with tab when not controlling blocks? lol
   - clear shirt is reward for hardest puzzle? kinda ultimate reward?
 > postgame fun: all black backgrounds turn into twinkly stars
+  = an anikey, a big graphic, sprite batches (i guess) & draw logic in main, some collectible flag?
 > better story/cutscenes & effects (like a quake or a siren or a red flash)
 > ending
 - fade music in/out a little more nicely? hmm
@@ -59,6 +53,13 @@ credits:
 
 
 done TODOs
+- change all instances of "gigapixel" to "megapixel"
+! SAVE player's body parts
+! shirt controls 
+- text box icon? x_x
+! place reminders for controls on pause screen
+! what happens in windows when you press Z?
+	* it is broken in windows and i assume non-retina macs. could change to non-high-dpi and only zoom by 2?
 > let player choose from 3 sprites, M/F/neutral
   * different skin tones, too?
 	* and different hair colors?

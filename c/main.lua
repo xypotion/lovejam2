@@ -77,7 +77,7 @@ function love.load()
 	-- thudSFX()
 	
 	-- saveData()
-	if love.filesystem.exists("gigapixel.save") then
+	if love.filesystem.exists("megapixel.save") then
 		startScript(behaviorsRaw.title)
 	else
 		startScript(behaviorsRaw.characterSelect)
@@ -250,7 +250,7 @@ function love.keypressed(key)
 				-- print "ping main; keypressed finished"
 			end	
 			
-			if key == "return" then
+			if key == "return" and progress["remote"] then
 				if controllingBlocks then 
 					controllingBlocks = false
 					HUDOpacity = 63 

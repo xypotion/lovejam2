@@ -38,58 +38,115 @@ behaviorsRaw = {
 		-- warp,{wid=15,mx=6,my=5,facing="s"},
 		-- warp,{wid=16,mx=7,my=12,facing="n"},
 		-- warp,{wid=17,mx=2,my=11,facing="n"},
-		say, "I have to find the team's notes and get out of here!\nNow, where was I?",
+		say, "I have to find the team's notes and get out of here!\nWhere was I?",
 	},
 	start = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
-		warp, {wid=1,mx=12,my=7,facing="w"},
-		-- skip,3,
-		think, {"An experiment has gone awry and your lab is"
-			.."\noverrun with digital matter!",
-			"You will need to move and fuse gigapixels"
-			.."\nto find your research notes and escape the lab"
-			.."\nsafely.",
-			"Press RETURN to activate gigapixel control."
-			.."\nWASD and the arrow keys allow you to move"
-			.."\nthem out of your way.", 
-			"When manipulating digital matter, all gigapixels"
-			.."\nof the same type will move as one. However, not all"
-			.."\ntypes can be controlled. Press TAB to cycle through"
-			.."\ncontrollable colors.",
-			"Press SPACE to open doors and inspect objects."
-			.."\nWASD and the arrow keys let you walk around.", 
-			"You can also press R to reset any room."
-			.."\nGood luck!", 
-			},
-		say, "I have to collect my notes and get out of here!",
-		makeBlock_, "green",
-		collect_, "remote"
+		warp, {wid=21,mx=9,my=9,facing="s"},
+		skip,6,
+		-- think, {"An experiment has gone awry and your lab is"
+		-- 	.."\noverrun with digital matter!",
+		-- 	"You will need to move and fuse megapixels"
+		-- 	.."\nto find your research notes and escape the lab"
+		-- 	.."\nsafely.",
+		-- 	"Press RETURN to activate megapixel control."
+		-- 	.."\nWASD and the arrow keys allow you to move"
+		-- 	.."\nthem out of your way.",
+		-- 	"When manipulating digital matter, all megapixels"
+		-- 	.."\nof the same type will move as one. However, not all"
+		-- 	.."\ntypes can be controlled. Press TAB to cycle through"
+		-- 	.."\ncontrollable colors.",
+		-- 	"Press SPACE to open doors and inspect objects."
+		-- 	.."\nWASD and the arrow keys let you walk around.",
+		-- 	"You can also press R to reset any room."
+		-- 	.."\nGood luck!",
+		-- 	},
+		think, {"Working late one night at your new job..."},
+		wait, 0.5,
+		think, {"You are almost finished with this project,"
+			.."\na new logo design for one of the company's clients,"
+			.."\nwhen you remember the last strange requirement."
+		},
+		say,"...it has to have \"extra-large pixels\"?",
+		say,"What does that even mean?",
+		say,"Do they just want me to blow up the image? They\nnever even said how \"extra-large\" they want it.",
+		wait,0.5,
+		say,"Fine, let's see how they like this.\nScale up x9999!",
+		wait, 0.25,
+		playSFX, "highblip",
+		wait, 0.25,
+		playSFX, "lowblip",
+		wait, 0.25,
+		playSFX, "highblip",
+		wait,1,
+		playSFX,"zoop",
+		wait,1,
+		darken,128,
+		wait,0.15,
+		darken,0,
+		wait,0.15,
+		darken,128,
+		wait,0.15,
+		darken,0,
+		wait,0.15,
+		darken,128,
+		wait,0.15,
+		darken,0,
+		wait,1,
+		makeBlock1_, "greenStart",
+		playSFX, "phase",
+		wait, 0.4,
+		makeBlock2_, "blueStart",
+		playSFX, "phase",
+		wait, 0.4,
+		makeBlock3_, "redStart",
+		playSFX, "phase",
+		wait, 0.4,
+		wait,0.5,
+		faceHero, "n",
+		wait,0.25,
+		say, "AAAHH!",
+		say, "Giant pixels!!",
+		wait,0.25,
+		think,"Warning...",
+		wait,0.25,
+		faceHero,"s",
+		say,"Huh?",
+		think,"Warning: digital matter containment breached.",
+		think,"Operator is to proceed to entry hall for further\ninstructions.",
+		think,"Use extreme caution, direct contact with digital\nmatter has unpredictable and possibly fatal\nresults.",
+		say,"\"Digital matter\"? \"Fatal results\"?",
+		say,"What the heck did I do??",
+		say,"I'd better get out of here!\n",		
+		-- say, "START\nI have to collect my notes and get out of here!",
+		playBGM, 0,
+		-- collect_, "remote"
 	},
 	blocks = {
 		green = {
-			say, "A green gigapixel. I think this can be fused with\nblue or red digital matter to make cyan or yellow."
+			say, "A green megapixel. I think this can be fused with\nblue or red digital matter to make cyan or yellow."
 			.."\nIt also fuses with magenta, resulting in white\ndigital matter."
 		},
 		blue = {
-			say, "A blue gigapixel. I think this can be fused with\ngreen or red matter to make cyan or magenta."
+			say, "A blue megapixel. I think this can be fused with\ngreen or red matter to make cyan or magenta."
 			.."\nIt also fuses with yellow, resulting in white\ndigital matter."
 		},
 		red = {
-			say, "A red gigapixel. I think this can be fused with\nblue or green matter to make magenta or yellow."
+			say, "A red megapixel. I think this can be fused with\nblue or green matter to make magenta or yellow."
 			.."\nIt also fuses with cyan, resulting in white\ndigital matter."
 		},
 		cyan = {
-			say, "A cyan gigapixel. Hm, I think this can only be fused\nwith red, which makes white digital matter."
+			say, "A cyan megapixel. Hm, I think this can only be fused\nwith red, which makes white digital matter."
 		},
 		magenta = {
-			say, "A magenta gigapixel. Hm, I think this can only be fused\nwith green, which makes white digital matter."
+			say, "A magenta megapixel. Hm, I think this can only be fused\nwith green, which makes white digital matter."
 		},
 		yellow = {
-			say, "A yellow gigapixel. Hm, I think this can only be fused\nwith blue, which makes white digital matter."
+			say, "A yellow megapixel. Hm, I think this can only be fused\nwith blue, which makes white digital matter."
 		},
 		white = {
-			say, "Oh, a white gigapixel! This is the only kind of\ndigital matter that can fuse with black. White"
+			say, "Oh, a white megapixel! This is the only kind of\ndigital matter that can fuse with black. White"
 			.."\ncan actually fuse with any color, which is useful,\nbut it's still just as dangerous as any other kind.",
 		},
 		black = {
@@ -97,28 +154,25 @@ behaviorsRaw = {
 			.."\ndigital matter that will fuse with it.",
 			say, "This anomaly will require more research."
 		},
+		greenStart = {
+			say,"A giant green pixel!"
+		},
+		blueStart = {
+			say,"How can a pixel come out of a monitor??"
+		},
+		redStart = {
+			say,"Definitely not gonna touch it!"
+		},
 	},
 }
 
 eventDataRaw = {
 	--1:
 	{
-		sc = {category="characters", image="elf", quadId=1},
+		sc = {category="stillActors", image=1, quadId=7},
 		name = "elf",
-		complex = true, --TODO MAYBE slip into sc or sc.quadId instead of making separate? more concise, less redundant/confusing...
 		collide = true,
 		interactionBehavior = {
-			shock_, "elf",
-			shock_, "hero",
-			scorePlus_, 10,
-			wait, 0.5,
-			noEmote_, "elf",
-			noEmote_, "hero",
-			say, "Hello!",
-			scorePlus_, 11,
-			scorePlus_, 12,
-			say, {"Today my favorite number is "..math.random(1,100)..".", "I love it so much!"},
-			scorePlus_, 5}
 	},
 	{
 		name = "doorTo3",
@@ -162,11 +216,42 @@ eventDataRaw = {
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
 		}
 	},
-	--6: sign? lol
+	--6: comp at start
 	{
-		name = "obstacle",
-		sc = {category="stillActors", image=1, quadId=5},
+		name = "computer at start",
+		sc = {category="stillActors", image=1, quadId=8},
+		appearsUntilAllCollected = {"notes 1"},
 		collide = true,
+		interactionBehavior = {
+			say, "omg what did i do",
+			saveData, nil,
+			-- warp,{wid=1,mx=11,my=8,facing="n"}
+		}
+	},
+	--7: comp at end
+	{
+		name = "computer at end",
+		sc = {category="stillActors", image=1, quadId=8},
+		appearsIfAllCollected = {"notes 1"},
+		collide = true,
+		interactionBehavior = {
+			say, {"You got them all! Good job!", "Thanks for playtesting. :)\n -- Max"},
+			saveData, nil,
+			-- warp,{wid=1,mx=11,my=8,facing="n"}
+		}
+	},
+}
+
+eventDataRaw[171] = {
+	name = "door from room 21",
+	sc = {category="stillActors", image=1, quadId=3},
+	collide = true,
+	appearsUntilAllCollected = {"notes 1","notes 4"},
+	interactionBehavior = {
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=1,mx=8,my=10,facing="n"},
+		say,"Hm, what's that on the table?"
 	}
 }
 

@@ -218,6 +218,22 @@ end
 
 ------------------------------------------------------------------------------------------------------
 
-function makeBlock_(color)
-	blocks[#blocks+1] = Block(color)
+--hacko jacko
+
+function makeBlock1_(color)
+	blocks[#blocks+1] = Block(color,{x=9,y=7})
+end
+function makeBlock2_(color)
+	blocks[#blocks+1] = Block(color,{x=11,y=8})
+end
+function makeBlock3_(color)
+	blocks[#blocks+1] = Block(color,{x=8,y=9})
+end
+
+function darken(opacity)
+	blackOverlayOpacity = opacity
+end
+
+function faceHero(direction)
+	globalActors.hero.facing = direction
 end
