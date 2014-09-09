@@ -412,7 +412,7 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
-	--16: baby puzzle "+ vs X" (unfinished)
+	--16: baby puzzle "+ vs X" (NEEDS STUFF) *
 	{
 		tileData = {
 			{3,3,3,3,3,3,3},
@@ -437,6 +437,45 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
+	--17: donut in the gas pump (needs stuff) *****
+	{
+		tileData = {
+			{1,1,3,3,3,3,3,3,3,3,3},
+			{1,1,2,2,2,2,2,2,2,2,2},
+			{},
+			{1,1,3,3,3,3,3,3,3,3,3},
+			{1,1,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2},
+			{3,3,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{2,2,2,2,2,2,6,2,2,2,2},
+			{2,2,2,2,2,2,2,2,2,2,2},
+			{4,1,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2},
+			{1,1,2,2,2,2,2,2,2,2,2},
+		}, 
+		startAt = {x=2,y=2,default=1},
+		blocks = {
+			{X,Y,X,M,X,Y,X,M},
+			{},
+			{},
+			{X,G,X,X,K,X,X,B},
+			{B,R,X,K,K,K,X,R,G},
+			{X,X,K,K,K,K,K},
+			{X,K,K,K,X,K,K,K},
+			{K,K,K,X,X,X,K,K,K},
+			{X,K,K,K,X,K,K,K},
+			{X,X,K,K,K,K,K},
+			{G,R,X,K,K,K,X,R,B},
+			{X,B,X,X,K,X,X,G},
+		},
+		blocksAt = {x=4,y=3},
+		localActorPointers = {
+			-- {x=9,y=12,id=358}, -- exit
+			-- {x=4,y=6,id=1004},
+			-- {x=5,y=8,id=6},
+		}
+	},
 }
 
 -- ideas:
@@ -446,5 +485,15 @@ mapDataRaw = {
 	--14: spiral of black; given just enough colors to make a white, which is needed since the path can never be cleared?
 	--16: lone R/G/B blocks must pass through C/M/Y corridors to form a white; white is locked up, so you have to get RGB through safely by shifting CMY
 	--18: white is locked up by a lone block in a closet AND is blocking in notes; must use magenta to clear a path
+
+--[[names of rooms:
+	cafeteria
+	kitchen
+	bathroom
+	lab = where clear shirt is found?
+	conference room = chess
+	lounge = painting
+
+]]
 
 numberOfMaps = #mapDataRaw

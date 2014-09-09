@@ -33,7 +33,8 @@ behaviorsRaw = {
 		-- warp,{wid=9,mx=9,my=11,facing="n"},
 		-- warp,{wid=14,mx=6,my=5,facing="s"},
 		-- warp,{wid=15,mx=6,my=5,facing="s"},
-		warp,{wid=16,mx=7,my=12,facing="n"},
+		-- warp,{wid=16,mx=7,my=12,facing="n"},
+		warp,{wid=17,mx=2,my=11,facing="n"},
 		say, "I have to find the team's notes and get out of here!\nNow, where was I?",
 	},
 	start = {
