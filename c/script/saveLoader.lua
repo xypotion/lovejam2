@@ -1,6 +1,8 @@
 function saveData()
 	love.filesystem.remove("gigapixel.save")
 	
+	love.filesystem.write("gigapixel.save","BODY"..hp.gender..hp.skin..hp.hair.."\n")
+	
 	for k,v in pairs(progress) do
 		if v then
 			love.filesystem.append("gigapixel.save", k.."\n")
@@ -21,8 +23,17 @@ end
 
 function loadSaveData()
 	progress = {}
-	for line in love.filesystem.lines("gigapixel.save") do		
-		progress[line] = true
+	hp = {shirt = 1}
+	for line in love.filesystem.lines("gigapixel.save") do
+		if line:find("BODY") then
+			hp.gender = tonumber(line:sub(5,5))
+			hp.skin = tonumber(line:sub(6,6))
+			hp.hair = tonumber(line:sub(7,7))
+			print("loaded body:")
+			tablePrint(hp)
+		else
+			progress[line] = true
+		end
 	end
 	-- progress["items collected:"] = nil
 	tablePrint(progress)

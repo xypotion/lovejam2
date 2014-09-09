@@ -1,6 +1,7 @@
 FIXME
 - commit music!!!
 - text box icon? x_x
+- change all instances of "gigapixel" to "megapixel"
 
 TODO in order of importance
 ! SAVE player's body parts
