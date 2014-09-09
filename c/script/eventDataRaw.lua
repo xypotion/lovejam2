@@ -30,14 +30,14 @@ behaviorsRaw = {
 	resume = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
-		-- warp, {wid=1,mx=12,my=7,facing="s"}, --the real one
+		warp, {wid=1,mx=12,my=7,facing="s"}, --the real one
 		-- warp,{wid=10,mx=5,my=13,facing="n"},
 		-- warp,{wid=12,mx=2,my=5,facing="s"},
 		-- warp,{wid=9,mx=9,my=11,facing="n"},
 		-- warp,{wid=14,mx=6,my=5,facing="s"},
 		-- warp,{wid=15,mx=6,my=5,facing="s"},
 		-- warp,{wid=16,mx=7,my=12,facing="n"},
-		warp,{wid=17,mx=2,my=11,facing="n"},
+		-- warp,{wid=17,mx=2,my=11,facing="n"},
 		say, "I have to find the team's notes and get out of here!\nNow, where was I?",
 	},
 	start = {
@@ -152,8 +152,8 @@ eventDataRaw = {
 	--5
 	{
 		name = "victory sign",
-		sc = {category="stillActors", image=1, quadId=5},
-		appearsIfAllCollected = {"notes 1", "notes 2", "notes 3"},
+		sc = {category="stillActors", image=1, quadId=8},
+		-- appearsIfAllCollected = {"notes 1", "notes 2", "notes 3"},
 		appearsUntilAllCollected = {"notes 1","notes 4"},
 		collide = true,
 		interactionBehavior = {
@@ -308,22 +308,22 @@ eventDataRaw[312] = {
 eventDataRaw[1001] = {
 	name = "notes 1",
 	sc = {category="stillActors", image=1, quadId=1},
+	appearsUntilAllCollected = {"notes 1"},
 	collide = true,
-	appearIfCollected = false,
 	interactionBehavior = {
 		collect_, "notes 1",
 		say, "Recovered Research Notes 1!",
 	}
-	} -- notes 1 pickup
+} -- notes 1 pickup
 eventDataRaw[2001] = {
 	name = "notes 1",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = true,
+	appearsIfAllCollected = {"notes 1"},
 	interactionBehavior = {
 		say, "Research Notes 1, got 'em.",
 	}
-	} -- notes 1 displayed at base
+} -- notes 1 displayed at base
 eventDataRaw[1002] = {
 	name = "notes 2",
 	sc = {category="stillActors", image=1, quadId=1},

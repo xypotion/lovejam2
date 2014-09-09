@@ -25,7 +25,7 @@ function loadSaveData()
 		progress[line] = true
 	end
 	-- progress["items collected:"] = nil
-	-- tablePrint(progress)
+	tablePrint(progress)
 
 	--TODO
 	colorControlled = 1

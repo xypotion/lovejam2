@@ -4,6 +4,7 @@ FIXME
 - text box icon?
 
 TODO in order of importance
+! desk + computer? aahh
 ! what happens in windows when you press Z?
 	* it is broken in windows and i assume non-retina macs. could change to non-high-dpi and only zoom by 2?
 	  * that works. now just double assets
@@ -26,16 +27,12 @@ TODO in order of importance
 	- mention z for zoom
 	- mention p for pause
 	- mention auto-save
+	- mention shift-tab
 ! place reminders for controls on pause screen
-  - also give away debug mode to player
-> let player choose from 3 sprites, M/F/neutral
-  * different skin tones, too?
-	* and different hair colors?
-	- glasses?
-	* more art will be required, but it might actually be pretty easy?
-	- could have a special menu where player presses tab to generate a new random character, enter when satisfied
+  - also give away debug mode to player (huh?)
+	* shirt shortcuts (1234567890)
 > collectible shirts? change colors with tab when not controlling blocks? lol
-  - clear one is reward for hardest puzzle?
+  - clear shirt is reward for hardest puzzle? kinda ultimate reward?
 > postgame fun: all black backgrounds turn into twinkly stars
 > better story/cutscenes & effects (like a quake or a siren or a red flash)
 > ending
@@ -61,6 +58,12 @@ credits:
 
 
 done TODOs
+> let player choose from 3 sprites, M/F/neutral
+  * different skin tones, too?
+	* and different hair colors?
+	- glasses?
+	* more art will be required, but it might actually be pretty easy?
+	- could have a special menu where player presses tab to generate a new random character, enter when satisfied
 - save after intro cutscene
 ! less shitty title screen, maybe animated
   - maybe only appears when a save file exists. new game = jump right in

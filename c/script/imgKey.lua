@@ -161,13 +161,14 @@ function makeQuads()
 	
 	qs = {1,1,4,4}
 	quadSets.stillActors = {
-		{quadAt(0,0,qs)}, --1:notes
+		{quadAt(0,0,qs)}, --quad=1:notes
 		{quadAt(1,0,qs)}, --2:door
 		{quadAt(2,0,qs)}, --3:exit door
 		{quadAt(3,1,qs)}, --4:door top
 		{quadAt(1,1,qs)}, --5:(sign)
 		{quadAt(3,0,qs)}, --6:key
 		{quadAt(0,1,qs)}, --7:remote
+		{quadAt(2,1,qs)}, --8:computah
 	}
 	qs = {1,1,2,1}
 	quadSets.block = {quadAt(0,0,qs),quadAt(1,0,qs)}
@@ -179,7 +180,9 @@ function makeQuads()
 		quadAt(0,2,qs), --3: high wall with door
 		quadAt(0,3,qs), --4: bottom wall with door
 		quadAt(1,0,qs), --5: top wall
-		quadAt(1,1,qs), --6: plant DUMMY
+		quadAt(1,1,qs), --6: plant 
+		quadAt(1,2,qs), --7: desk
+		quadAt(1,3,qs), --8: chair
 		-- quadAt(1,3,qs), --7: daarkness
 	}
 	
