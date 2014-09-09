@@ -39,7 +39,31 @@ images = {
 	-- 	love.graphics.newImage("img/marble8.png"),
 	-- },
 	characters = {
-		hero = love.graphics.newImage("img/humans.png"),
+		base = 	love.graphics.newImage("img/char-base.png"),
+		-- hero = love.graphics.newImage("img/humans.png"),
+		skin = {
+			love.graphics.newImage("img/char-african.png"),
+			love.graphics.newImage("img/char-caucasian.png"),
+		},
+		hair = {
+			love.graphics.newImage("img/char-hair-orange.png"),
+			love.graphics.newImage("img/char-hair-blond.png"),
+			love.graphics.newImage("img/char-hair-black.png"),
+			love.graphics.newImage("img/char-hair-brown.png"),
+			love.graphics.newImage("img/char-hair-white.png"),
+		},
+		shirts = {
+			love.graphics.newImage("img/char-shirt-grey.png"),
+			love.graphics.newImage("img/char-shirt-black.png"),
+			love.graphics.newImage("img/char-shirt-yellow.png"),
+			love.graphics.newImage("img/char-shirt-cyan.png"),
+			love.graphics.newImage("img/char-shirt-magenta.png"),
+			love.graphics.newImage("img/char-shirt-blue.png"),
+			love.graphics.newImage("img/char-shirt-green.png"),
+			love.graphics.newImage("img/char-shirt-red.png"),
+			love.graphics.newImage("img/char-shirt-white.png"),
+			love.graphics.newImage("img/char-shirt-clear.png"),
+		}	
 		-- elf = love.graphics.newImage("img/directional-elf-1.png"),
 	},
 	-- swirl = {love.graphics.newImage("img/swirl9.png")}, --eh.
@@ -111,13 +135,27 @@ function makeQuads()
 	
 	local qs = {} --"quad size", shortcut for the last 4 of 6 arguments to newQuad in quadAt
 
-	qs = {1,1,8,1}
-	quadSets.characters = {
-		s = {quadAt(0,0,qs),quadAt(1,0,qs)},
-		n = {quadAt(2,0,qs),quadAt(3,0,qs)},
-		w = {quadAt(4,0,qs),quadAt(5,0,qs)},
-		e = {quadAt(6,0,qs),quadAt(7,0,qs)},
-		shock = {quadAt(0.5,0,qs)} --TODO glad it works but it's so wrong :P (ART NEEDED)
+	qs = {1,1,8,3}
+	quadSets.hero = {
+		{
+			s = {quadAt(0,0,qs),quadAt(1,0,qs)},
+			n = {quadAt(2,0,qs),quadAt(3,0,qs)},
+			w = {quadAt(4,0,qs),quadAt(5,0,qs)},
+			e = {quadAt(6,0,qs),quadAt(7,0,qs)},
+		},
+		{
+			s = {quadAt(0,1,qs),quadAt(1,1,qs)},
+			n = {quadAt(2,1,qs),quadAt(3,1,qs)},
+			w = {quadAt(4,1,qs),quadAt(5,1,qs)},
+			e = {quadAt(6,1,qs),quadAt(7,1,qs)},
+		},
+		{
+			s = {quadAt(0,2,qs),quadAt(1,2,qs)},
+			n = {quadAt(2,2,qs),quadAt(3,2,qs)},
+			w = {quadAt(4,2,qs),quadAt(5,2,qs)},
+			e = {quadAt(6,2,qs),quadAt(7,2,qs)},
+		},
+		-- shock = {quadAt(0.5,0,qs)} --TODO glad it works but it's so wrong :P (ART NEEDED)
 	}
 	--TODO also emotion/casting/hit/down/whatever quads used by all characters in cutscenes? anikeys may change in those cases, is the problem
 	

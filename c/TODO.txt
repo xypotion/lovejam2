@@ -7,7 +7,7 @@ TODO in order of importance
 ! what happens in windows when you press Z?
 	* it is broken in windows and i assume non-retina macs. could change to non-high-dpi and only zoom by 2?
 	  * that works. now just double assets
-! final audio: stairs, doors, item collection, bips for remote
+! final audio: stairs, doors (, item collection, bips for remote)
   - maybe also a siren for cutscenes
 ! little cleanups in menus
   * remove debug stuff, obvs, including Q to quit
@@ -28,15 +28,15 @@ TODO in order of importance
 	- mention auto-save
 ! place reminders for controls on pause screen
   - also give away debug mode to player
-> collectible shirts? change colors with tab when not controlling blocks? lol
-  - clear one is reward for hardest puzzle?
-> postgame fun: all black backgrounds turn into twinkly stars
 > let player choose from 3 sprites, M/F/neutral
   * different skin tones, too?
 	* and different hair colors?
 	- glasses?
 	* more art will be required, but it might actually be pretty easy?
 	- could have a special menu where player presses tab to generate a new random character, enter when satisfied
+> collectible shirts? change colors with tab when not controlling blocks? lol
+  - clear one is reward for hardest puzzle?
+> postgame fun: all black backgrounds turn into twinkly stars
 > better story/cutscenes & effects (like a quake or a siren or a red flash)
 > ending
 - fade music in/out a little more nicely? hmm

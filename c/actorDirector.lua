@@ -40,8 +40,8 @@ function fadeOutTranslator(actor, dt)
 end
 
 function walk(actor, dt)
-	local xDelta = (actor.targetPos.x - actor.currentPos.x) * actor.speed * dt
-	local yDelta = (actor.targetPos.y - actor.currentPos.y) * actor.speed * dt
+	local xDelta = math.floor((actor.targetPos.x - actor.currentPos.x) * actor.speed * dt)
+	local yDelta = math.floor((actor.targetPos.y - actor.currentPos.y) * actor.speed * dt)
 
 	decrementDistanceFromTarget(actor, math.abs(xDelta) + math.abs(yDelta))
 	incrementScreenPos(actor, xDelta, yDelta)

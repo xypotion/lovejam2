@@ -112,7 +112,7 @@ function loadBlocks()
 		for y = 1, #(currentMap.blocks) do
 			for x = 1, #(currentMap.blocks[y]) do
 				if currentMap.blocks[y][x] then
-					print(currentMap.blocks[y][x], y+currentMap.blocksAt.y - 1, x+currentMap.blocksAt.x - 1)
+					-- print(currentMap.blocks[y][x], y+currentMap.blocksAt.y - 1, x+currentMap.blocksAt.x - 1)
 					blocks[i] = Block(currentMap.blocks[y][x],{y=y+currentMap.blocksAt.y - 1, x=x+currentMap.blocksAt.x - 1})
 					i = i + 1
 				end

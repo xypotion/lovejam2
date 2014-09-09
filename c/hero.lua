@@ -8,8 +8,8 @@ function initHero()
 	
 	globalActors.hero = {
 		complex = true,
- 		image = images.characters.hero, --TODO way down the road, will need to respect choice of leaders
-		quads = quadSets.characters,
+ 		image = images.characters.base, --TODO way down the road, will need to respect choice of leaders
+		quads = quadSets.hero[hp.gender],
 		anikey = anikeys.characters,
 		speed = 200 * zoom,
 		

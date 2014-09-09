@@ -21,7 +21,7 @@ function Block:_init(color, pos)
 	
 	self.speed = 100 * zoom -- TODO
 	
-	ping(color.." block made")
+	-- ping(color.." block made")
 end
 
 function Block:draw()

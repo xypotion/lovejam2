@@ -34,6 +34,15 @@ function love.load()
 	worldPos = 4
 	heroGridPos = {x=100,y=5}
 	facing = "s"
+
+	
+	hp = { --"hero parts"
+		skin = math.random(1,2),
+		hair = math.random(1,5),
+		gender = 3,--math.random(1,3),
+		shirt = math.random(1,10) --no TODO
+	}
+	tablePrint(hp)
 	
 	initWindowStates()
 	
