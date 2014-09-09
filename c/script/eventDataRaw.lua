@@ -381,6 +381,34 @@ eventDataRaw[2004] = {
 		say, "Research Notes 4, got 'em.",
 	}
 }
+
+--shirts
+eventDataRaw[902] = {
+	name = "shirt 2",
+	sc = {category="stillActors",image=1,quadId=9},
+	collide = true,
+	appearsUntilAllCollected = {"shirt 2"},
+	interactionBehavior = {
+		collect_, "shirt 2",
+		say, "Found a black shirt!",
+		say, "Press 2 to wear it. You can change back to\nyour grey shirt by pressing 1.",
+		say, "\"Black does go with everything.\""
+	}
+}--black
+eventDataRaw[903] = {
+	name = "shirt 3",
+	sc = {category="stillActors",image=1,quadId=10},
+	collide = true,
+	appearsUntilAllCollected = {"shirt 3"},
+	interactionBehavior = {
+		collect_, "shirt 3",
+		say, "Found a red shirt!",
+		say, "Press 3 to wear it. You can change back to\nyour grey shirt by pressing 1.",
+		say, "\"Red. Hot.\""
+	}
+}--red
+
+-- TODO other shirts, including clear from a computer PLUS its dead version?
 	
 	-- {
 	-- 	sc = {category="stillActors", image=1, quadId=3},

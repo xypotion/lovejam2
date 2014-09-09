@@ -55,12 +55,12 @@ images = {
 		shirts = {
 			love.graphics.newImage("img/char-shirt-grey.png"),
 			love.graphics.newImage("img/char-shirt-black.png"),
-			love.graphics.newImage("img/char-shirt-yellow.png"),
+			love.graphics.newImage("img/char-shirt-red.png"),
+			love.graphics.newImage("img/char-shirt-green.png"),
+			love.graphics.newImage("img/char-shirt-blue.png"),
 			love.graphics.newImage("img/char-shirt-cyan.png"),
 			love.graphics.newImage("img/char-shirt-magenta.png"),
-			love.graphics.newImage("img/char-shirt-blue.png"),
-			love.graphics.newImage("img/char-shirt-green.png"),
-			love.graphics.newImage("img/char-shirt-red.png"),
+			love.graphics.newImage("img/char-shirt-yellow.png"),
 			love.graphics.newImage("img/char-shirt-white.png"),
 			love.graphics.newImage("img/char-shirt-clear.png"),
 		}	
@@ -165,19 +165,19 @@ function makeQuads()
 		{quadAt(1,0,qs)}, --2:door
 		{quadAt(2,0,qs)}, --3:exit door
 		{quadAt(3,1,qs)}, --4:door top
-		{quadAt(1,1,qs)}, --5:(grey shirt)
+		{quadAt(1,1,qs)}, --5:grey shirt, only used in pause menu
 		{quadAt(3,0,qs)}, --6:key
 		{quadAt(0,1,qs)}, --7:remote
 		{quadAt(2,1,qs)}, --8:computah
 		--shirts:
 		{quadAt(3,3,qs)}, --9:black
-		{quadAt(2,0,qs)}, --10:white
-		{quadAt(2,1,qs)}, --11:red
-		{quadAt(2,2,qs)}, --12:green
-		{quadAt(2,3,qs)}, --13:blue
-		{quadAt(3,0,qs)}, --14:cyan
-		{quadAt(3,1,qs)}, --15:magenta
-		{quadAt(3,2,qs)}, --16:yellow
+		{quadAt(1,2,qs)}, --10:red
+		{quadAt(2,2,qs)}, --11:green
+		{quadAt(3,2,qs)}, --12:blue
+		{quadAt(0,3,qs)}, --13:cyan
+		{quadAt(1,3,qs)}, --14:magenta
+		{quadAt(2,3,qs)}, --15:yellow
+		{quadAt(0,2,qs)}, --16:white
 		
 	}
 	qs = {1,1,2,1}

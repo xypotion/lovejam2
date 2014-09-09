@@ -116,6 +116,7 @@ mapDataRaw = {
 		localActorPointers = {
 			{x=3,y=6,id=355}, -- exit
 			{x=12,y=7,id=1001},
+			{x=2,y=9,id=903}
 		}
 	},
 	--6: narrow puzzle, pretty easy *

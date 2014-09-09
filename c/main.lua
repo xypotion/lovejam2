@@ -287,13 +287,34 @@ function love.keypressed(key)
 			keyPressedDuringText(key)
 		end
 	
-		--shh! TODO remove
-		if key == "0" and love.keyboard.isDown("3") then
-			-- score = score + 1
-			-- return
-			progress["notes 1"] = true
-			progress["notes 2"] = true
-			progress["notes 3"] = true
+		-- --shh! TODO remove
+		-- if key == "0" and love.keyboard.isDown("3") then
+		-- 	-- score = score + 1
+		-- 	-- return
+		-- 	progress["notes 1"] = true
+		-- 	progress["notes 2"] = true
+		-- 	progress["notes 3"] = true
+		-- end
+		if key == "1" then
+			hp.shirt = 1
+		elseif key == "2" and progress["shirt 2"] then
+			hp.shirt = 2
+		elseif key == "3" and progress["shirt 3"] then
+			hp.shirt = 3
+		elseif key == "4" and progress["shirt 4"] then
+			hp.shirt = 4
+		elseif key == "5" and progress["shirt 5"] then
+			hp.shirt = 5
+		elseif key == "6" and progress["shirt 6"] then
+			hp.shirt = 6
+		elseif key == "7" and progress["shirt 7"] then
+			hp.shirt = 7
+		elseif key == "8" and progress["shirt 8"] then
+			hp.shirt = 8
+		elseif key == "9" and progress["shirt 9"] then
+			hp.shirt = 9
+		elseif key == "0" and progress["shirt 10"] then
+			hp.shirt = 10
 		end
 	end
 end

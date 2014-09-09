@@ -1,10 +1,10 @@
 FIXME
-- zoom with blocks
 - commit music!!!
-- text box icon?
+- text box icon? x_x
 
 TODO in order of importance
-! desk + computer? aahh
+! SAVE player's body parts
+! shirt controls + progress on pause menu
 ! what happens in windows when you press Z?
 	* it is broken in windows and i assume non-retina macs. could change to non-high-dpi and only zoom by 2?
 	  * that works. now just double assets
