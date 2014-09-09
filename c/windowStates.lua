@@ -23,7 +23,7 @@ function initWindowStates()
 	
 	updateWindowStateSettings()
 	
-  love.window.setTitle('Gigapixel Meltdown')
+  love.window.setTitle('Mega-pixel Meltdown')
 end
 
 function updateWindowStateSettings()
@@ -57,7 +57,9 @@ function updateZoomRelativeStuff()
 	--this is safe, don't worry :)
 	initHero()
 	
-	blocks[1]:_init()--FIXME
+	for i = 1,#blocks do
+		blocks[i]:_init()
+	end
 	
 	scrollSpeed = 500 * zoom -- inelegant TODO maybe put somewhere else? or is it ok?
 	

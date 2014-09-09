@@ -93,8 +93,9 @@ mapDataRaw = {
 		startAt = {x=1,y=1,default=1},
 		localActorPointers = {}
 	},
+	
 --puzzles:
-	--5: silly chunks, first puzzle (doors 305, 355, notes 1001) **
+	--5: silly first puzzle (doors 305, 355, notes 1001) **
 	{
 		tileData = {
 			{3,3,3,1,1,1,1,1,1,3,3,3},
@@ -107,9 +108,9 @@ mapDataRaw = {
 		startAt = {x=2,y=6,default=1},
 		blocks = {
 			{R,R,R,K,K,C},
-			{C,Y,M,K,K},
-			{B,B,B,K,K,M},
-			{G,G,G,K,K,K},
+			{G,G,G,K,K,M},
+			{B,B,B,K,K,Y},
+			{X,X,X,K,K,K},
 		},
 		blocksAt = {x=5,y=8},
 		localActorPointers = {
@@ -486,14 +487,13 @@ mapDataRaw = {
 	--16: lone R/G/B blocks must pass through C/M/Y corridors to form a white; white is locked up, so you have to get RGB through safely by shifting CMY
 	--18: white is locked up by a lone block in a closet AND is blocking in notes; must use magenta to clear a path
 
---[[names of rooms:
+--[[names of rooms?:
 	cafeteria
 	kitchen
 	bathroom
 	lab = where clear shirt is found?
 	conference room = chess
 	lounge = painting
-
 ]]
 
 numberOfMaps = #mapDataRaw

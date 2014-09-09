@@ -165,10 +165,20 @@ function makeQuads()
 		{quadAt(1,0,qs)}, --2:door
 		{quadAt(2,0,qs)}, --3:exit door
 		{quadAt(3,1,qs)}, --4:door top
-		{quadAt(1,1,qs)}, --5:(sign)
+		{quadAt(1,1,qs)}, --5:(grey shirt)
 		{quadAt(3,0,qs)}, --6:key
 		{quadAt(0,1,qs)}, --7:remote
 		{quadAt(2,1,qs)}, --8:computah
+		--shirts:
+		{quadAt(3,3,qs)}, --9:black
+		{quadAt(2,0,qs)}, --10:white
+		{quadAt(2,1,qs)}, --11:red
+		{quadAt(2,2,qs)}, --12:green
+		{quadAt(2,3,qs)}, --13:blue
+		{quadAt(3,0,qs)}, --14:cyan
+		{quadAt(3,1,qs)}, --15:magenta
+		{quadAt(3,2,qs)}, --16:yellow
+		
 	}
 	qs = {1,1,2,1}
 	quadSets.block = {quadAt(0,0,qs),quadAt(1,0,qs)}
