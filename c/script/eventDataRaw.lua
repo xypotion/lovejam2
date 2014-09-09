@@ -30,14 +30,15 @@ behaviorsRaw = {
 	resume = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
-		warp, {wid=1,mx=10,my=5,facing="s"}, --the real one
+		warp, {wid=1,mx=9,my=5,facing="s"}, --the real one
+		-- warp, {wid=2,mx=10,my=5,facing="s"},
 		say, "I have to find the research materials and get\nout of here!",
 	},
 	start = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,
 		warp, {wid=21,mx=9,my=9,facing="s"},
-		skip,50,
+		-- skip,50,
 		-- think, {"An experiment has gone awry and your lab is"
 		-- 	.."\noverrun with digital matter!",
 		-- 	"You will need to move and fuse megapixels"
@@ -221,25 +222,42 @@ eventDataRaw = {
 	},
 	--5
 	{
-		name = "victory sign",
-		sc = {category="stillActors", image=1, quadId=8},
-		-- appearsIfAllCollected = {"notes 1", "notes 2", "notes 3"},
-		appearsUntilAllCollected = {"notes 1","notes 4"},
+		name = "victory key",
+		sc = {category="stillActors", image=1, quadId=6},
+		appearsIfAllCollected = {"notes 1","notes 2","notes 3","notes 4","notes 5","notes 6","notes 7","notes 8"},
 		collide = true,
 		interactionBehavior = {
-			say, {"You got them all! Good job!", "Thanks for playtesting. :)\n -- Max"},
-			saveData, nil,
+			think, "You got them all! Good job!",
+			think, "Sadly, that's all for now. I ran out of time\nto make all 16 puzzles.",
+			think, "Credits:\nArt, Design, Coding: Max Wunderlich\nPlaytesting & Moral Support: Dustin Cogswell",
+			think, "Sound effects made in cfxr.\n  http://thirdcog.eu/apps/cfxr",
+			think, "Background track:\nJinko Eisei by Circuit Monster\nDownloaded from Jamendo.com",
+			think, "Thanks to itch.io and DavidoBot for hosting\nLove Jam 2!",
+			think, "And thanks to Love 2D for being awesome!\n  love2d.org",
+			think, "...I plan to add the rest of the game later!\nIf you liked it and want more, follow \n@xypotion on Twitter for updates.",
+			-- saveData, nil,
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
+			wait, 2,
+			say, "Hm? What's this?",
+			collect_, "shirt 2",
+			collect_, "shirt 3",
+			collect_, "shirt 4",
+			collect_, "shirt 5",
+			collect_, "shirt 6",
+			collect_, "shirt 7",
+			collect_, "shirt 8",
+			collect_, "shirt 9",
+			think,"Here's a bonus for finishing this version ~\nTry pressing the number keys! :)"
 		}
 	},
 	--6: comp at start
 	{
 		name = "computer at start",
 		sc = {category="stillActors", image=1, quadId=8},
-		appearsUntilAllCollected = {"notes 1"},
+		appearsUntilAllCollected = {"notes 1","notes 2","notes 3","notes 4","notes 5","notes 6","notes 7","notes 8"},
 		collide = true,
 		interactionBehavior = {
-			say, "omg what did i do",
+			say, "Guess the rest of the project will have\nto wait...."
 			saveData, nil,
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
 		}
@@ -248,10 +266,10 @@ eventDataRaw = {
 	{
 		name = "computer at end",
 		sc = {category="stillActors", image=1, quadId=8},
-		appearsIfAllCollected = {"notes 1"},
+		appearsIfAllCollected = {"notes 1","notes 2","notes 3","notes 4","notes 5","notes 6","notes 7","notes 8"},
 		collide = true,
 		interactionBehavior = {
-			say, {"You got them all! Good job!", "Thanks for playtesting. :)\n -- Max"},
+			say, {"You're so thorough! Thanks for playing!"},
 			saveData, nil,
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
 		}
@@ -270,7 +288,6 @@ eventDataRaw[171] = {
 		-- say,"Hm, what's that on the table?"
 	}
 }
-
 eventDataRaw[121] = {
 	name = "door to room 21",
 	sc = {category="stillActors", image=1, quadId=4},
@@ -291,7 +308,7 @@ eventDataRaw[221] = {
 	collide = true,
 	interactionBehavior = {
 		choose, {"Head downstairs?", {"No", 1}, {"Yes",0}},
-		warp,{wid=1,mx=3,my=7,facing="s"}
+		warp,{wid=1,mx=2,my=7,facing="s"}
 	}
 }
 eventDataRaw[212] = {
@@ -310,7 +327,7 @@ eventDataRaw[305] = {
 	name = "doorTo5",
 	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
-	appearsUntilAllCollected = {"notes 1","notes 4"},
+	-- appearsUntilAllCollected = {"notes 1","notes 4"},
 	interactionBehavior = {
 		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
@@ -392,9 +409,19 @@ eventDataRaw[309] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
 		warp,{wid=9,mx=9,my=11,facing="n"}
+	}
+}
+eventDataRaw[359] = {
+	name = "doorFrom9",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=2,mx=6,my=3,facing="s"}
 	}
 }
 eventDataRaw[310] = {
@@ -402,33 +429,61 @@ eventDataRaw[310] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
 		warp,{wid=10,mx=5,my=13,facing="n"},
 	}
 }
-eventDataRaw[311] = {
-	name = "doorTo11",
-	sc = {category="stillActors", image=1, quadId=3},
+eventDataRaw[360] = {
+	name = "doorFrom10",
+	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=2,mx=10,my=3,facing="s"}
+	}
+}
+eventDataRaw[311] = {
+	name = "doorTo11",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
 		warp,{wid=11,mx=3,my=12,facing="n"},
 	}
 }
+eventDataRaw[361] = {
+	name = "doorFrom11",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=2,mx=6,my=11,facing="n"}
+	}
+}
 eventDataRaw[312] = {
 	name = "doorTo12",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	interactionBehavior = {
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=12,mx=2,my=5,facing="s"},
+	}
+}
+eventDataRaw[362] = {
+	name = "doorFrom12",
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
 		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
-		warp,{wid=12,mx=2,my=5,facing="s"},
-		playSound, "door"
+		warp,{wid=2,mx=10,my=11,facing="n"}
 	}
 }
-		-- warp,{wid=10,mx=5,my=13,facing="n"},
 		-- warp,{wid=12,mx=2,my=5,facing="s"},
 		-- warp,{wid=9,mx=9,my=11,facing="n"},
 		-- warp,{wid=14,mx=6,my=5,facing="s"},
@@ -508,7 +563,7 @@ eventDataRaw[1004] = {
 	appearsUntilAllCollected = {"notes 4"},
 	interactionBehavior = {
 		collect_, "notes 4",
-		say, "Got Research Notes 4! Let's take a look...",
+		say, "Got Research Notes 4!",
 	}
 }
 eventDataRaw[2004] = {
@@ -548,7 +603,7 @@ eventDataRaw[1006] = {
 	interactionBehavior = {
 		collect_, "notes 6",
 		say, "Got Research Notes 6! Let's take a look...",
-		think,"You can change the zoom level with Z, and \nyou can mute the music with M."
+		think,"You can mute the music with M."
 	}
 }
 eventDataRaw[2006] = {
