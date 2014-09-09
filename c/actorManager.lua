@@ -44,7 +44,7 @@ function drawComplexActor(actor)
 	-- 	frame = actor.anikey.frame % #(actor.quads[actor.emotion]) + 1
 	-- 	love.graphics.draw(actor.image, actor.quads[actor.emotion][frame], actor.screenX, actor.screenY, 0, 1, 1)
 	-- else
-		-- tablePrint(actor)
+		-- --tablePrint(actor)
 		local frame = actor.anikey.frame % #(actor.quads[actor.facing]) + 1
 		love.graphics.draw(actor.image, actor.quads[actor.facing][frame], actor.screenX, actor.screenY, 0, 1, 1) -- base
 		love.graphics.draw(images.characters.skin[hp.skin], actor.quads[actor.facing][frame], actor.screenX, actor.screenY, 0, 1, 1)
@@ -60,15 +60,15 @@ function loadLocalActors()
 	
 	-- print ("loadLocalActors")
 	
-	-- tablePrint(progress)
+	-- --tablePrint(progress)
 	
 	--load 'em
 	for i,ePointer in pairs(currentMap.localActorPointers) do
-		-- ping(ePointer.name)
+		-- --ping(ePointer.name)
 -- 		print(ePointer.appearIfCollected == true and progress[ePointer.name])
 -- 		print(ePointer.appearIfCollected == false and not progress[ePointer.name])
 -- 		print(ePointer.appearIfCollected == nil)
--- tablePrint(ePointer)
+-- --tablePrint(ePointer)
 		
 			la = loadLocalActor(ePointer)
 			localActors[i] = la
@@ -148,7 +148,7 @@ function getGlobalActorByPos(pos)
 end
 
 function interactWith(actor)
-	print "ping interaction func"
+	print "--ping interaction func"
 			
 	startScript(actor.interactionBehavior)
 end

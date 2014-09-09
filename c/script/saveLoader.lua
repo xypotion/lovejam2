@@ -30,19 +30,23 @@ function loadSaveData()
 			hp.skin = tonumber(line:sub(6,6))
 			hp.hair = tonumber(line:sub(7,7))
 			print("loaded body:")
-			tablePrint(hp)
+			--tablePrint(hp)
 		else
 			progress[line] = true
 		end
 	end
 	-- progress["items collected:"] = nil
-	tablePrint(progress)
+	--tablePrint(progress)
 
-	--TODO
 	colorControlled = 1
 	controllableColors = {R,G,B,C,M,Y,W}
 	
 	finishLoadingGame()
+	playBGM()
+	
+	-----------------------
+	-- progress={"notes 1","remote"}
+	-----------------------
 	
 	startScript(behaviorsRaw.resume)
 end

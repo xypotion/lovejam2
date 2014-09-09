@@ -18,7 +18,7 @@ function Menu:_init(pos, width, height)
 	
 	self.options = {}
 	
-	ping(self.width)
+	--ping(self.width)
 end
 
 function Menu:draw()

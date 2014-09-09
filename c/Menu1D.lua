@@ -3,7 +3,7 @@ Menu1D = class(Menu)
 function Menu1D:_init(...)
 	self.super:_init(...)
 	
-	-- tablePrint(self.cursor)
+	-- --tablePrint(self.cursor)
 	
 	-- self.options = {{1,2},{3,4}} --TODO why?
 	self.pos.y = 10--(yLen - 3) * tileSize

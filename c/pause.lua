@@ -21,7 +21,8 @@ function drawPauseOverlay()
 
 	love.graphics.print("Controls:", screenWidth/6, screenHeight/3, 0, zoom, zoom)
 	love.graphics.print("\nWASD/Arrow Keys: walk, move pixels\nSpace: interact\nReturn: activate pixel control"
-		.."\n[Shift]-Tab: cycle through colors\nR: reset room\nM: mute background music\nZ: toggle zoom\nEsc: exit game",
+		-- .."\n[Shift]-Tab: cycle through colors\nR: reset room\nM: mute background music\nZ: toggle zoom\nEsc: exit game",
+		.."\n[Shift]-Tab: cycle through colors\nR: reset room\nM: mute background music\nEsc: exit game",
 		screenWidth/5, screenHeight/3, 0, zoom, zoom)
 		
 		--TODO shirt controls

@@ -43,7 +43,7 @@ function love.load()
 		gender = 1,
 		shirt = 1
 	}
-	tablePrint(hp)
+	--tablePrint(hp)
 	
 	initWindowStates()
 	
@@ -183,7 +183,7 @@ function love.draw()
 	if controllingBlocks then
 		love.graphics.draw(images.blocks[controllableColors[colorControlled]], quadSets.block[1], screenWidth - tileSize * 2, screenHeight - tileSize * 3)
 		love.graphics.draw(images.colorKey, quadSets.colorKey, screenWidth - tileSize * 2.5, screenHeight - tileSize * 7)
-		-- ping("remote")
+		-- --ping("remote")
 	-- else
 	-- 	love.graphics.setColor(255, 255, 255, HUDOpacity)
 	-- 	love.graphics.draw(images.remote, quadSets.remote, screenWidth - tileSize * 2.5, screenHeight - tileSize * 4)
@@ -197,11 +197,11 @@ function love.draw()
 	-- else
 	-- end
 	
-  if controllingBlocks then love.graphics.print("controlling "..controllableColors[colorControlled], 10, 26*zoom, 0, zoom, zoom) end
-  if controllingBlocks then love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
-	else love.graphics.print("Actors Shifting: "..actorsShifting, 10, 42*zoom, 0, zoom, zoom) end
+	--   if controllingBlocks then love.graphics.print("controlling "..controllableColors[colorControlled], 10, 26*zoom, 0, zoom, zoom) end
+	--   if controllingBlocks then love.graphics.print("Blocks Shifting: "..blocksShifting, 10, 42*zoom, 0, zoom, zoom)
+	-- else love.graphics.print("Actors Shifting: "..actorsShifting, 10, 42*zoom, 0, zoom, zoom) end
 	
-  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
+  -- love.graphics.print("Current FPS: "..tostring(love.timer.getFPS()), 10, 10*zoom, 0, zoom, zoom) --zoom, zoom!
 	-- love.graphics.print("x="..worldPos.x.." y="..worldPos.y, tileSize * xLen - 96, 10*zoom, 0, zoom, zoom)
 	-- love.graphics.print("x="..globalActors.hero.currentPos.x.." y="..globalActors.hero.currentPos.y, tileSize * xLen - 96, 26*zoom, 0, zoom, zoom)	
 	
@@ -238,16 +238,16 @@ function love.keypressed(key)
 			-- end
 	
 			--cycle through zoom settings TODO eventually make a player option of this, but this is fine for dev
-			if key == "z" and not controllingBlocks then
-				windowState = (windowState) % #windowStates + 1
-				updateWindowStateSettings()
-				updateZoomRelativeStuff()
-			end
+			-- if key == "z" and not controllingBlocks then
+			-- 	windowState = (windowState) % #windowStates + 1
+			-- 	updateWindowStateSettings()
+			-- 	updateZoomRelativeStuff()
+			-- end
 		
 			if key == " " and not controllingBlocks then 
-				-- print "ping main"
+				-- print "--ping main"
 				startFacingInteraction()
-				-- print "ping main; keypressed finished"
+				-- print "--ping main; keypressed finished"
 			end	
 			
 			if key == "return" and progress["remote"] then

@@ -29,7 +29,7 @@ function loadAudio()
 	sources.collide = love.audio.newSource("sound/hit.wav", static)
 	collideSoundTimer = 0
 	
-	-- tablePrint(sources)
+	-- --tablePrint(sources)
 end
 
 function collideSoundTimerDecay(dt)

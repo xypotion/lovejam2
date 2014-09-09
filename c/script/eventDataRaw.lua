@@ -11,7 +11,7 @@ math.randomseed(os.time())
 		-- note: actors will still have their own image, anikey, and quad pointers; this is so they CAN BE ALTERED for cutscenes, etc withought messing with sc
 			--TODO determine if above statement is necessary/true. emotes/complex actors cover... all of that? i think? (if you handle anikeys smartly)
 		-- can also just omit if event is invisible! e.g. town exit points
-	complex = false-- if false, may animate and "perform" e.g. hopping, but doesn't turn or emote
+	complex = false-- if false, may animate and "perform" e.g. hop--ping, but doesn't turn or emote
 		-- or true: animates, but has a facing (south by default), and can emote (!!), interrupting normal animation temporarily
 	collide = true -- if true, hero cannot pass through; if false, s/he can. also determines how interaction is triggered
 	interactionBehavior = {say, "hello world"} -- commands in manual interaction script, listed in pairs
@@ -262,12 +262,25 @@ eventDataRaw[171] = {
 	name = "door from room 21",
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
-	appearsUntilAllCollected = {"notes 1","notes 4"},
+	-- appearsUntilAllCollected = {"notes 1","notes 4"},
 	interactionBehavior = {
 		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
-		warp,{wid=1,mx=8,my=10,facing="n"},
-		say,"Hm, what's that on the table?"
+		warp,{wid=1,mx=2,my=7,facing="n"},
+		-- say,"Hm, what's that on the table?"
+	}
+}
+
+eventDataRaw[121] = {
+	name = "door to room 21",
+	sc = {category="stillActors", image=1, quadId=4},
+	collide = true,
+	-- appearsUntilAllCollected = {"notes 1","notes 4"},
+	interactionBehavior = {
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=21,mx=10,my=7,facing="s"},
+		-- say,"Hm, what's that on the table?"
 	}
 }
 
@@ -277,7 +290,7 @@ eventDataRaw[221] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Head upstairs?", {"No", 1}, {"Yes",0}},
+		choose, {"Head downstairs?", {"No", 1}, {"Yes",0}},
 		warp,{wid=1,mx=3,my=7,facing="s"}
 	}
 }
@@ -287,7 +300,7 @@ eventDataRaw[212] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Head downstairs?", {"No", 1}, {"Yes",0}},
+		choose, {"Head upstairs?", {"No", 1}, {"Yes",0}},
 		warp,{wid=2,mx=2,my=7,facing="e"}
 	}
 }
@@ -299,7 +312,7 @@ eventDataRaw[305] = {
 	collide = true,
 	appearsUntilAllCollected = {"notes 1","notes 4"},
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
 		playSFX, "door",
 		warp,{wid=5,mx=3,my=7,facing="s"},
 	}
@@ -309,8 +322,9 @@ eventDataRaw[355] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=1,mx=11,my=8,facing="n"}
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=1,mx=10,my=11,facing="n"}
 	}
 }
 eventDataRaw[306] = {
@@ -318,7 +332,8 @@ eventDataRaw[306] = {
 	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=6,mx=5,my=3,facing="s"}
 	}
 }
@@ -327,8 +342,9 @@ eventDataRaw[356] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=1,mx=9,my=8,facing="n"}
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=1,mx=6,my=11,facing="n"}
 	}
 }
 eventDataRaw[307] = {
@@ -336,7 +352,8 @@ eventDataRaw[307] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=7,mx=6,my=9,facing="n"}
 	}
 }
@@ -345,8 +362,9 @@ eventDataRaw[357] = {
 	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=1,mx=11,my=4,facing="s"}
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=1,mx=6,my=3,facing="s"}
 	}
 }
 eventDataRaw[308] = {
@@ -354,7 +372,8 @@ eventDataRaw[308] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		-- choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=8,mx=9,my=11,facing="n"}
 	}
 }
@@ -363,8 +382,9 @@ eventDataRaw[358] = {
 	sc = {category="stillActors", image=1, quadId=4},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
-		warp,{wid=1,mx=9,my=4,facing="s"}
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
+		warp,{wid=1,mx=10,my=3,facing="s"}
 	}
 }
 eventDataRaw[309] = {
@@ -372,7 +392,8 @@ eventDataRaw[309] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=9,mx=9,my=11,facing="n"}
 	}
 }
@@ -381,7 +402,8 @@ eventDataRaw[310] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=10,mx=5,my=13,facing="n"},
 	}
 }
@@ -390,7 +412,8 @@ eventDataRaw[311] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=11,mx=3,my=12,facing="n"},
 	}
 }
@@ -399,7 +422,8 @@ eventDataRaw[312] = {
 	sc = {category="stillActors", image=1, quadId=3},
 	collide = true,
 	interactionBehavior = {
-		choose, {"Leave room?", {"No", 1}, {"Yes",0}},
+		choose, {"Leave room?", {"No", 3}, {"Yes",0}},
+		playSFX, "door",
 		warp,{wid=12,mx=2,my=5,facing="s"},
 		playSound, "door"
 	}
@@ -462,9 +486,9 @@ eventDataRaw[1003] = {
 	interactionBehavior = {
 		collect_, "notes 3",
 		say, "Got Research Notes 3! Let's take a look...",
-		think, "Blue and yellow are opposites."
-		think, "Red and cyan are opposites."
-		think, "Green and magenta are opposites."
+		think, "Blue and yellow are opposites.",
+		think, "Red and cyan are opposites.",
+		think, "Green and magenta are opposites.",
 		think, "White and black are opposites, but white also\nfuses with ANY color, while black only fuses\nwith white."
 	}
 }
@@ -520,66 +544,61 @@ eventDataRaw[1006] = {
 	name = "notes 6",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = false,
+	appearsUntilAllCollected = {"notes 6"},
 	interactionBehavior = {
-		collect_, "notes 2",
-		say, "Got Research Notes 2! Let's take a look...",
-		think, "You can press R to reset any room."
+		collect_, "notes 6",
+		say, "Got Research Notes 6! Let's take a look...",
+		think,"You can change the zoom level with Z, and \nyou can mute the music with M."
 	}
 }
 eventDataRaw[2006] = {
-	name = "notes 2",
+	name = "notes 6",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
 	appearsIfAllCollected = {"notes 6"},
 	interactionBehavior = {
-		say, "Research Notes 2, got 'em.",
+		say, "Research Notes 6, got 'em.",
 	}
 }
 eventDataRaw[1007] = {
-	name = "notes 3",
+	name = "notes 7",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = false,
+	appearsUntilAllCollected = {"notes 7"},
 	interactionBehavior = {
-		collect_, "notes 3",
-		say, "Got Research Notes 3! Let's take a look...",
-		think, "Blue and yellow are opposites."
-		think, "Red and cyan are opposites."
-		think, "Green and magenta are opposites."
-		think, "White and black are opposites, but white also\nfuses with ANY color, while black only fuses\nwith white."
+		collect_, "notes 7",
+		say, "Got Research Notes 7!",
 	}
 }
 eventDataRaw[2007] = {
-	name = "notes 3",
+	name = "notes 7",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = true,
+	appearsIfAllCollected = {"notes 7"},
 	interactionBehavior = {
-		say, "Research Notes 3, got 'em.",
+		say, "Research Notes 7, got 'em.",
 	}
 }
 eventDataRaw[1008] = {
-	name = "notes 4",
+	name = "notes 8",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = false,
+	appearsUntilAllCollected = {"notes 8"},
 	interactionBehavior = {
-		collect_, "notes 4",
-		say, "Got Research Notes 4! Let's take a look...",
+		collect_, "notes 8",
+		say, "Got Research Notes 8!"
 	}
 }
 eventDataRaw[2008] = {
-	name = "notes 4",
+	name = "notes 8",
 	sc = {category="stillActors", image=1, quadId=1},
 	collide = true,
-	appearIfCollected = true,
+	appearsIfAllCollected = {"notes 8"},
 	interactionBehavior = {
-		say, "Research Notes 4, got 'em.",
+		say, "Research Notes 8, got 'em.",
 	}
 }
 
-		think,"You can change the zoom level with Z, and \nyou can mute the music with M."
 
 --shirts
 eventDataRaw[902] = {
@@ -609,180 +628,3 @@ eventDataRaw[903] = {
 
 -- TODO other shirts, including clear from a computer PLUS its dead version?
 	
-	-- {
-	-- 	sc = {category="stillActors", image=1, quadId=3},
-	-- 	interactionBehavior = {
-	-- 		choose, {"Jump down the hole?", {"no", 0}, {"yes", 1}, hint="You can come back!"},
-	-- 		stop, false,
-	-- 		say, "Here we go!",
-	-- 		warp, {wx=1,wy=1,mx=8,my=8,facing="s"},
-	-- 		say, "Wait, what am i doing here?"}
-	-- },
-	-- {
-	-- 	sc = {category="characters", image="elf", quadId=1},
-	-- 	name = "elf",
-	-- 	complex = true, --TODO MAYBE slip into sc or sc.quadId instead of making separate? more concise, less redundant/confusing...
-	-- 	collide = true,
-	-- 	interactionBehavior = {
-	-- 		shock_, "elf",
-	-- 		shock_, "hero",
-	-- 		scorePlus_, 10,
-	-- 		wait, 0.5,
-	-- 		noEmote_, "elf",
-	-- 		noEmote_, "hero",
-	-- 		say, "Hello!",
-	-- 		scorePlus_, 11,
-	-- 		scorePlus_, 12,
-	-- 		say, {"Today my favorite number is "..math.random(1,100)..".", "I love it so much!"},
-	-- 		scorePlus_, 5}
-	-- },
-	-- {
-	-- 	name = "rock2",
-	-- 	sc = {category="stillActors", image=1, quadId=2},
-	-- 	collide = true,
-	-- 	interactionBehavior = {
-	-- 		vanish_, "rock2",
-	-- 		say, "It disappeared!!"
-	-- 	}
-	-- },
-	-- --5:
-	-- {
-	-- 	name = "rock3",
-	-- 	sc = {category="stillActors", image=1, quadId=2},
-	-- 	collide = true,
-	-- 	interactionBehavior = {
-	-- 		hop, "rock2",
-	-- 		say, "Rock 2 hopped!!",
-	-- 	}
-	-- },
-	-- --6:
-	-- {
-	-- 	name = "swirl1",
-	-- 	sc = {category="swirl", image=1, quadId=1},
-	-- 	collide = true,
-	-- 	interactionBehavior = {
-	-- 		say, "The hell is this?"
-	-- 	}
-	-- },
-	-- {
-	-- 	name = "swirl2",
-	-- 	sc = {category="swirl", image=1, quadId=1},
-	-- 	collide = false,
-	-- 	interactionBehavior = {
-	-- 		say, "a little scene!",
-	-- 		hop_, "swirl1",
-	-- 		hop, "hero",
-	-- 		hop_, "swirl1",
-	-- 		hop, "hero",
-	-- 		hop_, "swirl1",
-	-- 		hop, "hero",
-	-- 		wait, 0.5,
-	-- 		hop_, "swirl2",
-	-- 		say, "...one more hop!",
-	-- 		hop_, "swirl1",
-	-- 		hop, "hero",
-	-- 		scorePlus_,100,
-	-- 	}
-	-- },
-	-- {
-	-- 	name = "marble1",
-	-- 	sc = {category="marble", image=1, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble2",
-	-- 	sc = {category="marble", image=2, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- --10:
-	-- {
-	-- 	name = "marble3",
-	-- 	sc = {category="marble", image=3, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble4",
-	-- 	sc = {category="marble", image=5, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble5",
-	-- 	sc = {category="marble", image=6, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble6",
-	-- 	sc = {category="marble", image=7, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble6.1",
-	-- 	sc = {category="marble", image=8, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- --15:
-	-- {
-	-- 	name = "marble6.8",
-	-- 	sc = {category="marble", image=9, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble7",
-	-- 	sc = {category="marble", image=10, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- {
-	-- 	name = "marble8",
-	-- 	sc = {category="marble", image=11, quadId=1},
-	-- 	collide = false,
-	-- },
-	-- --18:
-	-- {
-	-- 	name = "sign1",
-	-- 	sc = {category="stillActors", image=1, quadId=5},
-	-- 	collide = true,
-	-- 	interactionBehavior = {
-	-- 		choose, {"What'll it be? Foo or bar?", {"foo", 0}, {"bar", 2}, {"baz", 4}},
-	-- 		say, "You chose foo.",
-	-- 		stop, false,
-	-- 		say, {"You chose bar.", "Goodbye!"},
-	-- 		stop, false,
-	-- 		hop_, "sign1",
-	-- 		wait, 0.25,
-	-- 		say, "I didn't say you could have baz!"
-	-- 	}
-	-- },
-	-- {
-	-- 	name = "elf2",
-	-- 	sc = {category="characters", image="elf", quadId=1},
-	-- 	collide = true,
-	-- 	complex = true,
-	-- 	interactionBehavior = {
-	-- 		--this was just to see if negative skips work. don't actually script events this like this unless there's no better way....
-	-- 		skip,3,
-	-- 		wait,.25,
-	-- 		say,"But thou must!",
-	-- 		wait,.25,
-	-- 		choose, {"Wilt thou save my kingdom? (press H for a hint)", {"no", -4}, {"yes", 0}, hint="You GOTTA save it."},
-	-- 		say, "My hero. <3"
-	-- 	}
-	-- },
-	-- {
-	-- 	name = "event1",
-	-- 	sc = {category="event", image=1, quadId=1},
-	-- 	interactionBehavior = {
-	-- 		choose, {"start battle?", {"no", 0}, {"yes?", 0}},
-	-- 		-- battle, 0
-	-- 		say, "lol, sorry! not implemented yet."
-	-- 	}
-	-- },
-	-- --21:
-	-- {
-	-- 	name = "marble",
-	-- 	sc = {category="marble", image=6, quadId=1},
-	-- 	collide = false,
-	-- 	interactionBehavior = {
-	-- 		Menu.scadd, MapMenu
-	-- 	}
-	-- },
--- }

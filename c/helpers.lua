@@ -39,7 +39,7 @@ function tablePrint(table, offset)
 	for k,v in pairs(table) do
 		if type(v) == "table" then
 			print(offset.."sub-table ["..k.."]:")
-			tablePrint(v, offset.."  ")
+			--tablePrint(v, offset.."  ")
 		else
 			print(offset.."["..k.."] = "..tostring(v))
 		end
@@ -47,7 +47,7 @@ function tablePrint(table, offset)
 end
 
 function ping(...)
-	print("ping",unpack({...}))
+	print("--ping",unpack({...}))
 end
 
 -- prints non-function values in _G whose keys contain str, or prints all non-function values if str not provided

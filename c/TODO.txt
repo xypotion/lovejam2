@@ -1,5 +1,7 @@
 FIXME
 - commit music!!!
+- nw floor 1, remove plant or add shirt
+- se remove shirt
 
 TODO in order of importance
 ! finish blowing up assets

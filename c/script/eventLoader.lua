@@ -35,9 +35,9 @@ function loadLocalActor(pointer) --contains x, y, and id
 	-- end
 	
 	if e.appearsIfAllCollected then
-		-- tablePrint(e.appearsIfAllCollected)
-		-- ping("and prgoressds:")
-		-- tablePrint(progress)
+		-- --tablePrint(e.appearsIfAllCollected)
+		-- --ping("and prgoressds:")
+		-- --tablePrint(progress)
 		local appears = true
 		for i=1, #(e.appearsIfAllCollected) do
 			appears = appears and progress[e.appearsIfAllCollected[i]]
@@ -49,8 +49,8 @@ function loadLocalActor(pointer) --contains x, y, and id
 	end
 	
 	if e.appearsUntilAllCollected then
-		-- tablePrint(e.appearsUntilAllCollected)
-		-- tablePrint(progress)
+		-- --tablePrint(e.appearsUntilAllCollected)
+		-- --tablePrint(progress)
 		local gotAll = true
 		for i=1, #(e.appearsUntilAllCollected) do
 			gotAll = gotAll and progress[e.appearsUntilAllCollected[i]]

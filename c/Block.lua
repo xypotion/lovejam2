@@ -21,7 +21,7 @@ function Block:_init(color, pos)
 	
 	self.speed = 100 * zoom -- TODO
 	
-	-- ping(color.." block made")
+	-- --ping(color.." block made")
 end
 
 function Block:draw()
@@ -75,7 +75,7 @@ end
 
 function Block:shift(dt)
 		-- print(" HELLO "..colorControlled)
-		-- tablePrint(self)
+		-- --tablePrint(self)
 	if self.targetPos and self.color == controllableColors[colorControlled] then
 		local xDelta = (self.targetPos.x - self.currentPos.x) * self.speed * dt
 		local yDelta = (self.targetPos.y - self.currentPos.y) * self.speed * dt
@@ -117,7 +117,7 @@ end
 function Block:eliminate()
 	-- self.distanceFromTarget = 0
 	-- self.currentPos = self.targetPos
-	-- tablePrint(self)
+	-- --tablePrint(self)
 	
 	self.currentPos.y = -100
 	self:updateScreenPos()
@@ -209,10 +209,10 @@ function blocksTakeInput()
 				-- if not love.keyboard.isDown('d','a','w','s','right','left','up','down') then
 				blocks[i].targetPos = getGridPosInFrontOfActor(blocks[i]) --? TODO
 				-- end
-				-- tablePrint(blocks[i].targetPos)
+				-- --tablePrint(blocks[i].targetPos)
 			
 				going = true and going
-				-- ping(going)
+				-- --ping(going)
 	
 				-- get & set destination tile type
 				if going and blocks[i].targetPos and blocks[i].targetPos ~= blocks[i].currentPos then
@@ -256,7 +256,7 @@ function blocksGo()
 end
 
 function shiftBlocks(dt)
-	-- ping("shifting blokcs")
+	-- --ping("shifting blokcs")
 	-- local hackoDistance = 0
 	
 	for i=1,#blocks do

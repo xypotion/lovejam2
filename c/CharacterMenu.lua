@@ -35,7 +35,7 @@ function CharacterMenu:keyPressed(key)
 	if key == " " or key == "return" then
 		self:confirm()
 		print("confirmed:")
-		tablePrint(hp)
+		--tablePrint(hp)
 	elseif key == "w" or key == "up" then
 		self.previewFacing = "n"
 	elseif key == "s" or key == "down" then
@@ -52,7 +52,7 @@ function CharacterMenu:keyPressed(key)
 			shirt = 1
 		}
 		print("generated:")
-		tablePrint(hp)
+		--tablePrint(hp)
 	end
 end
 

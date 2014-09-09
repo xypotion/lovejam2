@@ -32,7 +32,7 @@ function arrivalInteraction() --"arrived at tile; is something supposed to happe
 	-- check for actor interaction. GLOBAL ACTORS NEVER COLLIDE OR INTERACT
 	local event = getLocalActorByPos(globalActors.hero.currentPos)
 	if event then
-		ping ("found an event")
+		--ping ("found an event")
 		interactWith(event)
 	end
 end
@@ -107,9 +107,9 @@ end
 -- end
 
 function mapArrive()
-	-- ping(currentMap)
+	-- --ping(currentMap)
 	currentMap = nextMap
-	-- ping(currentMap)
+	-- --ping(currentMap)
 	worldPos = worldDest
 	nextMap = nil
 	screenShifting = nil

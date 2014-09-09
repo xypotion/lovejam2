@@ -33,7 +33,7 @@ end
 
 function ResetMenu:confirm()
 	if self:choice() == "Yes" then
-		ping("RESET")
+		--ping("RESET")
 		self:remove()
 		startWarpTo(currentMap.warpDrop)
 	else

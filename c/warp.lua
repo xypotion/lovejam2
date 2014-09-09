@@ -17,8 +17,8 @@ function startWarpTo(wmc) --"world + map coordinates"
 	nextMap = getMap(wmc.wid)
 	nextMap.warpDrop = wmc
 	
-	ping(nextMap)
-	ping("PING "..wmc.wid)
+	--ping(nextMap)
+	--ping("--ping "..wmc.wid)
 
 	globalActors.hero.targetPos = {
 		x=wmc.mx,
