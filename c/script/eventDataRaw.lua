@@ -24,6 +24,9 @@ behaviorsRaw = {
 	title = {
 		addMenu, TitleMenu
 	},
+	characterSelect = {
+		addMenu, CharacterMenu
+	},
 	resume = {
 		-- fadeOut, 0.5,
 		-- fadeIn, 0.5,

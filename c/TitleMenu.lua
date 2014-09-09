@@ -26,10 +26,11 @@ end
 function TitleMenu:confirm()
 	if self:choice() == "Continue" then
 		loadSaveData()
+		self:remove()
 	elseif self:choice() == "New Game" then
-		newGame()
+		self:remove()
+		addMenu(CharacterMenu)
 	end
-	self:remove()
 end
 
 function TitleMenu:cancel()

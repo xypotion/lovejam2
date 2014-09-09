@@ -62,6 +62,7 @@ function finishLoadingGame()
 	score = 0
 	
 	playBGM()
+	initHero()
 	
 	--TODO load/create world here?
 end

@@ -45,7 +45,7 @@ function drawComplexActor(actor)
 	-- 	love.graphics.draw(actor.image, actor.quads[actor.emotion][frame], actor.screenX, actor.screenY, 0, 1, 1)
 	-- else
 		-- tablePrint(actor)
-		frame = actor.anikey.frame % #(actor.quads[actor.facing]) + 1
+		local frame = actor.anikey.frame % #(actor.quads[actor.facing]) + 1
 		love.graphics.draw(actor.image, actor.quads[actor.facing][frame], actor.screenX, actor.screenY, 0, 1, 1) -- base
 		love.graphics.draw(images.characters.skin[hp.skin], actor.quads[actor.facing][frame], actor.screenX, actor.screenY, 0, 1, 1)
 		love.graphics.draw(images.characters.hair[hp.hair], actor.quads[actor.facing][frame], actor.screenX, actor.screenY, 0, 1, 1)

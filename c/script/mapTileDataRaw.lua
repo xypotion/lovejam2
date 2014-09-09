@@ -146,7 +146,7 @@ mapDataRaw = {
 			{x=5,y=10,id=1002},
 		}
 	},
-	--7: white puzzle ** shirt candidate: white, hidden under a white block! maybe upper right corner
+	--7: white puzzle ** shirt candidate: white, hidden under a white block! maybe upper right corner. IF you put white shirt here, move to level 2 or 3
 	{
 		tileData = {
 			{3,3,3,3,3,3,3},
@@ -296,7 +296,7 @@ mapDataRaw = {
 			-- {x=5,y=8,id=6},
 		}
 	},
-	--12: white knight vs black rook (needs stuff) *** if no shirts, ***** if shirts
+	--12: white knight vs black rook (needs stuff) *** if no shirts, ***** if shirts. black shirt here?
 	{
 		tileData = {
 			{3,1,1,1,1,1,1,1,1,1,1,1,3},

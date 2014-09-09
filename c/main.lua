@@ -11,11 +11,12 @@ require "sidebar"
 require "menuStack"
 require "audio"
 
+require "Block"
 require "Menu"
 require "Menu1D"
 require "TitleMenu"
+require "CharacterMenu"
 require "ResetMenu"
-require "Block"
 
 require "script/saveLoader"
 require "script/mapLoader"
@@ -39,8 +40,8 @@ function love.load()
 	hp = { --"hero parts"
 		skin = math.random(1,2),
 		hair = math.random(1,5),
-		gender = 3,--math.random(1,3),
-		shirt = math.random(1,10) --no TODO
+		gender = 1,
+		shirt = 1
 	}
 	tablePrint(hp)
 	
@@ -54,7 +55,6 @@ function love.load()
 	--initialize other game parts
 	initActorManager()
 	initMapSystem()
-	initHero()
 	initTextEngine()
 	initWarpSystem()
 	initMenuSystem()
@@ -80,7 +80,7 @@ function love.load()
 	if love.filesystem.exists("gigapixel.save") then
 		startScript(behaviorsRaw.title)
 	else
-		newGame()
+		startScript(behaviorsRaw.characterSelect)
 	end
 end
 
