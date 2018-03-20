@@ -257,7 +257,7 @@ eventDataRaw = {
 		appearsUntilAllCollected = {"notes 1","notes 2","notes 3","notes 4","notes 5","notes 6","notes 7","notes 8"},
 		collide = true,
 		interactionBehavior = {
-			say, "Guess the rest of the project will have\nto wait...."
+			say, "Guess the rest of the project will have\nto wait....",
 			saveData, nil,
 			-- warp,{wid=1,mx=11,my=8,facing="n"}
 		}
